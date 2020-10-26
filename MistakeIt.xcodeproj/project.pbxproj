@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0516A8562537926000685DB9 /* ProjetoErro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetoErro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0516A8562537926000685DB9 /* MistakeIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MistakeIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0516A8592537926000685DB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0516A85B2537926000685DB9 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		0516A85D2537926000685DB9 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
@@ -46,10 +46,10 @@
 		0516A8642537926000685DB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0516A8662537926100685DB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0516A8682537926100685DB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0516A86D2537926200685DB9 /* ProjetoErroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetoErroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0516A86D2537926200685DB9 /* MistakeItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MistakeItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0516A8712537926200685DB9 /* ProjetoErroTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoErroTests.swift; sourceTree = "<group>"; };
 		0516A8732537926200685DB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0516A8782537926200685DB9 /* ProjetoErroUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetoErroUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0516A8782537926200685DB9 /* MistakeItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MistakeItUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0516A87C2537926200685DB9 /* ProjetoErroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoErroUITests.swift; sourceTree = "<group>"; };
 		0516A87E2537926200685DB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0516A89025379A4B00685DB9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -83,9 +83,9 @@
 		0516A84D2537926000685DB9 = {
 			isa = PBXGroup;
 			children = (
-				0516A8582537926000685DB9 /* ProjetoErro */,
-				0516A8702537926200685DB9 /* ProjetoErroTests */,
-				0516A87B2537926200685DB9 /* ProjetoErroUITests */,
+				0516A8582537926000685DB9 /* MistakeIt */,
+				0516A8702537926200685DB9 /* MistakeItTests */,
+				0516A87B2537926200685DB9 /* MistakeItUITests */,
 				0516A8572537926000685DB9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,14 +93,14 @@
 		0516A8572537926000685DB9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0516A8562537926000685DB9 /* ProjetoErro.app */,
-				0516A86D2537926200685DB9 /* ProjetoErroTests.xctest */,
-				0516A8782537926200685DB9 /* ProjetoErroUITests.xctest */,
+				0516A8562537926000685DB9 /* MistakeIt.app */,
+				0516A86D2537926200685DB9 /* MistakeItTests.xctest */,
+				0516A8782537926200685DB9 /* MistakeItUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0516A8582537926000685DB9 /* ProjetoErro */ = {
+		0516A8582537926000685DB9 /* MistakeIt */ = {
 			isa = PBXGroup;
 			children = (
 				0516A8592537926000685DB9 /* AppDelegate.swift */,
@@ -113,33 +113,33 @@
 				0516A8682537926100685DB9 /* Info.plist */,
 				0516A89025379A4B00685DB9 /* Launch Screen.storyboard */,
 			);
-			path = ProjetoErro;
+			path = MistakeIt;
 			sourceTree = "<group>";
 		};
-		0516A8702537926200685DB9 /* ProjetoErroTests */ = {
+		0516A8702537926200685DB9 /* MistakeItTests */ = {
 			isa = PBXGroup;
 			children = (
 				0516A8712537926200685DB9 /* ProjetoErroTests.swift */,
 				0516A8732537926200685DB9 /* Info.plist */,
 			);
-			path = ProjetoErroTests;
+			path = MistakeItTests;
 			sourceTree = "<group>";
 		};
-		0516A87B2537926200685DB9 /* ProjetoErroUITests */ = {
+		0516A87B2537926200685DB9 /* MistakeItUITests */ = {
 			isa = PBXGroup;
 			children = (
 				0516A87C2537926200685DB9 /* ProjetoErroUITests.swift */,
 				0516A87E2537926200685DB9 /* Info.plist */,
 			);
-			path = ProjetoErroUITests;
+			path = MistakeItUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0516A8552537926000685DB9 /* ProjetoErro */ = {
+		0516A8552537926000685DB9 /* MistakeIt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0516A8812537926200685DB9 /* Build configuration list for PBXNativeTarget "ProjetoErro" */;
+			buildConfigurationList = 0516A8812537926200685DB9 /* Build configuration list for PBXNativeTarget "MistakeIt" */;
 			buildPhases = (
 				0516A8522537926000685DB9 /* Sources */,
 				0516A8532537926000685DB9 /* Frameworks */,
@@ -149,14 +149,14 @@
 			);
 			dependencies = (
 			);
-			name = ProjetoErro;
+			name = MistakeIt;
 			productName = ProjetoErro;
-			productReference = 0516A8562537926000685DB9 /* ProjetoErro.app */;
+			productReference = 0516A8562537926000685DB9 /* MistakeIt.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0516A86C2537926200685DB9 /* ProjetoErroTests */ = {
+		0516A86C2537926200685DB9 /* MistakeItTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0516A8842537926200685DB9 /* Build configuration list for PBXNativeTarget "ProjetoErroTests" */;
+			buildConfigurationList = 0516A8842537926200685DB9 /* Build configuration list for PBXNativeTarget "MistakeItTests" */;
 			buildPhases = (
 				0516A8692537926200685DB9 /* Sources */,
 				0516A86A2537926200685DB9 /* Frameworks */,
@@ -167,14 +167,14 @@
 			dependencies = (
 				0516A86F2537926200685DB9 /* PBXTargetDependency */,
 			);
-			name = ProjetoErroTests;
+			name = MistakeItTests;
 			productName = ProjetoErroTests;
-			productReference = 0516A86D2537926200685DB9 /* ProjetoErroTests.xctest */;
+			productReference = 0516A86D2537926200685DB9 /* MistakeItTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		0516A8772537926200685DB9 /* ProjetoErroUITests */ = {
+		0516A8772537926200685DB9 /* MistakeItUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0516A8872537926200685DB9 /* Build configuration list for PBXNativeTarget "ProjetoErroUITests" */;
+			buildConfigurationList = 0516A8872537926200685DB9 /* Build configuration list for PBXNativeTarget "MistakeItUITests" */;
 			buildPhases = (
 				0516A8742537926200685DB9 /* Sources */,
 				0516A8752537926200685DB9 /* Frameworks */,
@@ -185,9 +185,9 @@
 			dependencies = (
 				0516A87A2537926200685DB9 /* PBXTargetDependency */,
 			);
-			name = ProjetoErroUITests;
+			name = MistakeItUITests;
 			productName = ProjetoErroUITests;
-			productReference = 0516A8782537926200685DB9 /* ProjetoErroUITests.xctest */;
+			productReference = 0516A8782537926200685DB9 /* MistakeItUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -212,7 +212,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0516A8512537926000685DB9 /* Build configuration list for PBXProject "ProjetoErro" */;
+			buildConfigurationList = 0516A8512537926000685DB9 /* Build configuration list for PBXProject "MistakeIt" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -225,9 +225,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0516A8552537926000685DB9 /* ProjetoErro */,
-				0516A86C2537926200685DB9 /* ProjetoErroTests */,
-				0516A8772537926200685DB9 /* ProjetoErroUITests */,
+				0516A8552537926000685DB9 /* MistakeIt */,
+				0516A86C2537926200685DB9 /* MistakeItTests */,
+				0516A8772537926200685DB9 /* MistakeItUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -293,12 +293,12 @@
 /* Begin PBXTargetDependency section */
 		0516A86F2537926200685DB9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0516A8552537926000685DB9 /* ProjetoErro */;
+			target = 0516A8552537926000685DB9 /* MistakeIt */;
 			targetProxy = 0516A86E2537926200685DB9 /* PBXContainerItemProxy */;
 		};
 		0516A87A2537926200685DB9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 0516A8552537926000685DB9 /* ProjetoErro */;
+			target = 0516A8552537926000685DB9 /* MistakeIt */;
 			targetProxy = 0516A8792537926200685DB9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -487,7 +487,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjetoErro.app/ProjetoErro";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MistakeIt.app/MistakeIt";
 			};
 			name = Debug;
 		};
@@ -509,7 +509,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ProjetoErro.app/ProjetoErro";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MistakeIt.app/MistakeIt";
 			};
 			name = Release;
 		};
@@ -556,7 +556,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0516A8512537926000685DB9 /* Build configuration list for PBXProject "ProjetoErro" */ = {
+		0516A8512537926000685DB9 /* Build configuration list for PBXProject "MistakeIt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0516A87F2537926200685DB9 /* Debug */,
@@ -565,7 +565,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0516A8812537926200685DB9 /* Build configuration list for PBXNativeTarget "ProjetoErro" */ = {
+		0516A8812537926200685DB9 /* Build configuration list for PBXNativeTarget "MistakeIt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0516A8822537926200685DB9 /* Debug */,
@@ -574,7 +574,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0516A8842537926200685DB9 /* Build configuration list for PBXNativeTarget "ProjetoErroTests" */ = {
+		0516A8842537926200685DB9 /* Build configuration list for PBXNativeTarget "MistakeItTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0516A8852537926200685DB9 /* Debug */,
@@ -583,7 +583,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0516A8872537926200685DB9 /* Build configuration list for PBXNativeTarget "ProjetoErroUITests" */ = {
+		0516A8872537926200685DB9 /* Build configuration list for PBXNativeTarget "MistakeItUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0516A8882537926200685DB9 /* Debug */,
