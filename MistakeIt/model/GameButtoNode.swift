@@ -9,6 +9,7 @@ import SpriteKit
 
 class GameButtonNode : SKSpriteNode {
     
+    var pressed = false
     var onTap : () -> Void
         
 //    required init?(coder aDecoder: NSCoder) {
@@ -37,6 +38,7 @@ class GameButtonNode : SKSpriteNode {
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.onTap()
+        pressed = !pressed
         self.isUserInteractionEnabled = true
     }
 }

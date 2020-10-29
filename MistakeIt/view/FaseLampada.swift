@@ -10,31 +10,48 @@ import SpriteKit
 class FaseLampada: SKScene {
     
     var apertado = false
+    var fundo = SKEffectNode()
+
     
     override func didMove(to view: SKView) {
-        let PopUp = SKSpriteNode(imageNamed: "blur")
-        let filter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius" : NSNumber(value:80.0)])
-        let fundo = SKEffectNode()
+        
+        let teste = RotateNode(imageNamed: "fila1")
+        self.addChild(teste)
+        
+        
+        let blurBackground = SKSpriteNode(imageNamed: "blur")
+        let hintPopUp = SKSpriteNode(imageNamed: "hint-bubble")
+        let filter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius" : NSNumber(value:200.0)])
+        fundo = SKEffectNode()
         fundo.filter = filter
         fundo.shouldRasterize = true
-        fundo.shouldEnableEffects = true
-        fundo.addChild(PopUp)
-      
-        
+        fundo.shouldEnableEffects = false
+        fundo.addChild(blurBackground)
+        fundo.zPosition = -1
+        self.addChild(fundo)
 //        let pause = BlurCropNode(size: CGSize(width: self.size.width * 2, height: self.size.height * 2))
 //        pause.blurNode.texture = SKTexture(imageNamed: "background")
 //        pause.position = CGPoint(x: 0, y: 0)
         
-        let btnHint = GameButtonNode(image: SKTexture(imageNamed: "hint"), onTap: {
-            //self.loadPauseBGScreen()
-//            self.addChild(pause)
-            self.addChild(fundo)
-            //self.addChild(PopUp)
-            
-        })
-        
+        let btnHint = GameButtonNode(image: SKTexture(imageNamed: "hint"), onTap: {})
         btnHint.position = CGPoint(x: -270, y: -510)
         self.addChild(btnHint)
+        
+        hintPopUp.position = CGPoint(x: btnHint.position.x + hintPopUp.size.width/2, y: btnHint.position.y + hintPopUp.size.height/2)
+        btnHint.onTap = {
+            //self.loadPauseBGScreen()
+//            self.addChild(pause)
+            if !btnHint.pressed {
+                self.blurBackground()
+                self.addChild(hintPopUp)
+            }
+            else {
+                self.blurBackground()
+                hintPopUp.removeFromParent()
+            }
+        }
+        
+        
         //btnHint.zPosition = 1
         
         let btnSettings = GameButtonNode(image: SKTexture(imageNamed: "settings"), onTap: {
@@ -52,25 +69,38 @@ class FaseLampada: SKScene {
 
         let settingsButtons = [btnRetry, btnHome, btnMusic]
 
-        var animations : [SKAction] = []
-
+        var animationsFw : [SKAction] = []
+        let animationBack : SKAction = SKAction.move(to: btnSettings.position, duration: 0.3)
+//
         for i in 0 ..< settingsButtons.count {
             settingsButtons[i].position = btnSettings.position
-            //settingsButtons[i].zPosition = 1
-            animations.append(SKAction.move(to: CGPoint(x: btnSettings.position.x, y: btnSettings.position.y + (CGFloat(i + 1) * (settingsButtons[i].size.height + 30))), duration: 0.3))
+            settingsButtons[i].zPosition = 1
+            animationsFw.append(SKAction.move(to: CGPoint(x: btnSettings.position.x, y: btnSettings.position.y + (CGFloat(i + 1) * (settingsButtons[i].size.height + 30))), duration: 0.3))
         }
     
         
-        
         btnSettings.onTap = {
             
-            
-            btnSettings.run(SKAction.rotate(byAngle: -.pi/2, duration: 1))
-            
-            for i in 0..<settingsButtons.count {
-                self.addChild(settingsButtons[i])
-                settingsButtons[i].run(animations[i])
+            if !btnSettings.pressed {
+                self.blurBackground()
+                btnSettings.run(SKAction.rotate(byAngle: -.pi/2, duration: 0.3))
+                
+                for i in 0..<settingsButtons.count {
+                    self.addChild(settingsButtons[i])
+                    settingsButtons[i].run(animationsFw[i])
+                }
             }
+            else{
+                self.blurBackground()
+                btnSettings.run(SKAction.rotate(byAngle: .pi/2, duration: 0.3))
+                
+                for i in 0..<settingsButtons.count {
+                    settingsButtons[i].run(animationBack,completion: {
+                        settingsButtons[i].removeFromParent()
+                    })
+                }
+            }
+            
         }
     }
     
@@ -186,6 +216,9 @@ class FaseLampada: SKScene {
             fatalError("init(coder:) has not been implemented")
         }
     }
-
+    
+    func blurBackground(){
+        self.fundo.shouldEnableEffects = !self.fundo.shouldEnableEffects
+    }
     
 }
