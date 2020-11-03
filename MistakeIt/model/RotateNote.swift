@@ -22,8 +22,12 @@ class RotateNode : SKSpriteNode {
         self.isUserInteractionEnabled = false
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.run(SKAction.rotate(byAngle: .pi/2, duration: 1))
+        self.rotate()
         self.isUserInteractionEnabled = true
+    }
+    
+    func rotate() {
+        self.run(SKAction.rotate(byAngle: .pi/2, duration: 1), completion: {print(self.zRotation * 180 / 3.14)})
     }
 }
 

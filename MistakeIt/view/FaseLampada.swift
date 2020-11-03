@@ -9,16 +9,22 @@ import SpriteKit
 
 class FaseLampada: SKScene {
     
-    var apertado = false
     var fundo = SKEffectNode()
-
+    var filamento1 : RotateNode!
+    var filamento2 : RotateNode!
+    var raio : SKSpriteNode!
+    var playing = true
+    
     
     override func didMove(to view: SKView) {
         
-        let teste = RotateNode(imageNamed: "fila1")
-        self.addChild(teste)
+        //MARK: Load Sprites and positions
+        setFilamentos()
+        //setHint
+        setLighting()
         
         
+        //MARK: Define Blur and hint
         let blurBackground = SKSpriteNode(imageNamed: "blur")
         let hintPopUp = SKSpriteNode(imageNamed: "hint-bubble")
         let filter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius" : NSNumber(value:200.0)])
@@ -29,18 +35,18 @@ class FaseLampada: SKScene {
         fundo.addChild(blurBackground)
         fundo.zPosition = -1
         self.addChild(fundo)
+        
 //        let pause = BlurCropNode(size: CGSize(width: self.size.width * 2, height: self.size.height * 2))
 //        pause.blurNode.texture = SKTexture(imageNamed: "background")
 //        pause.position = CGPoint(x: 0, y: 0)
         
+        //MARK: Hint and Settings buttons
         let btnHint = GameButtonNode(image: SKTexture(imageNamed: "hint"), onTap: {})
         btnHint.position = CGPoint(x: -270, y: -510)
         self.addChild(btnHint)
         
         hintPopUp.position = CGPoint(x: btnHint.position.x + hintPopUp.size.width/2, y: btnHint.position.y + hintPopUp.size.height/2)
         btnHint.onTap = {
-            //self.loadPauseBGScreen()
-//            self.addChild(pause)
             if !btnHint.pressed {
                 self.blurBackground()
                 self.addChild(hintPopUp)
@@ -69,6 +75,8 @@ class FaseLampada: SKScene {
 
         let settingsButtons = [btnRetry, btnHome, btnMusic]
 
+        
+        //MARK: Buttons Animations
         var animationsFw : [SKAction] = []
         let animationBack : SKAction = SKAction.move(to: btnSettings.position, duration: 0.3)
 //
@@ -102,6 +110,107 @@ class FaseLampada: SKScene {
             }
             
         }
+    }
+    
+    //function to blur
+    func blurBackground(){
+        self.fundo.shouldEnableEffects = !self.fundo.shouldEnableEffects
+    }
+    
+    func setFilamentos() {
+        filamento1 = RotateNode(imageNamed: "fila1")
+        filamento2 = RotateNode(imageNamed: "fila2")
+        
+        filamento1.position = CGPoint(x: -89, y: -80)
+        filamento2.position = CGPoint(x: 67, y: -80)
+        
+        filamento1.zRotation = .pi/2
+        
+        self.addChild(filamento1)
+        self.addChild(filamento2)
+        
+        //filamento1.rotate()
+        filamento2.rotate()
+        filamento2.rotate()
+    }
+    
+    //function to transform radians to degrees, returns an int value
+    func rad2deg(_ rad: CGFloat) -> Int {
+        return Int(rad * 180 / 3.14)
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        
+        if playing {
+            if (rad2deg(filamento1.zRotation) % 360 == 0) {
+                for node in filamento1.children {
+                    node.isHidden = false
+                }
+            }
+            else{
+                for node in filamento1.children {
+                    node.isHidden = true
+                }
+            }
+
+            if (rad2deg(filamento2.zRotation) % 360 == 0) {
+                for node in filamento2.children {
+                    node.isHidden = false
+                }
+            }
+            else{
+                for node in filamento2.children {
+                    node.isHidden = true
+                }
+            }
+            
+            //Comparação da rotação dos dois filamentos
+            if (rad2deg(filamento1.zRotation) % 360 == 0) && (rad2deg(filamento2.zRotation) % 360 == 0) {
+                playing = false
+                endLevel()
+            }
+
+        }
+    }
+    
+    
+    func setLighting(){
+        
+        let raio = SKSpriteNode(imageNamed: "lighting")
+        filamento1.addChild(raio)
+        raio.position = CGPoint(x: -40, y: 90)
+        raio.isHidden = true
+        
+        let raio2 = SKSpriteNode(imageNamed: "lighting")
+        filamento2.addChild(raio2)
+        raio2.position = CGPoint(x: 0, y: 90)
+        raio2.isHidden = true
+    }
+    
+    func endLevel() {
+        //remove os botoes de hint e  config
+        
+        //...
+        
+        //puxa a tela final e os botoes
+        let bg = self.childNode(withName: "bg") as! SKSpriteNode
+        
+        //bg.run(SKAction.)
+        bg.texture = SKTexture(imageNamed: "bgEnd")
+        fundo.removeFromParent()
+        
+        let home = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: {})
+        let foward = GameButtonNode(image: SKTexture(imageNamed: "foward"), onTap: {})
+        
+        
+        home.position = CGPoint(x: -50 , y: -self.frame.height/2)
+        foward.position = CGPoint(x: 50 , y: -self.frame.height/2)
+        
+        self.addChild(home)
+        self.addChild(foward)
+        
+        home.run(SKAction.move(to: CGPoint(x: -50 , y: -self.frame.height/2 + 150), duration: 0.7))
+        foward.run(SKAction.move(to: CGPoint(x: 50 , y: -self.frame.height/2 + 150), duration: 0.7))
     }
     
     
@@ -217,8 +326,5 @@ class FaseLampada: SKScene {
         }
     }
     
-    func blurBackground(){
-        self.fundo.shouldEnableEffects = !self.fundo.shouldEnableEffects
-    }
     
 }
