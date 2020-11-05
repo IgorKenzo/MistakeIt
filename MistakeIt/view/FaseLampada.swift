@@ -14,6 +14,7 @@ class FaseLampada: SKScene {
     var filamento2 : RotateNode!
     var raio : SKSpriteNode!
     var playing = true
+    var levelLabel : SKLabelNode!
     
     
     override func didMove(to view: SKView) {
@@ -23,6 +24,12 @@ class FaseLampada: SKScene {
         //setHint
         setLighting()
         
+        
+        levelLabel = SKLabelNode(text: "PlaceHolder")
+        levelLabel.fontSize = self.size.height/40
+        levelLabel.position = CGPoint(x: 0, y: self.frame.height/2 - 120)
+        
+        self.addChild(levelLabel)
         
         //MARK: Define Blur and hint
         let blurBackground = SKSpriteNode(imageNamed: "blur")
@@ -36,9 +43,6 @@ class FaseLampada: SKScene {
         fundo.zPosition = -1
         self.addChild(fundo)
         
-//        let pause = BlurCropNode(size: CGSize(width: self.size.width * 2, height: self.size.height * 2))
-//        pause.blurNode.texture = SKTexture(imageNamed: "background")
-//        pause.position = CGPoint(x: 0, y: 0)
         
         //MARK: Hint and Settings buttons
         let btnHint = GameButtonNode(image: SKTexture(imageNamed: "hint"), onTap: {})
@@ -209,122 +213,17 @@ class FaseLampada: SKScene {
         self.addChild(home)
         self.addChild(foward)
         
+        
+        let endLabel = SKLabelNode()
+        endLabel.fontSize = self.size.height/40
+        endLabel.position = CGPoint(x: 0, y: 400)
+        endLabel.fontColor = .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
+        endLabel.text = "Placeholder"
+        self.addChild(endLabel)
+        
+        
         home.run(SKAction.move(to: CGPoint(x: -50 , y: -self.frame.height/2 + 150), duration: 0.7))
         foward.run(SKAction.move(to: CGPoint(x: 50 , y: -self.frame.height/2 + 150), duration: 0.7))
-    }
-    
-    
-    //MARK: test 1
-    func getBluredScreenshot() -> SKSpriteNode{
-
-        //create the graphics context
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: self.view!.frame.size.width, height: self.view!.frame.size.height), true, 1)
-
-        self.view!.drawHierarchy(in: self.view!.frame, afterScreenUpdates: true)
-
-        // retrieve graphics context
-        _ = UIGraphicsGetCurrentContext()
-
-        // query image from it
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-
-        // create Core Image context
-        let ciContext = CIContext(options: nil)
-        // create a CIImage, think of a CIImage as image data for processing, nothing is displayed or can be displayed at this point
-        let coreImage = CIImage(image: image!)
-        // pick the filter we want
-        let filter = CIFilter(name: "CIGaussianBlur")
-        // pass our image as input
-        filter?.setValue(coreImage, forKey: kCIInputImageKey)
-
-        //edit the amount of blur
-        filter?.setValue(3, forKey: kCIInputRadiusKey)
-
-        //retrieve the processed image
-        let filteredImageData = filter?.value(forKey: kCIOutputImageKey) as! CIImage
-        // return a Quartz image from the Core Image context
-        let filteredImageRef = ciContext.createCGImage(filteredImageData, from: filteredImageData.extent)
-        // final UIImage
-        let filteredImage = UIImage(cgImage: filteredImageRef!)
-
-        // create a texture, pass the UIImage
-        let texture = SKTexture(image: filteredImage)
-        // wrap it inside a sprite node
-        let sprite = SKSpriteNode(texture:texture)
-        
-        // make image the position in the center
-        sprite.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-
-        //let scale:CGFloat = UIScreen.main.scale
-        
-        //sprite.size.width  *= scale
-
-        //sprite.size.height *= scale
-
-        return sprite
-
-
-    }
-
-    func loadPauseBGScreen(){
-
-        let duration = 1.0
-
-        let pauseBG:SKSpriteNode = self.getBluredScreenshot()
-
-        pauseBG.alpha = 0
-        pauseBG.zPosition = self.zPosition + 1
-        pauseBG.run(SKAction.fadeAlpha(to: 1, duration: duration))
-
-        self.addChild(pauseBG)
         
     }
-    
-    //MARK: test 2 -> https://stackoverflow.com/questions/24980353/uivisualeffectview-doesnt-blur-its-skview-superview/24999885#24999885
-    class BlurCropNode: SKCropNode {
-        var blurNode: BlurNode
-        var size: CGSize
-        init(size: CGSize) {
-            self.size = size
-            blurNode = BlurNode(radius: 10)
-            super.init()
-            addChild(blurNode)
-            let mask = SKSpriteNode (color: UIColor.black, size: size)
-            mask.anchorPoint = CGPoint.zero
-            maskNode = mask
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-    }
-
-    class BlurNode: SKEffectNode {
-        var sprite: SKSpriteNode
-        var texture: SKTexture {
-            get { return sprite.texture! }
-            set {
-                sprite.texture = newValue
-                let scale = UIScreen.main.scale
-                let textureSize = newValue.size()
-                sprite.size = CGSize(width: textureSize.width/scale, height: textureSize.height/scale)
-                //sprite.size = CGSize(width: textureSize.width * 2, height: textureSize.height * 2)
-            }
-        }
-        init(radius: CGFloat) {
-            sprite = SKSpriteNode()
-            super.init()
-            sprite.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-            addChild(sprite)
-            filter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius": radius])
-            shouldEnableEffects = true
-            shouldRasterize = true
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-    }
-    
-    
 }
