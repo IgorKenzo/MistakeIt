@@ -27,7 +27,7 @@ class RotateNode : SKSpriteNode {
     }
     
     func rotate() {
-        self.run(SKAction.rotate(byAngle: .pi/2, duration: 1), completion: {print(self.zRotation * 180 / 3.14)})
+        self.run(SKAction.rotate(byAngle: .pi/2, duration: 1))
     }
 }
 
