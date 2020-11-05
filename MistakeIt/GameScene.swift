@@ -8,81 +8,58 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+private let kAnimalNodeName = "movable"
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+    var bgimg: SKSpriteNode!
+    var paper: SKSpriteNode!
+    var text: SKLabelNode!
+    var box: SKSpriteNode!
+    var imageArray : [SKSpriteNode] = []
+    var imageMovable = SKSpriteNode()
     
     override func didMove(to view: SKView) {
+        bgimg = SKSpriteNode(imageNamed: "img_prancheta") //atribui a imagem à variável de fundo
+        bgimg.position = CGPoint(x: 0, y: 0) //posiciona a variável no centro da tela
+        bgimg.setScale(0.209) //determina que a imagem terá uma escala 0.209 do tamanho original do arquivo
+        self.addChild(bgimg) //adiciona a imagem ao node
+        bgimg.zPosition = -3 //método para colocar a imagem ao fundo, atrás dos demais elementos que forem colocados na tela
         
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
-        
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
+        let paper = SKSpriteNode(imageNamed: "img_papel_adesivado")
+       
+        for i in 0...5{
+            imageArray.append(paper)
+            imageArray[i] = SKSpriteNode(imageNamed: "img_papel_adesivado")
+
+            imageArray[i].position = CGPoint(x: 0, y: -400) //posiciona o adesivo no centro, na parte de baixo da tela
+            imageArray[i].setScale(0.8) //determina que a imagem terá uma escala 0.8 do tamanho original do arquivo
+            self.addChild(imageArray[i])
+            self.physicsWorld.gravity = CGVector(dx: 0, dy: 0) //determina que a gravidade sobre o formato do papel será estática sobre o eixo x-y
+            self.physicsWorld.contactDelegate = self
             
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
+            //label com a mensagem que aparece colocada sobre o papel.
+            let text : SKLabelNode = SKLabelNode(text: "Teste Teste Teste")
+            text.fontColor = .black
+            text.position = CGPoint(x: 0, y: 0)
+            imageArray[i].addChild(text)
+            
+            }
     }
     
-    
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
+    // funcão para mover o papel sempre que o usuário clicar sobre um deles.
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        var i = 0
+        for touch in touches {
+            
+            let location = touch.location(in: self)
+            imageArray[i].position.x = location.x
+            imageArray[i].position.y = location.y
+            i+=1
+            
         }
         
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-    }
+
 }
