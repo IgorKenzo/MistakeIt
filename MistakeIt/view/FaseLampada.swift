@@ -16,6 +16,8 @@ class FaseLampada: SKScene {
     var playing = true
     var levelLabel : SKLabelNode!
     
+    let LevelName = LevelState.lamp
+    
     
     override func didMove(to view: SKView) {
         
@@ -25,8 +27,8 @@ class FaseLampada: SKScene {
         setLighting()
         
         //m
-        levelLabel = SKLabelNode(text: "PlaceHolder")
-        levelLabel.fontSize = self.size.height/40
+        levelLabel = SKLabelNode(text: leveltexts[LevelName])
+        levelLabel.fontSize = 40
         levelLabel.position = CGPoint(x: 0, y: self.frame.height/2 - 120)
         
         self.addChild(levelLabel)
@@ -203,6 +205,8 @@ class FaseLampada: SKScene {
         bg.texture = SKTexture(imageNamed: "bgEnd")
         fundo.removeFromParent()
         
+        levelLabel.removeFromParent()
+        
         let home = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: {})
         let foward = GameButtonNode(image: SKTexture(imageNamed: "foward"), onTap: {})
         
@@ -216,14 +220,33 @@ class FaseLampada: SKScene {
         
         let endLabel = SKLabelNode()
         endLabel.fontSize = self.size.height/40
-        endLabel.position = CGPoint(x: 0, y: 400)
         endLabel.fontColor = .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
-        endLabel.text = "Placeholder"
+        endLabel.text = levelcomplete[LevelName]
+        endLabel.preferredMaxLayoutWidth = 500
+        endLabel.numberOfLines = 0
+        endLabel.position = CGPoint(x: 0, y: self.size.height/2 - endLabel.frame.height * 4/3) //
         self.addChild(endLabel)
-        
+        print(numberOfLines(lb: endLabel))
         
         home.run(SKAction.move(to: CGPoint(x: -50 , y: -self.frame.height/2 + 150), duration: 0.7))
         foward.run(SKAction.move(to: CGPoint(x: 50 , y: -self.frame.height/2 + 150), duration: 0.7))
         
     }
+    
+    func numberOfLines(lb : SKLabelNode) -> Int {
+        let preferredMaxWidth: CGFloat = 500
+
+        let label = UILabel()
+        label.text = lb.text
+        label.font = UIFont(name: lb.fontName!, size: lb.fontSize)
+        label.numberOfLines = lb.numberOfLines
+
+        label.frame.size.width = preferredMaxWidth
+        label.sizeToFit()
+        label.frame.size.width = preferredMaxWidth
+
+        return Int(label.frame.size.height / label.font.pointSize)
+    }
+    
 }
+
