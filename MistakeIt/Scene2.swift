@@ -1,15 +1,16 @@
 //
-//  GameScene.swift
-//  ProjetoErro
+//  Scene2.swift
+//  MistakeIt
 //
-//  Created by IgorMiyamoto on 14/10/20.
+//  Created by marcelo frost marchesan on 06/11/20.
 //
+
 
 import SpriteKit
 import GameplayKit
 
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class Scene2: SKScene, SKPhysicsContactDelegate {
     
     var bgimg: SKSpriteNode!
     var paper: SKSpriteNode!
@@ -19,9 +20,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var imageMovable = SKSpriteNode()
     
     override func didMove(to view: SKView) {
-        bgimg = SKSpriteNode(imageNamed: "img_prancheta") //atribui a imagem à variável de fundo
+        bgimg = SKSpriteNode(imageNamed: "img_cadernos") //atribui a imagem à variável de fundo
         bgimg.position = CGPoint(x: 0, y: 0) //posiciona a variável no centro da tela
-        bgimg.setScale(0.209) //determina que a imagem terá uma escala 0.209 do tamanho original do arquivo
+        bgimg.setScale(0.1) //determina que a imagem terá uma escala 0.209 do tamanho original do arquivo
         self.addChild(bgimg) //adiciona a imagem ao node
         bgimg.zPosition = -3 //método para colocar a imagem ao fundo, atrás dos demais elementos que forem colocados na tela
         
