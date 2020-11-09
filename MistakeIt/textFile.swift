@@ -32,4 +32,3 @@ let levelcomplete : [LevelState:String] = [.lamp:"Thomas Edison em 1879 menciono
 
 
 //"Foram diversas as tentativas de criar a lâmpada incandescente até que Thomas Alva Edison conseguiu chegar em modelo durável e comercializável em 1879. O próprio inventor mencionou que foram necessários mais de 100 testes diferentes antes de se chegar ao modelo final. Uma das frases atribuídas ao inventor é ''Eu aprendi muito mais com os meus erros do que com meus acertos.'', provando que devemos valorizar os resultados de nossos erros.",
-

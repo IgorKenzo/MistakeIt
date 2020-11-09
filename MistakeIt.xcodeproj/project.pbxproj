@@ -121,7 +121,8 @@
 		0516A8582537926000685DB9 /* MistakeIt */ = {
 			isa = PBXGroup;
 			children = (
-				05FE18C0255485F200758744 /* navigation */,
+				05A749DC2559BE170070F857 /* navigation */,
+				05A749CE2559BD830070F857 /* textFile.swift */,
 				05449E95254893D500452B0A /* controller */,
 				05449E94254893CF00452B0A /* view */,
 				05449E93254893C800452B0A /* model */,
@@ -170,7 +171,7 @@
 		05449E94254893CF00452B0A /* view */ = {
 			isa = PBXGroup;
 			children = (
-				05A749C92559BBE70070F857 /* lampada */,
+				05A749CD2559BD680070F857 /* lampada */,
 				05A749C52559B71E0070F857 /* Paper */,
 			);
 			path = view;
@@ -213,6 +214,23 @@
 			isa = PBXGroup;
 			children = (
 				05FE18C12554861A00758744 /* Navigation.swift */,
+			);
+			path = navigation;
+			sourceTree = "<group>";
+		};
+		05A749CD2559BD680070F857 /* lampada */ = {
+			isa = PBXGroup;
+			children = (
+				05449EAD2548995000452B0A /* FaseLampada.swift */,
+				05449EB225489FE100452B0A /* FaseLampadaScene.sks */,
+			);
+			path = lampada;
+			sourceTree = "<group>";
+		};
+		05A749DC2559BE170070F857 /* navigation */ = {
+			isa = PBXGroup;
+			children = (
+				05A749E02559BE3F0070F857 /* Navigation.swift */,
 			);
 			path = navigation;
 			sourceTree = "<group>";
@@ -359,6 +377,7 @@
 				05007ECF254B64F700C3A280 /* RotateNote.swift in Sources */,
 				05A749F82559CB8C0070F857 /* PaperScreenViewController.swift in Sources */,
 				0516A85A2537926000685DB9 /* AppDelegate.swift in Sources */,
+				05A749E12559BE3F0070F857 /* Navigation.swift in Sources */,
 				2EB316732555D24D008C63F6 /* Scene2.swift in Sources */,
 				05A749B42559B55B0070F857 /* GameViewController.swift in Sources */,
 				2EB316782555D263008C63F6 /* Scene2ViewController.swift in Sources */,

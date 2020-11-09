@@ -4,7 +4,6 @@
 //
 //  Created by IgorMiyamoto on 05/11/20.
 //
-
 import Foundation
 
     
@@ -17,4 +16,3 @@ enum LevelState : Int {
     case peni
     case doceleite
 }
-    
