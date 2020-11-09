@@ -17,7 +17,7 @@
 		0516A87D2537926200685DB9 /* ProjetoErroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0516A87C2537926200685DB9 /* ProjetoErroUITests.swift */; };
 		2EB316732555D24D008C63F6 /* Scene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB316722555D24D008C63F6 /* Scene2.swift */; };
 		2EB316782555D263008C63F6 /* Scene2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB316772555D263008C63F6 /* Scene2ViewController.swift */; };
-		2EBC60CE254A04D800AEDE0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EBC60CD254A04D800AEDE0D /* Main.storyboard */; };
+		2EBC60CE254A04D800AEDE0D /* Teste.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EBC60CD254A04D800AEDE0D /* Teste.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 		0516A87E2537926200685DB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2EB316722555D24D008C63F6 /* Scene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene2.swift; sourceTree = "<group>"; };
 		2EB316772555D263008C63F6 /* Scene2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene2ViewController.swift; sourceTree = "<group>"; };
-		2EBC60CD254A04D800AEDE0D /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2EBC60CD254A04D800AEDE0D /* Teste.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Teste.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,7 @@
 				0516A85D2537926000685DB9 /* Actions.sks */,
 				0516A85F2537926000685DB9 /* PaperScene.swift */,
 				0516A8612537926000685DB9 /* PaperScreenViewController.swift */,
-				2EBC60CD254A04D800AEDE0D /* Main.storyboard */,
+				2EBC60CD254A04D800AEDE0D /* Teste.storyboard */,
 				0516A8662537926100685DB9 /* Assets.xcassets */,
 				0516A8682537926100685DB9 /* Info.plist */,
 				2EB316722555D24D008C63F6 /* Scene2.swift */,
@@ -241,7 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0516A85C2537926000685DB9 /* GameScene.sks in Resources */,
-				2EBC60CE254A04D800AEDE0D /* Main.storyboard in Resources */,
+				2EBC60CE254A04D800AEDE0D /* Teste.storyboard in Resources */,
 				0516A8672537926100685DB9 /* Assets.xcassets in Resources */,
 				0516A85E2537926000685DB9 /* Actions.sks in Resources */,
 			);
