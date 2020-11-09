@@ -19,6 +19,8 @@
 		05449E9A2548945C00452B0A /* GameButtoNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05449E992548945C00452B0A /* GameButtoNode.swift */; };
 		05449EAE2548995000452B0A /* FaseLampada.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05449EAD2548995000452B0A /* FaseLampada.swift */; };
 		05449EB325489FE100452B0A /* FaseLampadaScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05449EB225489FE100452B0A /* FaseLampadaScene.sks */; };
+		05FE18BC2554853E00758744 /* textFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FE18BB2554853E00758744 /* textFile.swift */; };
+		05FE18C22554861A00758744 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FE18C12554861A00758744 /* Navigation.swift */; };
 		05A749AE2559B4BD0070F857 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A749AD2559B4BD0070F857 /* Main.storyboard */; };
 		05A749B42559B55B0070F857 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A749B32559B55B0070F857 /* GameViewController.swift */; };
 		2EB316732555D24D008C63F6 /* Scene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB316722555D24D008C63F6 /* Scene2.swift */; };
@@ -62,6 +64,8 @@
 		05449E992548945C00452B0A /* GameButtoNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButtoNode.swift; sourceTree = "<group>"; };
 		05449EAD2548995000452B0A /* FaseLampada.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaseLampada.swift; sourceTree = "<group>"; };
 		05449EB225489FE100452B0A /* FaseLampadaScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FaseLampadaScene.sks; sourceTree = "<group>"; };
+		05FE18BB2554853E00758744 /* textFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textFile.swift; sourceTree = "<group>"; };
+		05FE18C12554861A00758744 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		05A749AD2559B4BD0070F857 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		05A749B32559B55B0070F857 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		2EB316722555D24D008C63F6 /* Scene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene2.swift; sourceTree = "<group>"; };
@@ -117,12 +121,17 @@
 		0516A8582537926000685DB9 /* MistakeIt */ = {
 			isa = PBXGroup;
 			children = (
+				05FE18C0255485F200758744 /* navigation */,
 				05449E95254893D500452B0A /* controller */,
 				05449E94254893CF00452B0A /* view */,
 				05449E93254893C800452B0A /* model */,
 				0516A8592537926000685DB9 /* AppDelegate.swift */,
 				0516A85B2537926000685DB9 /* GameScene.sks */,
 				0516A85D2537926000685DB9 /* Actions.sks */,
+				0516A85F2537926000685DB9 /* GameScene.swift */,
+				0516A8612537926000685DB9 /* GameViewController.swift */,
+				05FE18BB2554853E00758744 /* textFile.swift */,
+				0516A8632537926000685DB9 /* Main.storyboard */,
 				2EBC60CD254A04D800AEDE0D /* Teste.storyboard */,
 				0516A8662537926100685DB9 /* Assets.xcassets */,
 				0516A8682537926100685DB9 /* Info.plist */,
@@ -164,6 +173,7 @@
 		05449E94254893CF00452B0A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				05A749C92559BBE70070F857 /* lampada */,
 				05A749C52559B71E0070F857 /* Paper */,
 				05449EAD2548995000452B0A /* FaseLampada.swift */,
 				05449EB225489FE100452B0A /* FaseLampadaScene.sks */,
@@ -179,6 +189,22 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
+		05A749C92559BBE70070F857 /* lampada */ = {
+			isa = PBXGroup;
+			children = (
+				05449EAD2548995000452B0A /* FaseLampada.swift */,
+				05449EB225489FE100452B0A /* FaseLampadaScene.sks */,
+			);
+			path = lampada;
+			sourceTree = "<group>";
+		};
+		05FE18C0255485F200758744 /* navigation */ = {
+			isa = PBXGroup;
+			children = (
+				05FE18C12554861A00758744 /* Navigation.swift */,
+			);
+			path = navigation;
+
 		05A749C42559B6F80070F857 /* Paper */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +354,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05FE18BC2554853E00758744 /* textFile.swift in Sources */,
+				0516A8602537926000685DB9 /* GameScene.swift in Sources */,
+				05449E9A2548945C00452B0A /* GameButtoNode.swift in Sources */,
+				05FE18C22554861A00758744 /* Navigation.swift in Sources */,
+				0516A8622537926000685DB9 /* GameViewController.swift in Sources */,
 				0516A8602537926000685DB9 /* PaperScene.swift in Sources */,
 				0516A8622537926000685DB9 /* PaperScreenViewController.swift in Sources */,
 				0516A8602537926000685DB9 /* PaperScene.swift in Sources */,
