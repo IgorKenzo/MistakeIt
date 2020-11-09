@@ -207,7 +207,8 @@
 				05FE18C12554861A00758744 /* Navigation.swift */,
 			);
 			path = navigation;
-
+			sourceTree = "<group>"
+		};
 		05A749C42559B6F80070F857 /* Paper */ = {
 			isa = PBXGroup;
 			children = (
