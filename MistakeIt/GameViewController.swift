@@ -1,13 +1,11 @@
 //
 //  GameViewController.swift
-//  ProjetoErro
+//  MistakeIt
 //
-//  Created by IgorMiyamoto on 14/10/20.
+//  Created by IgorMiyamoto on 09/11/20.
 //
 
-import UIKit
 import SpriteKit
-import GameplayKit
 
 class GameViewController: UIViewController {
 

@@ -1,10 +1,10 @@
-
 //
 //  HintsFile.swift
 //  MistakeIt
 //
 //  Created by marcelo frost marchesan on 27/10/20.
 //
+
 import Foundation
 
 let leveltexts : [LevelState:String] = [.lamp: "O erro é um aprendizado e não apenas um erro!",
