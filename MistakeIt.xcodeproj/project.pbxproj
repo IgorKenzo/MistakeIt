@@ -163,8 +163,7 @@
 		05449E94254893CF00452B0A /* view */ = {
 			isa = PBXGroup;
 			children = (
-				05449EAD2548995000452B0A /* FaseLampada.swift */,
-				05449EB225489FE100452B0A /* FaseLampadaScene.sks */,
+				05A749C92559BBE70070F857 /* lampada */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -174,6 +173,15 @@
 			children = (
 			);
 			path = controller;
+			sourceTree = "<group>";
+		};
+		05A749C92559BBE70070F857 /* lampada */ = {
+			isa = PBXGroup;
+			children = (
+				05449EAD2548995000452B0A /* FaseLampada.swift */,
+				05449EB225489FE100452B0A /* FaseLampadaScene.sks */,
+			);
+			path = lampada;
 			sourceTree = "<group>";
 		};
 		05FE18C0255485F200758744 /* navigation */ = {
