@@ -10,8 +10,8 @@
 		0516A85A2537926000685DB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0516A8592537926000685DB9 /* AppDelegate.swift */; };
 		0516A85C2537926000685DB9 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0516A85B2537926000685DB9 /* GameScene.sks */; };
 		0516A85E2537926000685DB9 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0516A85D2537926000685DB9 /* Actions.sks */; };
-		0516A8602537926000685DB9 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0516A85F2537926000685DB9 /* GameScene.swift */; };
-		0516A8622537926000685DB9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0516A8612537926000685DB9 /* GameViewController.swift */; };
+		0516A8602537926000685DB9 /* PaperScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0516A85F2537926000685DB9 /* PaperScene.swift */; };
+		0516A8622537926000685DB9 /* PaperScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0516A8612537926000685DB9 /* PaperScreenViewController.swift */; };
 		0516A8672537926100685DB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0516A8662537926100685DB9 /* Assets.xcassets */; };
 		0516A8722537926200685DB9 /* ProjetoErroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0516A8712537926200685DB9 /* ProjetoErroTests.swift */; };
 		0516A87D2537926200685DB9 /* ProjetoErroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0516A87C2537926200685DB9 /* ProjetoErroUITests.swift */; };
@@ -42,8 +42,8 @@
 		0516A8592537926000685DB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0516A85B2537926000685DB9 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		0516A85D2537926000685DB9 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
-		0516A85F2537926000685DB9 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		0516A8612537926000685DB9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		0516A85F2537926000685DB9 /* PaperScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperScene.swift; sourceTree = "<group>"; };
+		0516A8612537926000685DB9 /* PaperScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperScreenViewController.swift; sourceTree = "<group>"; };
 		0516A8662537926100685DB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0516A8682537926100685DB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0516A86D2537926200685DB9 /* MistakeItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MistakeItTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,8 +108,8 @@
 				0516A8592537926000685DB9 /* AppDelegate.swift */,
 				0516A85B2537926000685DB9 /* GameScene.sks */,
 				0516A85D2537926000685DB9 /* Actions.sks */,
-				0516A85F2537926000685DB9 /* GameScene.swift */,
-				0516A8612537926000685DB9 /* GameViewController.swift */,
+				0516A85F2537926000685DB9 /* PaperScene.swift */,
+				0516A8612537926000685DB9 /* PaperScreenViewController.swift */,
 				2EBC60CD254A04D800AEDE0D /* Main.storyboard */,
 				0516A8662537926100685DB9 /* Assets.xcassets */,
 				0516A8682537926100685DB9 /* Info.plist */,
@@ -268,8 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0516A8602537926000685DB9 /* GameScene.swift in Sources */,
-				0516A8622537926000685DB9 /* GameViewController.swift in Sources */,
+				0516A8602537926000685DB9 /* PaperScene.swift in Sources */,
+				0516A8622537926000685DB9 /* PaperScreenViewController.swift in Sources */,
 				0516A85A2537926000685DB9 /* AppDelegate.swift in Sources */,
 				2EB316732555D24D008C63F6 /* Scene2.swift in Sources */,
 				2EB316782555D263008C63F6 /* Scene2ViewController.swift in Sources */,

@@ -9,7 +9,7 @@ import SpriteKit
 import GameplayKit
 
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
+class PaperScene: SKScene, SKPhysicsContactDelegate {
     
     var bgimg: SKSpriteNode!
     var paper: SKSpriteNode!
