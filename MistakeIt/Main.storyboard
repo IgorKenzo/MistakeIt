@@ -11,8 +11,8 @@
         <!--Game View Controller-->
         <scene sceneID="55m-Dk-kN4">
             <objects>
-                <viewController id="Mxw-uA-h7J" customClass="GameViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Wm1-Q0-hsn">
+                <viewController id="Mxw-uA-h7J" customClass="GameViewController" customModule="MistakeIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wm1-Q0-hsn" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="0s5-GZ-2FZ"/>

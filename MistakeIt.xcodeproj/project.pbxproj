@@ -123,8 +123,6 @@
 				0516A8592537926000685DB9 /* AppDelegate.swift */,
 				0516A85B2537926000685DB9 /* GameScene.sks */,
 				0516A85D2537926000685DB9 /* Actions.sks */,
-				0516A85F2537926000685DB9 /* PaperScene.swift */,
-				0516A8612537926000685DB9 /* PaperScreenViewController.swift */,
 				2EBC60CD254A04D800AEDE0D /* Teste.storyboard */,
 				0516A8662537926100685DB9 /* Assets.xcassets */,
 				0516A8682537926100685DB9 /* Info.plist */,
@@ -166,6 +164,7 @@
 		05449E94254893CF00452B0A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				05A749C52559B71E0070F857 /* Paper */,
 				05449EAD2548995000452B0A /* FaseLampada.swift */,
 				05449EB225489FE100452B0A /* FaseLampadaScene.sks */,
 			);
@@ -175,8 +174,25 @@
 		05449E95254893D500452B0A /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				05A749C42559B6F80070F857 /* Paper */,
 			);
 			path = controller;
+			sourceTree = "<group>";
+		};
+		05A749C42559B6F80070F857 /* Paper */ = {
+			isa = PBXGroup;
+			children = (
+				0516A8612537926000685DB9 /* PaperScreenViewController.swift */,
+			);
+			path = Paper;
+			sourceTree = "<group>";
+		};
+		05A749C52559B71E0070F857 /* Paper */ = {
+			isa = PBXGroup;
+			children = (
+				0516A85F2537926000685DB9 /* PaperScene.swift */,
+			);
+			path = Paper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
