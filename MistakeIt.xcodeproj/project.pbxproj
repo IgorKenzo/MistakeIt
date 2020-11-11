@@ -14,6 +14,9 @@
 		0516A8672537926100685DB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0516A8662537926100685DB9 /* Assets.xcassets */; };
 		0516A8722537926200685DB9 /* ProjetoErroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0516A8712537926200685DB9 /* ProjetoErroTests.swift */; };
 		0516A87D2537926200685DB9 /* ProjetoErroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0516A87C2537926200685DB9 /* ProjetoErroUITests.swift */; };
+		0521B436255C72D3003A7290 /* FasePenicilina.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521B435255C72D3003A7290 /* FasePenicilina.swift */; };
+		0521B43E255C72E6003A7290 /* FasePenicilinaScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0521B43D255C72E6003A7290 /* FasePenicilinaScene.sks */; };
+		0521B443255C751D003A7290 /* FasePenicilinaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521B442255C751D003A7290 /* FasePenicilinaViewController.swift */; };
 		05A749AE2559B4BD0070F857 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A749AD2559B4BD0070F857 /* Main.storyboard */; };
 		05A749B42559B55B0070F857 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A749B32559B55B0070F857 /* GameViewController.swift */; };
 		05A749F32559CB730070F857 /* PaperScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A749F22559CB730070F857 /* PaperScene.swift */; };
@@ -59,6 +62,9 @@
 		0516A8782537926200685DB9 /* MistakeItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MistakeItUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0516A87C2537926200685DB9 /* ProjetoErroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoErroUITests.swift; sourceTree = "<group>"; };
 		0516A87E2537926200685DB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0521B435255C72D3003A7290 /* FasePenicilina.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FasePenicilina.swift; sourceTree = "<group>"; };
+		0521B43D255C72E6003A7290 /* FasePenicilinaScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FasePenicilinaScene.sks; sourceTree = "<group>"; };
+		0521B442255C751D003A7290 /* FasePenicilinaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FasePenicilinaViewController.swift; sourceTree = "<group>"; };
 		05449E992548945C00452B0A /* GameButtoNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButtoNode.swift; sourceTree = "<group>"; };
 		05A749AD2559B4BD0070F857 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		05A749B32559B55B0070F857 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +168,23 @@
 			path = MistakeItUITests;
 			sourceTree = "<group>";
 		};
+		0521B433255C7294003A7290 /* penicilina */ = {
+			isa = PBXGroup;
+			children = (
+				0521B435255C72D3003A7290 /* FasePenicilina.swift */,
+				0521B43D255C72E6003A7290 /* FasePenicilinaScene.sks */,
+			);
+			path = penicilina;
+			sourceTree = "<group>";
+		};
+		0521B447255C7523003A7290 /* Penicilina */ = {
+			isa = PBXGroup;
+			children = (
+				0521B442255C751D003A7290 /* FasePenicilinaViewController.swift */,
+			);
+			path = Penicilina;
+			sourceTree = "<group>";
+		};
 		05449E93254893C800452B0A /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +197,7 @@
 		05449E94254893CF00452B0A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				0521B433255C7294003A7290 /* penicilina */,
 				05A749CD2559BD680070F857 /* lampada */,
 				05A749C52559B71E0070F857 /* Paper */,
 			);
@@ -183,6 +207,7 @@
 		05449E95254893D500452B0A /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				0521B447255C7523003A7290 /* Penicilina */,
 				05A749C42559B6F80070F857 /* Paper */,
 			);
 			path = controller;
@@ -337,6 +362,7 @@
 				0516A85C2537926000685DB9 /* GameScene.sks in Resources */,
 				2EBC60CE254A04D800AEDE0D /* Teste.storyboard in Resources */,
 				05A749AE2559B4BD0070F857 /* Main.storyboard in Resources */,
+				0521B43E255C72E6003A7290 /* FasePenicilinaScene.sks in Resources */,
 				0516A8672537926100685DB9 /* Assets.xcassets in Resources */,
 				0516A85E2537926000685DB9 /* Actions.sks in Resources */,
 				05A74A0A2559D2530070F857 /* FaseLampadaScene.sks in Resources */,
@@ -366,6 +392,7 @@
 			files = (
 				05A74A592559D8B60070F857 /* GameButtoNode.swift in Sources */,
 				05FE18BC2554853E00758744 /* textFile.swift in Sources */,
+				0521B436255C72D3003A7290 /* FasePenicilina.swift in Sources */,
 				05A749F32559CB730070F857 /* PaperScene.swift in Sources */,
 				05A74A4F2559D83B0070F857 /* Navigation.swift in Sources */,
 				05007ECF254B64F700C3A280 /* RotateNote.swift in Sources */,
@@ -375,6 +402,7 @@
 				2EB316732555D24D008C63F6 /* Scene2.swift in Sources */,
 				05A749B42559B55B0070F857 /* GameViewController.swift in Sources */,
 				2EB316782555D263008C63F6 /* Scene2ViewController.swift in Sources */,
+				0521B443255C751D003A7290 /* FasePenicilinaViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

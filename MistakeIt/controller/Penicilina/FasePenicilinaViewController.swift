@@ -1,20 +1,21 @@
 //
-//  GameViewController.swift
+//  FasePenicilinaViewController.swift
 //  MistakeIt
 //
-//  Created by IgorMiyamoto on 09/11/20.
+//  Created by IgorMiyamoto on 11/11/20.
 //
 
+import Foundation
 import SpriteKit
 
-class GameViewController: UIViewController {
+class FasePenicilinaViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "FasePenicilinaScene") { //FaseLampadaScene
+            if let scene = SKScene(fileNamed: "FasePenicilinaScene") {
                 // Set the scale mode to scale to fit the window
                 
                 scene.scaleMode = .aspectFill

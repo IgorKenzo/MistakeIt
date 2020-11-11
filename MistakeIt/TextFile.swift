@@ -14,11 +14,11 @@ let leveltexts : [LevelState:String] = [.lamp: "O erro é um aprendizado e não 
                                         .marc: "As vezes precisamos errar passo a passo!"]
 
 
-let hints = ["lamp": "Ajeite o filamento da lâmpada.",
-             "papersticker": "Cole o papel no lugar correto!",
-             "penicillin": "Arraste algo pela tela.",
-             "docedeleite": "Já pensou em esperar a comida por mais tempo?",
-             "pacemaker": "As vezes menos é mais!"]
+let hints : [LevelState:String] = [.lamp: "Ajeite o filamento da lâmpada.",
+                                   .postit: "Cole o papel no lugar correto!",
+                                   .peni: "Arraste algo pela tela.",
+                                   .doceleite: "Já pensou em esperar a comida por mais tempo?",
+                                   .marc: "As vezes menos é mais!"]
 
 let instruction = "Olá! Neste jogo os puzzles não possuem instruções. O objetivo é descobrir qual sua solução através da tentativa e erro. Não se preocupe e não tenha medo de errar, você logo pegará o jeito!"
 
