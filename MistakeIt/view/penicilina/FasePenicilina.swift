@@ -7,11 +7,41 @@
 
 import SpriteKit
 
-class FasePenicilina : SKScene {
+struct CategoryMasks : OptionSet {
+    let rawValue: UInt32
+    init(rawValue: UInt32) { self.rawValue = rawValue }
     
-    private var currentNode: SKNode?
+    static let fungus = CategoryMasks(rawValue: 0x1 << 0)
+    static let bacteria = CategoryMasks(rawValue: 0x1 << 1)
+}
 
+class FasePenicilina : SKScene, SKPhysicsContactDelegate {
+    
+    private var currentNode: SKNode?    
+    var fungus : SKSpriteNode!
+    private var numBac : Int!
+    private var playing = true
+    
     override func didMove(to view: SKView) {
+        physicsWorld.contactDelegate = self
+        
+        let c = SKShapeNode(circleOfRadius: self.frame.width/2)
+        self.addChild(c)
+        
+        fungus = SKSpriteNode(color: .cyan, size: CGSize(width: 100, height: 100))
+        fungus.position = CGPoint(x: 0, y: 0)
+        fungus.physicsBody = SKPhysicsBody(rectangleOf: fungus.size)
+        fungus.physicsBody?.categoryBitMask = CategoryMasks.fungus.rawValue
+        fungus.physicsBody?.collisionBitMask = CategoryMasks.bacteria.rawValue
+        fungus.physicsBody?.contactTestBitMask = CategoryMasks.bacteria.rawValue
+        fungus.physicsBody?.affectedByGravity = false
+        fungus.name = "fungus"
+        self.addChild(fungus)
+        
+        numBac = 8
+        for _ in 0 ..< numBac {
+            spawnBac()
+        }
         
     }
     
@@ -21,7 +51,7 @@ class FasePenicilina : SKScene {
             
             let touchedNodes = self.nodes(at: location)
             for node in touchedNodes.reversed() {
-                if node.name == "draggable" {
+                if node.name == "fungus" {
                     self.currentNode = node
                 }
             }
@@ -30,10 +60,65 @@ class FasePenicilina : SKScene {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first, let node = self.currentNode {
             let touchLocation = touch.location(in: self)
-            node.position = touchLocation
+            let baseRadius = self.frame.width/2 - 50
+            let distance = sqrt(pow(touchLocation.x, 2) + pow(touchLocation.y, 2))
+            let distanceDiff = distance - baseRadius
+            
+            if distanceDiff > 0 {
+                let handlePosition = CGPoint(x: touchLocation.x / distance * baseRadius, y: touchLocation.y / distance * baseRadius)
+                node.position = handlePosition
+            } else {
+                node.position = touchLocation
+            }
         }
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.currentNode = nil
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        contact.bodyB.node?.removeFromParent()
+        numBac -= 1
+    }
+    
+    
+    
+    func spawnBac() {
+        let radius = CGFloat.random(in: 0...self.frame.width/2)
+        let angle = CGFloat.random(in: 0 ... 2 * .pi)
+        let position = CGPoint(x: radius * cos(angle), y: radius * sin(angle))
+        
+        
+        let bac = SKSpriteNode(color: .random(), size: CGSize(width: 50, height: 50))
+        bac.name = "bac"
+        bac.position = position
+        bac.physicsBody = SKPhysicsBody(rectangleOf: bac.size)
+        bac.physicsBody?.categoryBitMask = 0x1 << 1
+        bac.physicsBody?.collisionBitMask = 0x1 << 0
+        bac.physicsBody?.affectedByGravity = false
+        bac.physicsBody?.isDynamic = false
+        bac.physicsBody?.allowsRotation = false
+        self.addChild(bac)
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        if playing {
+            if numBac == 0 {
+                print("ganhou")
+                playing = false
+            }
+        }
+    }
+}
+
+
+extension UIColor {
+    static func random() -> UIColor {
+        return UIColor(
+            red:   CGFloat.random(in: 0...1),
+            green: CGFloat.random(in: 0...1),
+            blue:  CGFloat.random(in: 0...1),
+                    alpha: 1.0
+                )
     }
 }
