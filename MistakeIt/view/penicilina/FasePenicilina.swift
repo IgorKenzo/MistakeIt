@@ -21,9 +21,18 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate {
     var fungus : SKSpriteNode!
     private var numBac : Int!
     private var playing = true
+    var levelLabel : SKLabelNode!
+    let LevelName = LevelState.peni
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
+        
+        levelLabel = SKLabelNode(text: leveltexts[LevelName])
+        levelLabel.fontSize = 40
+        levelLabel.position = CGPoint(x: 0, y: self.frame.height/2 - 120)
+        
+        self.addChild(levelLabel)
+        
         
         let c = SKShapeNode(circleOfRadius: self.frame.width/2)
         self.addChild(c)
@@ -104,10 +113,22 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate {
     override func update(_ currentTime: TimeInterval) {
         if playing {
             if numBac == 0 {
-                print("ganhou")
+                endGame()
                 playing = false
             }
         }
+    }
+    
+    
+    func endGame(){
+        let endLabel = SKLabelNode()
+        endLabel.fontSize = self.size.height/40
+        endLabel.fontColor = .brown// .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
+        endLabel.text = levelcomplete[LevelName]
+        endLabel.preferredMaxLayoutWidth = 700
+        endLabel.numberOfLines = 0
+        endLabel.position = CGPoint(x: 0, y: self.size.height/2 - endLabel.frame.height * 4/3) //
+        self.addChild(endLabel)
     }
 }
 
