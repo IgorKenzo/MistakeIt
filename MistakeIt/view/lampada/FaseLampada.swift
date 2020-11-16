@@ -26,7 +26,6 @@ class FaseLampada: SKScene {
         levelLabel = SKLabelNode(text: leveltexts[LevelName])
         levelLabel.fontSize = 40
         levelLabel.position = CGPoint(x: 0, y: self.frame.height/2 - 120)
-        
         self.addChild(levelLabel)
         
         //MARK: Define Blur and hint

@@ -15,7 +15,11 @@ struct CategoryMasks : OptionSet {
     static let bacteria = CategoryMasks(rawValue: 0x1 << 1)
 }
 
-class FasePenicilina : SKScene, SKPhysicsContactDelegate {
+class FasePenicilina : SKScene, SKPhysicsContactDelegate, DefaultButtons {
+    var settingsButton: GameButtonNode!
+    
+    var hintButton: GameButtonNode!
+    
     
     private var currentNode: SKNode?    
     var fungus : SKSpriteNode!
@@ -26,6 +30,9 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
+        
+        setButtons()
+        addButtons()
         
         levelLabel = SKLabelNode(text: leveltexts[LevelName])
         levelLabel.fontSize = 40
