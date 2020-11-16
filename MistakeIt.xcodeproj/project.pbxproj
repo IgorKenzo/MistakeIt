@@ -14,6 +14,10 @@
 		0516A8672537926100685DB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0516A8662537926100685DB9 /* Assets.xcassets */; };
 		0516A8722537926200685DB9 /* ProjetoErroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0516A8712537926200685DB9 /* ProjetoErroTests.swift */; };
 		0516A87D2537926200685DB9 /* ProjetoErroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0516A87C2537926200685DB9 /* ProjetoErroUITests.swift */; };
+		0516A89125379A4B00685DB9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0516A89025379A4B00685DB9 /* Launch Screen.storyboard */; };
+		9740489225630E6900B2DB45 /* Niveis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740489125630E6900B2DB45 /* Niveis.swift */; };
+		975D5A5A2555BDF9008D8E3F /* NiveisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A592555BDF9008D8E3F /* NiveisViewController.swift */; };
+		975D5A5F2555BE67008D8E3F /* NiveisCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */; };
 		05A749AE2559B4BD0070F857 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A749AD2559B4BD0070F857 /* Main.storyboard */; };
 		05A749B42559B55B0070F857 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A749B32559B55B0070F857 /* GameViewController.swift */; };
 		05A749F32559CB730070F857 /* PaperScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A749F22559CB730070F857 /* PaperScene.swift */; };
@@ -59,6 +63,10 @@
 		0516A8782537926200685DB9 /* MistakeItUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MistakeItUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0516A87C2537926200685DB9 /* ProjetoErroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoErroUITests.swift; sourceTree = "<group>"; };
 		0516A87E2537926200685DB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0516A89025379A4B00685DB9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		9740489125630E6900B2DB45 /* Niveis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Niveis.swift; sourceTree = "<group>"; };
+		975D5A592555BDF9008D8E3F /* NiveisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisViewController.swift; sourceTree = "<group>"; };
+		975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisCollectionViewCell.swift; sourceTree = "<group>"; };
 		05449E992548945C00452B0A /* GameButtoNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButtoNode.swift; sourceTree = "<group>"; };
 		05A749AD2559B4BD0070F857 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		05A749B32559B55B0070F857 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +144,10 @@
 				2EBC60CD254A04D800AEDE0D /* Teste.storyboard */,
 				0516A8662537926100685DB9 /* Assets.xcassets */,
 				0516A8682537926100685DB9 /* Info.plist */,
+				0516A89025379A4B00685DB9 /* Launch Screen.storyboard */,
+				975D5A592555BDF9008D8E3F /* NiveisViewController.swift */,
+				975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */,
+				9740489125630E6900B2DB45 /* Niveis.swift */,
 				2EB316722555D24D008C63F6 /* Scene2.swift */,
 				2EB316772555D263008C63F6 /* Scene2ViewController.swift */,
 				05A749AD2559B4BD0070F857 /* Main.storyboard */,
@@ -364,6 +376,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0516A8602537926000685DB9 /* GameScene.swift in Sources */,
+				0516A8622537926000685DB9 /* GameViewController.swift in Sources */,
+				975D5A5A2555BDF9008D8E3F /* NiveisViewController.swift in Sources */,
+				975D5A5F2555BE67008D8E3F /* NiveisCollectionViewCell.swift in Sources */,
+				0516A85A2537926000685DB9 /* AppDelegate.swift in Sources */,
+				9740489225630E6900B2DB45 /* Niveis.swift in Sources */,
 				05A74A592559D8B60070F857 /* GameButtoNode.swift in Sources */,
 				05FE18BC2554853E00758744 /* textFile.swift in Sources */,
 				05A749F32559CB730070F857 /* PaperScene.swift in Sources */,
