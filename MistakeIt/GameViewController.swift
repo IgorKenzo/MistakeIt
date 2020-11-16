@@ -1,13 +1,11 @@
 //
 //  GameViewController.swift
-//  ProjetoErro
+//  MistakeIt
 //
-//  Created by IgorMiyamoto on 14/10/20.
+//  Created by IgorMiyamoto on 09/11/20.
 //
 
-import UIKit
 import SpriteKit
-import GameplayKit
 
 class GameViewController: UIViewController {
 
@@ -34,8 +32,9 @@ class GameViewController: UIViewController {
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
+            if let scene = SKScene(fileNamed: "FaseLampadaScene") {
                 // Set the scale mode to scale to fit the window
+                
                 scene.scaleMode = .aspectFill
                 
                 // Present the scene
