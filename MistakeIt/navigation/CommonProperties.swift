@@ -8,6 +8,7 @@
 import Foundation
 import SpriteKit
 
+//Protocol to common properties between SKScenes
 protocol CommonProperties where Self : SKScene {
     var levelName : LevelState! { get set }
     var settingsButton: GameButtonNode! { get set }
@@ -24,8 +25,10 @@ protocol CommonProperties where Self : SKScene {
     func addLevelLabel()
 }
 
+//Default Implementation
 extension CommonProperties {
     
+    //Instanciate Hint and Settings Buttons
     func setButtons() {
         settingsButton = GameButtonNode(image: SKTexture(imageNamed: "settings"), onTap: {})
         settingsButton.position = CGPoint(x: 270, y: -510)
@@ -108,20 +111,24 @@ extension CommonProperties {
         }
     }
     
+    //Add Hint and Settins Buttons to scene
     func addButtons(){
         self.addChild(settingsButton)
         self.addChild(hintButton)
     }
     
+    //Remove Hint and Settins Buttons from scene
     func removeButtons(){
         self.hintButton.removeFromParent()
         self.settingsButton.removeFromParent()
     }
     
+    //Blurs and "un"blur the background
     func blurBackground() {
         self.background.shouldEnableEffects = !self.background.shouldEnableEffects
     }
     
+    //Set the background image and add it to the scene
     func setBackground(bgImg : SKSpriteNode) {
         bgImg.name = "LevelBackground"
         let filter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius" : NSNumber(value:200.0)])
@@ -134,10 +141,12 @@ extension CommonProperties {
         self.addChild(background)
     }
     
+    //Set the level name, set this first
     func setLevelName(name: LevelState) {
         self.levelName = name
     }
     
+    //Add the label to the scene
     func addLevelLabel(){
         levelLabel = SKLabelNode(text: leveltexts[levelName])
         levelLabel.fontSize = 40

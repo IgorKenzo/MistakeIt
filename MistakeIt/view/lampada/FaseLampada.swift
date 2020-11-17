@@ -9,7 +9,7 @@ import SpriteKit
 
 class FaseLampada: SKScene, CommonProperties {
     
-    
+    //Protocol
     var levelName: LevelState!
     
     var settingsButton: GameButtonNode!
@@ -20,11 +20,14 @@ class FaseLampada: SKScene, CommonProperties {
     
     var levelLabel: SKLabelNode!
     
+    //Level Specific
     var filament1 : RotateNode!
     var filament2 : RotateNode!
     var playing = true
     
     override func didMove(to view: SKView) {
+        
+        //MARK: setting the common properties
         setLevelName(name: .lamp)
         setBackground(bgImg: SKSpriteNode(imageNamed: "blur"))
         setButtons()
@@ -36,6 +39,7 @@ class FaseLampada: SKScene, CommonProperties {
         setLighting()
     }
     
+    //Setting Filaments
     func setfilaments() {
         filament1 = RotateNode(imageNamed: "fila1")
         filament2 = RotateNode(imageNamed: "fila2")
@@ -97,7 +101,7 @@ class FaseLampada: SKScene, CommonProperties {
         }
     }
     
-    
+    //Setting the lighting that shows when filament is right
     func setLighting(){
         
         let lightining = SKSpriteNode(imageNamed: "lighting")
@@ -113,6 +117,7 @@ class FaseLampada: SKScene, CommonProperties {
     
     func endLevel() {
         //remove hint and settings buttons
+        //from protocol
         removeButtons()
         
         

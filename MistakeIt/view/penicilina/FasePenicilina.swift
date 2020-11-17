@@ -7,6 +7,7 @@
 
 import SpriteKit
 
+//Masks to collision
 struct CategoryMasks : OptionSet {
     let rawValue: UInt32
     init(rawValue: UInt32) { self.rawValue = rawValue }
@@ -16,6 +17,7 @@ struct CategoryMasks : OptionSet {
 }
 
 class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties {
+    //Protocol
     var levelLabel: SKLabelNode!
     
     var levelName: LevelState!
@@ -26,14 +28,17 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties {
     
     var hintButton: GameButtonNode!
     
-    
+    //Level Specific
     private var currentNode: SKNode?    
     var fungus : SKSpriteNode!
     private var numBac : Int!
     private var playing = true
     
     override func didMove(to view: SKView) {
+        //Contact
         physicsWorld.contactDelegate = self
+        
+        //MARK: setting the common properties
         setLevelName(name: .peni)
         setBackground(bgImg: SKSpriteNode(color: .clear, size: self.size))
         addLevelLabel()
