@@ -1,23 +1,30 @@
 //
-//  DefaultButtons.swift
+//  CommonProperties.swift
 //  MistakeIt
 //
-//  Created by IgorMiyamoto on 16/11/20.
+//  Created by IgorMiyamoto on 13/11/20.
 //
 
 import Foundation
 import SpriteKit
 
-protocol DefaultButtons where Self : SKScene {
+protocol CommonProperties where Self : SKScene {
+    var levelName : LevelState! { get set }
     var settingsButton: GameButtonNode! { get set }
     var hintButton: GameButtonNode! { get set }
+    var background : SKEffectNode! { get set }
+    var levelLabel : SKLabelNode! { get set }
+    
     func setButtons()
     func addButtons()
     func removeButtons()
+    func setBackground(bgImg : SKSpriteNode)
+    func setLevelName(name : LevelState)
+    func blurBackground()
+    func addLevelLabel()
 }
 
-extension DefaultButtons {
-    
+extension CommonProperties {
     
     func setButtons() {
         settingsButton = GameButtonNode(image: SKTexture(imageNamed: "settings"), onTap: {})
@@ -31,9 +38,14 @@ extension DefaultButtons {
         
         hintButton.zPosition = 1
         
-        //hintPopUp.size = CGSize(width: hintPopUp.size.width * 2, height: hintPopUp.size.height * 2)
-        //hintPopUp.position = CGPoint(x: hintButton.position.x + hintPopUp.size.width/2, y: hintButton.position.y + hintPopUp.size.height/2)
-        //hintPopUp.addChild(hintLabel)
+        let hintLabel = SKLabelNode(text: hints[self.levelName])
+        hintLabel.zPosition = 2
+        hintLabel.fontColor = .black
+        
+        let hintPopUp = SKSpriteNode(imageNamed: "hint-bubble")
+        hintPopUp.size = CGSize(width: hintPopUp.size.width * 2, height: hintPopUp.size.height * 2)
+        hintPopUp.position = CGPoint(x: hintButton.position.x + hintPopUp.size.width/2, y: hintButton.position.y + hintPopUp.size.height/2)
+        hintPopUp.addChild(hintLabel)
         
         
         let btnRetry = GameButtonNode(image: SKTexture(imageNamed: "retry"), onTap: {})
@@ -57,13 +69,13 @@ extension DefaultButtons {
         
         hintButton.onTap = { [self] in
             if !hintButton.pressed {
-                //self.blurBackground()
-                //self.addChild(hintPopUp)
+                self.blurBackground()
+                self.addChild(hintPopUp)
                 settingsButton.zPosition = -2
             }
             else {
-                //self.blurBackground()
-                //hintPopUp.removeFromParent()
+                self.blurBackground()
+                hintPopUp.removeFromParent()
                 settingsButton.zPosition = 1
             }
         }
@@ -71,7 +83,7 @@ extension DefaultButtons {
         settingsButton.onTap = { [self] in
             
             if !settingsButton.pressed {
-                //self.blurBackground()
+                self.blurBackground()
                 settingsButton.run(SKAction.rotate(byAngle: -.pi/2, duration: 0.3))
                 
                 for i in 0..<settingsButtons.count {
@@ -82,7 +94,7 @@ extension DefaultButtons {
                 hintButton.zPosition = -3
             }
             else{
-                //self.blurBackground()
+                self.blurBackground()
                 settingsButton.run(SKAction.rotate(byAngle: .pi/2, duration: 0.3))
                 
                 for i in 0..<settingsButtons.count {
@@ -105,5 +117,31 @@ extension DefaultButtons {
         self.hintButton.removeFromParent()
         self.settingsButton.removeFromParent()
     }
+    
+    func blurBackground() {
+        self.background.shouldEnableEffects = !self.background.shouldEnableEffects
+    }
+    
+    func setBackground(bgImg : SKSpriteNode) {
+        bgImg.name = "LevelBackground"
+        let filter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius" : NSNumber(value:200.0)])
+        background = SKEffectNode()
+        background.filter = filter
+        background.shouldRasterize = true
+        background.shouldEnableEffects = false
+        background.addChild(bgImg)
+        background.zPosition = 0
+        self.addChild(background)
+    }
+    
+    func setLevelName(name: LevelState) {
+        self.levelName = name
+    }
+    
+    func addLevelLabel(){
+        levelLabel = SKLabelNode(text: leveltexts[levelName])
+        levelLabel.fontSize = 40
+        levelLabel.position = CGPoint(x: 0, y: self.frame.height/2 - 120)
+        self.addChild(levelLabel)
+    }
 }
-

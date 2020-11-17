@@ -15,7 +15,13 @@ struct CategoryMasks : OptionSet {
     static let bacteria = CategoryMasks(rawValue: 0x1 << 1)
 }
 
-class FasePenicilina : SKScene, SKPhysicsContactDelegate, DefaultButtons {
+class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties {
+    var levelLabel: SKLabelNode!
+    
+    var levelName: LevelState!
+    
+    var background: SKEffectNode!
+    
     var settingsButton: GameButtonNode!
     
     var hintButton: GameButtonNode!
@@ -25,20 +31,15 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, DefaultButtons {
     var fungus : SKSpriteNode!
     private var numBac : Int!
     private var playing = true
-    var levelLabel : SKLabelNode!
-    let LevelName = LevelState.peni
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
-        
+        setLevelName(name: .peni)
+        setBackground(bgImg: SKSpriteNode(color: .clear, size: self.size))
+        addLevelLabel()
         setButtons()
         addButtons()
         
-        levelLabel = SKLabelNode(text: leveltexts[LevelName])
-        levelLabel.fontSize = 40
-        levelLabel.position = CGPoint(x: 0, y: self.frame.height/2 - 120)
-        
-        self.addChild(levelLabel)
         
         
         let c = SKShapeNode(circleOfRadius: self.frame.width/2)
@@ -131,7 +132,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, DefaultButtons {
         let endLabel = SKLabelNode()
         endLabel.fontSize = self.size.height/40
         endLabel.fontColor = .brown// .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
-        endLabel.text = levelcomplete[LevelName]
+        endLabel.text = levelcomplete[levelName]
         endLabel.preferredMaxLayoutWidth = 700
         endLabel.numberOfLines = 0
         endLabel.position = CGPoint(x: 0, y: self.size.height/2 - endLabel.frame.height * 4/3) //
