@@ -148,9 +148,19 @@ extension CommonProperties {
     
     //Add the label to the scene
     func addLevelLabel(){
-        levelLabel = SKLabelNode(text: leveltexts[levelName])
+        levelLabel = SKLabelNode(fontNamed: "Abyss")
+        levelLabel.text =  leveltexts[levelName]
         levelLabel.fontSize = 40
+        levelLabel.preferredMaxLayoutWidth = self.size.width - 200
+        levelLabel.numberOfLines = 0
+        levelLabel.verticalAlignmentMode = .center
+        levelLabel.horizontalAlignmentMode = .center
         levelLabel.position = CGPoint(x: 0, y: self.frame.height/2 - 120)
+        levelLabel.zPosition = 3
         self.addChild(levelLabel)
+    }
+    
+    func removeLevelLabel(){
+        self.levelLabel.removeFromParent()
     }
 }

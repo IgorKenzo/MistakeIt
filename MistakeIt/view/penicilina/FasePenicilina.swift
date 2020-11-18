@@ -40,25 +40,29 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties {
         
         //MARK: setting the common properties
         setLevelName(name: .peni)
-        setBackground(bgImg: SKSpriteNode(color: .clear, size: self.size))
+        setBackground(bgImg: SKSpriteNode(imageNamed: "2-bg"))
         addLevelLabel()
         setButtons()
         addButtons()
         
+//        let c = SKShapeNode(circleOfRadius: self.frame.width/2 - 50)
+//        c.position = CGPoint(x: 0, y: -20)
+//        c.strokeColor = .red
+//        c.zPosition = 20
+//        background.addChild(c)
         
-        
-        let c = SKShapeNode(circleOfRadius: self.frame.width/2)
-        self.addChild(c)
-        
-        fungus = SKSpriteNode(color: .cyan, size: CGSize(width: 100, height: 100))
+        fungus = SKSpriteNode(imageNamed: "2-fungo")//fungo
         fungus.position = CGPoint(x: 0, y: 0)
+        fungus.size = CGSize(width: fungus.size.width/5, height: fungus.size.height/5)
         fungus.physicsBody = SKPhysicsBody(rectangleOf: fungus.size)
         fungus.physicsBody?.categoryBitMask = CategoryMasks.fungus.rawValue
         fungus.physicsBody?.collisionBitMask = CategoryMasks.bacteria.rawValue
         fungus.physicsBody?.contactTestBitMask = CategoryMasks.bacteria.rawValue
         fungus.physicsBody?.affectedByGravity = false
         fungus.name = "fungus"
-        self.addChild(fungus)
+        fungus.zPosition = 2
+        fungus.position = CGPoint.zero
+        background.addChild(fungus)
         
         numBac = 8
         for _ in 0 ..< numBac {
@@ -83,7 +87,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties {
         if let touch = touches.first, let node = self.currentNode {
             let touchLocation = touch.location(in: self)
             let baseRadius = self.frame.width/2 - 50
-            let distance = sqrt(pow(touchLocation.x, 2) + pow(touchLocation.y, 2))
+            let distance = sqrt(pow(touchLocation.x, 2) + pow(touchLocation.y + 20, 2))
             let distanceDiff = distance - baseRadius
             
             if distanceDiff > 0 {
@@ -106,21 +110,23 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties {
     
     
     func spawnBac() {
-        let radius = CGFloat.random(in: 0...self.frame.width/2)
+        let radius = CGFloat.random(in: fungus.size.width ... self.frame.width/2)
         let angle = CGFloat.random(in: 0 ... 2 * .pi)
         let position = CGPoint(x: radius * cos(angle), y: radius * sin(angle))
         
         
-        let bac = SKSpriteNode(color: .random(), size: CGSize(width: 50, height: 50))
+        let bac = SKSpriteNode(imageNamed: "2-bacteria")
         bac.name = "bac"
         bac.position = position
+        bac.size = CGSize(width: bac.size.width/6, height: bac.size.height/6)
         bac.physicsBody = SKPhysicsBody(rectangleOf: bac.size)
         bac.physicsBody?.categoryBitMask = 0x1 << 1
         bac.physicsBody?.collisionBitMask = 0x1 << 0
         bac.physicsBody?.affectedByGravity = false
         bac.physicsBody?.isDynamic = false
         bac.physicsBody?.allowsRotation = false
-        self.addChild(bac)
+        bac.zPosition = 1
+        background.addChild(bac)
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -134,6 +140,9 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties {
     
     
     func endGame(){
+        removeButtons()
+        removeLevelLabel()
+        
         let endLabel = SKLabelNode()
         endLabel.fontSize = self.size.height/40
         endLabel.fontColor = .brown// .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
@@ -141,18 +150,19 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties {
         endLabel.preferredMaxLayoutWidth = 700
         endLabel.numberOfLines = 0
         endLabel.position = CGPoint(x: 0, y: self.size.height/2 - endLabel.frame.height * 4/3) //
+        endLabel.zPosition = 1
         self.addChild(endLabel)
     }
 }
 
 
-extension UIColor {
-    static func random() -> UIColor {
-        return UIColor(
-            red:   CGFloat.random(in: 0...1),
-            green: CGFloat.random(in: 0...1),
-            blue:  CGFloat.random(in: 0...1),
-                    alpha: 1.0
-                )
-    }
-}
+//extension UIColor {
+//    static func random() -> UIColor {
+//        return UIColor(
+//            red:   CGFloat.random(in: 0...1),
+//            green: CGFloat.random(in: 0...1),
+//            blue:  CGFloat.random(in: 0...1),
+//                    alpha: 1.0
+//                )
+//    }
+//}
