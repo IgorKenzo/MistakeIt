@@ -7,137 +7,59 @@
 
 import SpriteKit
 
-class FaseLampada: SKScene {
+class FaseLampada: SKScene, CommonProperties {
     
-    var fundo = SKEffectNode()
-    var filamento1 : RotateNode!
-    var filamento2 : RotateNode!
-    var raio : SKSpriteNode!
+    //Protocol
+    var levelName: LevelState!
+    
+    var settingsButton: GameButtonNode!
+    
+    var hintButton: GameButtonNode!
+    
+    var background: SKEffectNode!
+    
+    var levelLabel: SKLabelNode!
+    
+    //Level Specific
+    var filament1 : RotateNode!
+    var filament2 : RotateNode!
     var playing = true
-    var levelLabel : SKLabelNode!
-    
-    let LevelName = LevelState.lamp
-    
     
     override func didMove(to view: SKView) {
         
+        //MARK: setting the common properties
+        setLevelName(name: .lamp)
+        setBackground(bgImg: SKSpriteNode(imageNamed: "blur"))
+        setButtons()
+        addButtons()
+        addLevelLabel()
+        
         //MARK: Load Sprites and positions
-        setFilamentos()
-        //setHint
+        setfilaments()
         setLighting()
-        
-        //m
-        levelLabel = SKLabelNode(text: leveltexts[LevelName])
-        levelLabel.fontSize = 40
-        levelLabel.position = CGPoint(x: 0, y: self.frame.height/2 - 120)
-        
-        self.addChild(levelLabel)
-        
-        //MARK: Define Blur and hint
-        let blurBackground = SKSpriteNode(imageNamed: "blur")
-        let hintPopUp = SKSpriteNode(imageNamed: "hint-bubble")
-        let filter = CIFilter(name: "CIGaussianBlur", parameters: ["inputRadius" : NSNumber(value:200.0)])
-        fundo = SKEffectNode()
-        fundo.filter = filter
-        fundo.shouldRasterize = true
-        fundo.shouldEnableEffects = false
-        fundo.addChild(blurBackground)
-        fundo.zPosition = -1
-        self.addChild(fundo)
-        
-        
-        //MARK: Hint and Settings buttons
-        let btnHint = GameButtonNode(image: SKTexture(imageNamed: "hint"), onTap: {})
-        btnHint.position = CGPoint(x: -270, y: -510)
-        self.addChild(btnHint)
-        
-        hintPopUp.position = CGPoint(x: btnHint.position.x + hintPopUp.size.width/2, y: btnHint.position.y + hintPopUp.size.height/2)
-        btnHint.onTap = {
-            if !btnHint.pressed {
-                self.blurBackground()
-                self.addChild(hintPopUp)
-            }
-            else {
-                self.blurBackground()
-                hintPopUp.removeFromParent()
-            }
-        }
-        
-        
-        //btnHint.zPosition = 1
-        
-        let btnSettings = GameButtonNode(image: SKTexture(imageNamed: "settings"), onTap: {
-            self.run(SKAction.rotate(byAngle: -.pi/2, duration: 1))
-            
-        })
-        btnSettings.position = CGPoint(x: 270, y: -510)
-        self.addChild(btnSettings)
-        
-        //btnSettings.zPosition = 1
-        
-        let btnRetry = GameButtonNode(image: SKTexture(imageNamed: "retry"), onTap: {})
-        let btnHome = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: {})
-        let btnMusic = GameButtonNode(image: SKTexture(imageNamed: "music"), onTap: {})
-
-        let settingsButtons = [btnRetry, btnHome, btnMusic]
-
-        
-        //MARK: Buttons Animations
-        var animationsFw : [SKAction] = []
-        let animationBack : SKAction = SKAction.move(to: btnSettings.position, duration: 0.3)
-//
-        for i in 0 ..< settingsButtons.count {
-            settingsButtons[i].position = btnSettings.position
-            settingsButtons[i].zPosition = 1
-            animationsFw.append(SKAction.move(to: CGPoint(x: btnSettings.position.x, y: btnSettings.position.y + (CGFloat(i + 1) * (settingsButtons[i].size.height + 30))), duration: 0.3))
-        }
-    
-        
-        btnSettings.onTap = {
-            
-            if !btnSettings.pressed {
-                self.blurBackground()
-                btnSettings.run(SKAction.rotate(byAngle: -.pi/2, duration: 0.3))
-                
-                for i in 0..<settingsButtons.count {
-                    self.addChild(settingsButtons[i])
-                    settingsButtons[i].run(animationsFw[i])
-                }
-            }
-            else{
-                self.blurBackground()
-                btnSettings.run(SKAction.rotate(byAngle: .pi/2, duration: 0.3))
-                
-                for i in 0..<settingsButtons.count {
-                    settingsButtons[i].run(animationBack,completion: {
-                        settingsButtons[i].removeFromParent()
-                    })
-                }
-            }
-            
-        }
     }
     
-    //function to blur
-    func blurBackground(){
-        self.fundo.shouldEnableEffects = !self.fundo.shouldEnableEffects
-    }
-    
-    func setFilamentos() {
-        filamento1 = RotateNode(imageNamed: "fila1")
-        filamento2 = RotateNode(imageNamed: "fila2")
+    //Setting Filaments
+    func setfilaments() {
+        filament1 = RotateNode(imageNamed: "fila1")
+        filament2 = RotateNode(imageNamed: "fila2")
         
-        filamento1.position = CGPoint(x: -89, y: -80)
-        filamento2.position = CGPoint(x: 67, y: -80)
+        filament1.size = CGSize(width: 145, height: 78)
+        filament2.size = CGSize(width: 145, height: 78)
         
-        filamento1.zRotation = .pi/2
+        filament1.position = CGPoint(x: -69, y: -110)
+        filament2.position = CGPoint(x: 67, y: -110)
         
-        self.addChild(filamento1)
-        self.addChild(filamento2)
+        filament1.zRotation = .pi/2
         
-        //filamento1.rotate()
-        filamento2.rotate()
-        filamento2.rotate()
+        filament1.zPosition = 1
+        filament2.zPosition = 1
+        
+        background.addChild(filament1)
+        background.addChild(filament2)
+        
+        filament2.rotate()
+        filament2.rotate()
     }
     
     //function to transform radians to degrees, returns an int value
@@ -147,31 +69,34 @@ class FaseLampada: SKScene {
     
     override func update(_ currentTime: TimeInterval) {
         
+        //Check if still playing ( didn`t align filaments)
         if playing {
-            if (rad2deg(filamento1.zRotation) % 360 == 0) {
-                for node in filamento1.children {
+            
+            //Conditions to position the lightining when filament is aligned
+            if (rad2deg(filament1.zRotation) % 360 == 0) {
+                for node in filament1.children {
                     node.isHidden = false
                 }
             }
             else{
-                for node in filamento1.children {
+                for node in filament1.children {
                     node.isHidden = true
                 }
             }
 
-            if (rad2deg(filamento2.zRotation) % 360 == 0) {
-                for node in filamento2.children {
+            if (rad2deg(filament2.zRotation) % 360 == 0) {
+                for node in filament2.children {
                     node.isHidden = false
                 }
             }
             else{
-                for node in filamento2.children {
+                for node in filament2.children {
                     node.isHidden = true
                 }
             }
             
-            //Comparação da rotação dos dois filamentos
-            if (rad2deg(filamento1.zRotation) % 360 == 0) && (rad2deg(filamento2.zRotation) % 360 == 0) {
+            //Compare filaments rotation
+            if (rad2deg(filament1.zRotation) % 360 == 0) && (rad2deg(filament2.zRotation) % 360 == 0) {
                 playing = false
                 endLevel()
             }
@@ -179,74 +104,60 @@ class FaseLampada: SKScene {
         }
     }
     
-    
+    //Setting the lighting that shows when filament is right
     func setLighting(){
         
-        let raio = SKSpriteNode(imageNamed: "lighting")
-        filamento1.addChild(raio)
-        raio.position = CGPoint(x: -40, y: 90)
-        raio.isHidden = true
+        let lightining = SKSpriteNode(imageNamed: "lighting")
+        lightining.size = CGSize(width: 50, height: 90)
+        filament1.addChild(lightining)
+        lightining.position = CGPoint(x: -10, y: 90)
+        lightining.isHidden = true
         
-        let raio2 = SKSpriteNode(imageNamed: "lighting")
-        filamento2.addChild(raio2)
-        raio2.position = CGPoint(x: 0, y: 90)
-        raio2.isHidden = true
+        let lightining2 = SKSpriteNode(imageNamed: "lighting")
+        lightining2.size = CGSize(width: 50, height: 90)
+        filament2.addChild(lightining2)
+        lightining2.position = CGPoint(x: 0, y: 90)
+        lightining2.isHidden = true
     }
     
     func endLevel() {
-        //remove os botoes de hint e  config
+        //remove hint and settings buttons
+        //from protocol
+        removeButtons()
         
-        //...
         
-        //puxa a tela final e os botoes
-        let bg = self.childNode(withName: "bg") as! SKSpriteNode
+        //end background and buttons
         
-        //bg.run(SKAction.)
+        let bg = background.childNode(withName: "LevelBackground") as! SKSpriteNode
         bg.texture = SKTexture(imageNamed: "bgEnd")
-        fundo.removeFromParent()
-        
         levelLabel.removeFromParent()
         
         let home = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: {})
         let foward = GameButtonNode(image: SKTexture(imageNamed: "foward"), onTap: {})
         
-        
         home.position = CGPoint(x: -50 , y: -self.frame.height/2)
         foward.position = CGPoint(x: 50 , y: -self.frame.height/2)
+        
+        home.zPosition = 1
+        foward.zPosition = 1
         
         self.addChild(home)
         self.addChild(foward)
         
-        
         let endLabel = SKLabelNode()
         endLabel.fontSize = self.size.height/40
         endLabel.fontColor = .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
-        endLabel.text = levelcomplete[LevelName]
+        endLabel.text = levelcomplete[levelName]
         endLabel.preferredMaxLayoutWidth = 500
         endLabel.numberOfLines = 0
         endLabel.position = CGPoint(x: 0, y: self.size.height/2 - endLabel.frame.height * 4/3) //
         self.addChild(endLabel)
-        print(numberOfLines(lb: endLabel))
+        endLabel.zPosition = 3
+        //print(numberOfLines(lb: endLabel))
         
         home.run(SKAction.move(to: CGPoint(x: -50 , y: -self.frame.height/2 + 150), duration: 0.7))
         foward.run(SKAction.move(to: CGPoint(x: 50 , y: -self.frame.height/2 + 150), duration: 0.7))
         
     }
     
-    func numberOfLines(lb : SKLabelNode) -> Int {
-        let preferredMaxWidth: CGFloat = 500
-
-        let label = UILabel()
-        label.text = lb.text
-        label.font = UIFont(name: lb.fontName!, size: lb.fontSize)
-        label.numberOfLines = lb.numberOfLines
-
-        label.frame.size.width = preferredMaxWidth
-        label.sizeToFit()
-        label.frame.size.width = preferredMaxWidth
-
-        return Int(label.frame.size.height / label.font.pointSize)
-    }
-    
 }
-
