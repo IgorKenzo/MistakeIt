@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class FaseLampada: SKScene, CommonProperties {
+class FaseLampada: SKScene, CommonProperties, SceneManager {
     
     //Protocol
     var levelName: LevelState!
@@ -157,6 +157,10 @@ class FaseLampada: SKScene, CommonProperties {
         
         home.run(SKAction.move(to: CGPoint(x: -50 , y: -self.frame.height/2 + 150), duration: 0.7))
         foward.run(SKAction.move(to: CGPoint(x: 50 , y: -self.frame.height/2 + 150), duration: 0.7))
+        
+        foward.onTap = {
+            self.loadScene(withIdentifier: .peni)
+        }
         
     }
     

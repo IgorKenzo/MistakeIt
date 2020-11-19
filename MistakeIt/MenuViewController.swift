@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class GameViewController: UIViewController {
+class MenuViewController: UIViewController {
 
     @IBAction func helpBtn(_ sender: Any) {
         animateIn(x: blurView)
@@ -30,22 +30,6 @@ class GameViewController: UIViewController {
         //tamanho do popUp
         popUpView.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 450)
         
-        if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "FaseLampadaScene") { //FaseLampadaScene //FasePenicilinaScene //PacemakerScene
-                // Set the scale mode to scale to fit the window
-                
-                scene.scaleMode = .aspectFill
-                
-                // Present the scene
-                view.presentScene(scene)
-            }
-            
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
-        }
     }
     
     //função para criar animação quando o popUp aparecer
@@ -96,3 +80,21 @@ class GameViewController: UIViewController {
         return true
     }
 }
+
+
+//if let view = self.view as! SKView? {
+//    // Load the SKScene from 'GameScene.sks'
+//    if let scene = SKScene(fileNamed: "FaseLampadaScene") { //FaseLampadaScene //FasePenicilinaScene //PacemakerScene
+//        // Set the scale mode to scale to fit the window
+//
+//        scene.scaleMode = .aspectFill
+//
+//        // Present the scene
+//        view.presentScene(scene)
+//    }
+//
+//    view.ignoresSiblingOrder = true
+//
+//    view.showsFPS = true
+//    view.showsNodeCount = true
+//}
