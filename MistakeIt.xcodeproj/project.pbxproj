@@ -23,6 +23,7 @@
 		05A74A4F2559D83B0070F857 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A74A4E2559D83B0070F857 /* Navigation.swift */; };
 		05A74A592559D8B60070F857 /* GameButtoNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05449E992548945C00452B0A /* GameButtoNode.swift */; };
 		05FE18BC2554853E00758744 /* textFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FE18BB2554853E00758744 /* textFile.swift */; };
+		2E07385F255DC1C8000DE830 /* PaceMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E07385E255DC1C8000DE830 /* PaceMakerViewController.swift */; };
 		2EB316732555D24D008C63F6 /* Scene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB316722555D24D008C63F6 /* Scene2.swift */; };
 		2EB316782555D263008C63F6 /* Scene2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB316772555D263008C63F6 /* Scene2ViewController.swift */; };
 		2EBC60CE254A04D800AEDE0D /* Teste.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EBC60CD254A04D800AEDE0D /* Teste.storyboard */; };
@@ -71,6 +72,7 @@
 		05A74A4E2559D83B0070F857 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		05FE18BB2554853E00758744 /* textFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textFile.swift; sourceTree = "<group>"; };
 		05FE18C12554861A00758744 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		2E07385E255DC1C8000DE830 /* PaceMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceMakerViewController.swift; sourceTree = "<group>"; };
 		2EB316722555D24D008C63F6 /* Scene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene2.swift; sourceTree = "<group>"; };
 		2EB316772555D263008C63F6 /* Scene2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene2ViewController.swift; sourceTree = "<group>"; };
 		2EBC60CD254A04D800AEDE0D /* Teste.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Teste.storyboard; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 		05449E94254893CF00452B0A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				2E07385C255DC192000DE830 /* PaceMaker */,
 				05A749CD2559BD680070F857 /* lampada */,
 				05A749C52559B71E0070F857 /* Paper */,
 			);
@@ -183,6 +186,7 @@
 		05449E95254893D500452B0A /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				2E07385D255DC1B3000DE830 /* PaceMaker */,
 				05A749C42559B6F80070F857 /* Paper */,
 			);
 			path = controller;
@@ -229,6 +233,21 @@
 				05A749E92559CB630070F857 /* FaseLampadaScene.sks */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		2E07385C255DC192000DE830 /* PaceMaker */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PaceMaker;
+			sourceTree = "<group>";
+		};
+		2E07385D255DC1B3000DE830 /* PaceMaker */ = {
+			isa = PBXGroup;
+			children = (
+				2E07385E255DC1C8000DE830 /* PaceMakerViewController.swift */,
+			);
+			path = PaceMaker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,6 +391,7 @@
 				05A74A092559D2530070F857 /* FaseLampada.swift in Sources */,
 				05A749F82559CB8C0070F857 /* PaperScreenViewController.swift in Sources */,
 				0516A85A2537926000685DB9 /* AppDelegate.swift in Sources */,
+				2E07385F255DC1C8000DE830 /* PaceMakerViewController.swift in Sources */,
 				2EB316732555D24D008C63F6 /* Scene2.swift in Sources */,
 				05A749B42559B55B0070F857 /* GameViewController.swift in Sources */,
 				2EB316782555D263008C63F6 /* Scene2ViewController.swift in Sources */,
