@@ -345,7 +345,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1200;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					0516A8552537926000685DB9 = {
 						CreatedOnToolsVersion = 12.0;
@@ -432,7 +432,6 @@
 				05A74A092559D2530070F857 /* FaseLampada.swift in Sources */,
 				05A749F82559CB8C0070F857 /* PaperScreenViewController.swift in Sources */,
 				055862CB25645C4A00C0477D /* Pacemaker.swift in Sources */,
-				0516A85A2537926000685DB9 /* AppDelegate.swift in Sources */,
 				052464872563022A00A7F5CE /* CommonProperties.swift in Sources */,
 				2EB316732555D24D008C63F6 /* Scene2.swift in Sources */,
 				05A749B42559B55B0070F857 /* GameViewController.swift in Sources */,

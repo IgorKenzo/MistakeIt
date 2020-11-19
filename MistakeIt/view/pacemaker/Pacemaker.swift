@@ -35,9 +35,9 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties {
 //        setButtons()
 //        addButtons()
         
-        fio1 = self.childNode(withName: "bg")!.childNode(withName: "fio1") as! SKSpriteNode
-        fio2 = self.childNode(withName: "bg")!.childNode(withName: "fio2") as! SKSpriteNode
-        fio3 = self.childNode(withName: "bg")!.childNode(withName: "fio3") as! SKSpriteNode
+//        fio1 = self.childNode(withName: "bg")!.childNode(withName: "fio1") as! SKSpriteNode
+//        fio2 = self.childNode(withName: "bg")!.childNode(withName: "fio2") as! SKSpriteNode
+//        fio3 = self.childNode(withName: "bg")!.childNode(withName: "fio3") as! SKSpriteNode
         
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
