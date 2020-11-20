@@ -14,10 +14,6 @@
 		0516A8672537926100685DB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0516A8662537926100685DB9 /* Assets.xcassets */; };
 		0516A8722537926200685DB9 /* ProjetoErroTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0516A8712537926200685DB9 /* ProjetoErroTests.swift */; };
 		0516A87D2537926200685DB9 /* ProjetoErroUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0516A87C2537926200685DB9 /* ProjetoErroUITests.swift */; };
-		0516A89125379A4B00685DB9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0516A89025379A4B00685DB9 /* Launch Screen.storyboard */; };
-		9740489225630E6900B2DB45 /* Niveis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740489125630E6900B2DB45 /* Niveis.swift */; };
-		975D5A5A2555BDF9008D8E3F /* NiveisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A592555BDF9008D8E3F /* NiveisViewController.swift */; };
-		975D5A5F2555BE67008D8E3F /* NiveisCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */; };
 		0521B436255C72D3003A7290 /* FasePenicilina.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521B435255C72D3003A7290 /* FasePenicilina.swift */; };
 		0521B43E255C72E6003A7290 /* FasePenicilinaScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 0521B43D255C72E6003A7290 /* FasePenicilinaScene.sks */; };
 		0521B443255C751D003A7290 /* FasePenicilinaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0521B442255C751D003A7290 /* FasePenicilinaViewController.swift */; };
@@ -34,10 +30,14 @@
 		05A74A592559D8B60070F857 /* GameButtoNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05449E992548945C00452B0A /* GameButtoNode.swift */; };
 		05C718342565B67F00DF4EFA /* Abyss.otf in Resources */ = {isa = PBXBuildFile; fileRef = 05C718332565B67F00DF4EFA /* Abyss.otf */; };
 		05FE18BC2554853E00758744 /* textFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FE18BB2554853E00758744 /* textFile.swift */; };
-		2E07385F255DC1C8000DE830 /* PaceMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E07385E255DC1C8000DE830 /* PaceMakerViewController.swift */; };
+		2E09CE51256701200065878D /* PaperLevel.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2E09CE50256701200065878D /* PaperLevel.sks */; };
+		2E09CE56256842510065878D /* credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E09CE55256842510065878D /* credit.swift */; };
 		2EB316732555D24D008C63F6 /* Scene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB316722555D24D008C63F6 /* Scene2.swift */; };
 		2EB316782555D263008C63F6 /* Scene2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB316772555D263008C63F6 /* Scene2ViewController.swift */; };
 		2EBC60CE254A04D800AEDE0D /* Teste.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EBC60CD254A04D800AEDE0D /* Teste.storyboard */; };
+		9740489225630E6900B2DB45 /* Niveis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740489125630E6900B2DB45 /* Niveis.swift */; };
+		975D5A5A2555BDF9008D8E3F /* NiveisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A592555BDF9008D8E3F /* NiveisViewController.swift */; };
+		975D5A5F2555BE67008D8E3F /* NiveisCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,9 +72,6 @@
 		0516A87C2537926200685DB9 /* ProjetoErroUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetoErroUITests.swift; sourceTree = "<group>"; };
 		0516A87E2537926200685DB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0516A89025379A4B00685DB9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		9740489125630E6900B2DB45 /* Niveis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Niveis.swift; sourceTree = "<group>"; };
-		975D5A592555BDF9008D8E3F /* NiveisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisViewController.swift; sourceTree = "<group>"; };
-		975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisCollectionViewCell.swift; sourceTree = "<group>"; };
 		0521B435255C72D3003A7290 /* FasePenicilina.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FasePenicilina.swift; sourceTree = "<group>"; };
 		0521B43D255C72E6003A7290 /* FasePenicilinaScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FasePenicilinaScene.sks; sourceTree = "<group>"; };
 		0521B442255C751D003A7290 /* FasePenicilinaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FasePenicilinaViewController.swift; sourceTree = "<group>"; };
@@ -94,10 +91,14 @@
 		05C718332565B67F00DF4EFA /* Abyss.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Abyss.otf; sourceTree = "<group>"; };
 		05FE18BB2554853E00758744 /* textFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textFile.swift; sourceTree = "<group>"; };
 		05FE18C12554861A00758744 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
-		2E07385E255DC1C8000DE830 /* PaceMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceMakerViewController.swift; sourceTree = "<group>"; };
+		2E09CE50256701200065878D /* PaperLevel.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PaperLevel.sks; sourceTree = "<group>"; };
+		2E09CE55256842510065878D /* credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = credit.swift; sourceTree = "<group>"; };
 		2EB316722555D24D008C63F6 /* Scene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene2.swift; sourceTree = "<group>"; };
 		2EB316772555D263008C63F6 /* Scene2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene2ViewController.swift; sourceTree = "<group>"; };
 		2EBC60CD254A04D800AEDE0D /* Teste.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Teste.storyboard; sourceTree = "<group>"; };
+		9740489125630E6900B2DB45 /* Niveis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Niveis.swift; sourceTree = "<group>"; };
+		975D5A592555BDF9008D8E3F /* NiveisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisViewController.swift; sourceTree = "<group>"; };
+		975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +170,7 @@
 				2EB316772555D263008C63F6 /* Scene2ViewController.swift */,
 				05A749AD2559B4BD0070F857 /* Main.storyboard */,
 				05A749B32559B55B0070F857 /* GameViewController.swift */,
+				2E09CE55256842510065878D /* credit.swift */,
 			);
 			path = MistakeIt;
 			sourceTree = "<group>";
@@ -258,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				05A749F22559CB730070F857 /* PaperScene.swift */,
+				2E09CE50256701200065878D /* PaperLevel.sks */,
 			);
 			path = Paper;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05C718342565B67F00DF4EFA /* Abyss.otf in Resources */,
+				2E09CE51256701200065878D /* PaperLevel.sks in Resources */,
 				055862D325645C5B00C0477D /* PacemakerScene.sks in Resources */,
 				0516A85C2537926000685DB9 /* GameScene.sks in Resources */,
 				2EBC60CE254A04D800AEDE0D /* Teste.storyboard in Resources */,
@@ -434,8 +438,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0516A8602537926000685DB9 /* GameScene.swift in Sources */,
-				0516A8622537926000685DB9 /* GameViewController.swift in Sources */,
 				975D5A5A2555BDF9008D8E3F /* NiveisViewController.swift in Sources */,
 				975D5A5F2555BE67008D8E3F /* NiveisCollectionViewCell.swift in Sources */,
 				0516A85A2537926000685DB9 /* AppDelegate.swift in Sources */,
@@ -446,6 +448,7 @@
 				05A749F32559CB730070F857 /* PaperScene.swift in Sources */,
 				05A74A4F2559D83B0070F857 /* Navigation.swift in Sources */,
 				05007ECF254B64F700C3A280 /* RotateNote.swift in Sources */,
+				2E09CE56256842510065878D /* credit.swift in Sources */,
 				05A74A092559D2530070F857 /* FaseLampada.swift in Sources */,
 				05A749F82559CB8C0070F857 /* PaperScreenViewController.swift in Sources */,
 				055862CB25645C4A00C0477D /* Pacemaker.swift in Sources */,
