@@ -1,28 +1,33 @@
 //
-//  FasePenicilinaViewController.swift
+//  PlayViewController.swift
 //  MistakeIt
 //
-//  Created by IgorMiyamoto on 11/11/20.
+//  Created by IgorMiyamoto on 19/11/20.
 //
 
 import Foundation
 import SpriteKit
 
-class FasePenicilinaViewController: UIViewController {
-
+class PlayViewController: UIViewController {
+    var LevelName : LevelState?
+    static var BackToMenu = {}
+    
     override func viewDidLoad() {
-        self.view = SKView()
         super.viewDidLoad()
-        
+    
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "FasePenicilinaScene") {
+            if let scene = SKScene(fileNamed: "PlayScene") as? Play{
                 // Set the scale mode to scale to fit the window
-                
                 scene.scaleMode = .aspectFill
                 
+                scene.LevelName = LevelName
+                scene.backToMenu = {}
                 // Present the scene
                 view.presentScene(scene)
+            }
+            PlayViewController.BackToMenu = {
+                self.performSegue(withIdentifier: "unwindToMenu", sender: nil)
             }
             
             view.ignoresSiblingOrder = true

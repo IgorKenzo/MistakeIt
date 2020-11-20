@@ -21,7 +21,7 @@
 		055862CB25645C4A00C0477D /* Pacemaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055862CA25645C4A00C0477D /* Pacemaker.swift */; };
 		055862D325645C5B00C0477D /* PacemakerScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 055862D225645C5B00C0477D /* PacemakerScene.sks */; };
 		05A749AE2559B4BD0070F857 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A749AD2559B4BD0070F857 /* Main.storyboard */; };
-		05A749B42559B55B0070F857 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A749B32559B55B0070F857 /* GameViewController.swift */; };
+		05A749B42559B55B0070F857 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A749B32559B55B0070F857 /* MenuViewController.swift */; };
 		05A749F32559CB730070F857 /* PaperScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A749F22559CB730070F857 /* PaperScene.swift */; };
 		05A749F82559CB8C0070F857 /* PaperScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A749F72559CB8C0070F857 /* PaperScreenViewController.swift */; };
 		05A74A092559D2530070F857 /* FaseLampada.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A74A072559D2530070F857 /* FaseLampada.swift */; };
@@ -30,10 +30,12 @@
 		05A74A592559D8B60070F857 /* GameButtoNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05449E992548945C00452B0A /* GameButtoNode.swift */; };
 		05C718342565B67F00DF4EFA /* Abyss.otf in Resources */ = {isa = PBXBuildFile; fileRef = 05C718332565B67F00DF4EFA /* Abyss.otf */; };
 		05CF85742566E914004C166A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05CF85732566E914004C166A /* Launch Screen.storyboard */; };
+		05CF85862566F068004C166A /* FaseLampadaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF85852566F068004C166A /* FaseLampadaViewController.swift */; };
+		05CF858F2567061A004C166A /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF858E2567061A004C166A /* PlayViewController.swift */; };
+		05CF8595256706AC004C166A /* PlayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05CF8594256706AC004C166A /* PlayScene.sks */; };
+		05CF859A256706BD004C166A /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF8599256706BD004C166A /* Play.swift */; };
+		05CF85A025670757004C166A /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF859F25670757004C166A /* SceneManager.swift */; };
 		05FE18BC2554853E00758744 /* textFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FE18BB2554853E00758744 /* textFile.swift */; };
-		2EB316732555D24D008C63F6 /* Scene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB316722555D24D008C63F6 /* Scene2.swift */; };
-		2EB316782555D263008C63F6 /* Scene2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB316772555D263008C63F6 /* Scene2ViewController.swift */; };
-		2EBC60CE254A04D800AEDE0D /* Teste.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EBC60CD254A04D800AEDE0D /* Teste.storyboard */; };
 		9740489225630E6900B2DB45 /* Niveis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740489125630E6900B2DB45 /* Niveis.swift */; };
 		975D5A5A2555BDF9008D8E3F /* NiveisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A592555BDF9008D8E3F /* NiveisViewController.swift */; };
 		975D5A5F2555BE67008D8E3F /* NiveisCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */; };
@@ -78,7 +80,7 @@
 		055862CA25645C4A00C0477D /* Pacemaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pacemaker.swift; sourceTree = "<group>"; };
 		055862D225645C5B00C0477D /* PacemakerScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PacemakerScene.sks; sourceTree = "<group>"; };
 		05A749AD2559B4BD0070F857 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		05A749B32559B55B0070F857 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		05A749B32559B55B0070F857 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		05A749F22559CB730070F857 /* PaperScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperScene.swift; sourceTree = "<group>"; };
 		05A749F72559CB8C0070F857 /* PaperScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperScreenViewController.swift; sourceTree = "<group>"; };
 		05A74A072559D2530070F857 /* FaseLampada.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaseLampada.swift; sourceTree = "<group>"; };
@@ -86,10 +88,12 @@
 		05A74A4E2559D83B0070F857 /* Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		05C718332565B67F00DF4EFA /* Abyss.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Abyss.otf; sourceTree = "<group>"; };
 		05CF85732566E914004C166A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		05CF85852566F068004C166A /* FaseLampadaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaseLampadaViewController.swift; sourceTree = "<group>"; };
+		05CF858E2567061A004C166A /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		05CF8594256706AC004C166A /* PlayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayScene.sks; sourceTree = "<group>"; };
+		05CF8599256706BD004C166A /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
+		05CF859F25670757004C166A /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 		05FE18BB2554853E00758744 /* textFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textFile.swift; sourceTree = "<group>"; };
-		2EB316722555D24D008C63F6 /* Scene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene2.swift; sourceTree = "<group>"; };
-		2EB316772555D263008C63F6 /* Scene2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene2ViewController.swift; sourceTree = "<group>"; };
-		2EBC60CD254A04D800AEDE0D /* Teste.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Teste.storyboard; sourceTree = "<group>"; };
 		9740489125630E6900B2DB45 /* Niveis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Niveis.swift; sourceTree = "<group>"; };
 		975D5A592555BDF9008D8E3F /* NiveisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisViewController.swift; sourceTree = "<group>"; };
 		975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 		0516A8582537926000685DB9 /* MistakeIt */ = {
 			isa = PBXGroup;
 			children = (
+				05CF859E2567073F004C166A /* scenemanager */,
 				05C718322565B66D00DF4EFA /* Fonts */,
 				05A749DC2559BE170070F857 /* navigation */,
 				05449E95254893D500452B0A /* controller */,
@@ -152,16 +157,13 @@
 				0516A85B2537926000685DB9 /* GameScene.sks */,
 				0516A85D2537926000685DB9 /* Actions.sks */,
 				05FE18BB2554853E00758744 /* textFile.swift */,
-				2EBC60CD254A04D800AEDE0D /* Teste.storyboard */,
 				0516A8662537926100685DB9 /* Assets.xcassets */,
 				0516A8682537926100685DB9 /* Info.plist */,
 				975D5A592555BDF9008D8E3F /* NiveisViewController.swift */,
 				975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */,
 				9740489125630E6900B2DB45 /* Niveis.swift */,
-				2EB316722555D24D008C63F6 /* Scene2.swift */,
-				2EB316772555D263008C63F6 /* Scene2ViewController.swift */,
 				05A749AD2559B4BD0070F857 /* Main.storyboard */,
-				05A749B32559B55B0070F857 /* GameViewController.swift */,
+				05A749B32559B55B0070F857 /* MenuViewController.swift */,
 				05CF85732566E914004C166A /* Launch Screen.storyboard */,
 			);
 			path = MistakeIt;
@@ -214,6 +216,7 @@
 		05449E94254893CF00452B0A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				05CF859325670698004C166A /* play */,
 				055862C825645C2800C0477D /* pacemaker */,
 				0521B433255C7294003A7290 /* penicilina */,
 				05A749CD2559BD680070F857 /* lampada */,
@@ -225,6 +228,8 @@
 		05449E95254893D500452B0A /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				05CF858D256705AC004C166A /* play */,
+				05CF85842566F050004C166A /* lampada */,
 				0521B447255C7523003A7290 /* Penicilina */,
 				05A749C42559B6F80070F857 /* Paper */,
 			);
@@ -280,6 +285,39 @@
 				05C718332565B67F00DF4EFA /* Abyss.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		05CF85842566F050004C166A /* lampada */ = {
+			isa = PBXGroup;
+			children = (
+				05CF85852566F068004C166A /* FaseLampadaViewController.swift */,
+			);
+			path = lampada;
+			sourceTree = "<group>";
+		};
+		05CF858D256705AC004C166A /* play */ = {
+			isa = PBXGroup;
+			children = (
+				05CF858E2567061A004C166A /* PlayViewController.swift */,
+			);
+			path = play;
+			sourceTree = "<group>";
+		};
+		05CF859325670698004C166A /* play */ = {
+			isa = PBXGroup;
+			children = (
+				05CF8594256706AC004C166A /* PlayScene.sks */,
+				05CF8599256706BD004C166A /* Play.swift */,
+			);
+			path = play;
+			sourceTree = "<group>";
+		};
+		05CF859E2567073F004C166A /* scenemanager */ = {
+			isa = PBXGroup;
+			children = (
+				05CF859F25670757004C166A /* SceneManager.swift */,
+			);
+			path = scenemanager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,10 +423,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05CF8595256706AC004C166A /* PlayScene.sks in Resources */,
 				05C718342565B67F00DF4EFA /* Abyss.otf in Resources */,
 				055862D325645C5B00C0477D /* PacemakerScene.sks in Resources */,
 				0516A85C2537926000685DB9 /* GameScene.sks in Resources */,
-				2EBC60CE254A04D800AEDE0D /* Teste.storyboard in Resources */,
 				05A749AE2559B4BD0070F857 /* Main.storyboard in Resources */,
 				0521B43E255C72E6003A7290 /* FasePenicilinaScene.sks in Resources */,
 				0516A8672537926100685DB9 /* Assets.xcassets in Resources */,
@@ -425,17 +463,19 @@
 				9740489225630E6900B2DB45 /* Niveis.swift in Sources */,
 				05A74A592559D8B60070F857 /* GameButtoNode.swift in Sources */,
 				05FE18BC2554853E00758744 /* textFile.swift in Sources */,
+				05CF85862566F068004C166A /* FaseLampadaViewController.swift in Sources */,
 				0521B436255C72D3003A7290 /* FasePenicilina.swift in Sources */,
 				05A749F32559CB730070F857 /* PaperScene.swift in Sources */,
 				05A74A4F2559D83B0070F857 /* Navigation.swift in Sources */,
 				05007ECF254B64F700C3A280 /* RotateNote.swift in Sources */,
+				05CF859A256706BD004C166A /* Play.swift in Sources */,
 				05A74A092559D2530070F857 /* FaseLampada.swift in Sources */,
 				05A749F82559CB8C0070F857 /* PaperScreenViewController.swift in Sources */,
 				055862CB25645C4A00C0477D /* Pacemaker.swift in Sources */,
 				052464872563022A00A7F5CE /* CommonProperties.swift in Sources */,
-				2EB316732555D24D008C63F6 /* Scene2.swift in Sources */,
-				05A749B42559B55B0070F857 /* GameViewController.swift in Sources */,
-				2EB316782555D263008C63F6 /* Scene2ViewController.swift in Sources */,
+				05CF85A025670757004C166A /* SceneManager.swift in Sources */,
+				05CF858F2567061A004C166A /* PlayViewController.swift in Sources */,
+				05A749B42559B55B0070F857 /* MenuViewController.swift in Sources */,
 				0521B443255C751D003A7290 /* FasePenicilinaViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
