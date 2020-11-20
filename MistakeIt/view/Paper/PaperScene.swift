@@ -10,9 +10,18 @@ import GameplayKit
 
 
 
-class PaperScene: SKScene, SKPhysicsContactDelegate {
+class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties {
     
-    let bgimg = SKSpriteNode(imageNamed: "bg") //atribui a imagem à variável de fundo
+    //Protocol
+    var levelLabel: SKLabelNode!
+    var levelName: LevelState!
+    
+    var background: SKEffectNode!
+    var settingsButton: GameButtonNode!
+    var hintButton: GameButtonNode!
+    
+    // Level Specific
+ //   let bgimg = SKSpriteNode(imageNamed: "bg") //atribui a imagem à variável de fundo
     var paper : SKSpriteNode?
     var actual : Int! // variável para recebimento da ordem das imagens da array e depois comparar com posição / ordem etc.
     var text: SKLabelNode!
@@ -25,18 +34,23 @@ class PaperScene: SKScene, SKPhysicsContactDelegate {
     var finalBox = SKSpriteNode(imageNamed: "3-quadro")
     var endText : SKLabelNode!
     var cont = 0
-    let finalText = "O inventor do primeiro papel auto-colante, Spencer Silver, procurava criar uma cola super aderente, mas conseguiu apenas uma cola de pouca aderência. Seu parceiro de trabalho, Arthur Fry, observou que a cola permitia aderir folhas de papel sem rasgá-las no momento de descolar. Juntos, a partir do erro inicial, inventaram um papel adesivado que pode ser colocado e descolado diversas vezes, transformando-se em um verdadeiro sucesso comercial."
-
-
     
     override func didMove(to view: SKView) {
         
-        bgimg.position = CGPoint(x: 0, y: 0) //posiciona a variável no centro da tela
-        self.addChild(bgimg) //adiciona a imagem ao node
-        bgimg.zPosition = -3 //método para colocar a imagem ao fundo, atrás dos demais elementos que forem colocados na tela
-        blackboard.position = CGPoint(x: 0, y: 250)
-        blackboard.setScale(0.22)
-        bgimg.addChild(blackboard)
+        setLevelName(name: .paper)
+        setBackground(bgImg: SKSpriteNode(imageNamed: "bg2"))
+        
+        addLevelLabel()
+        setButtons()
+        addButtons()
+        
+        
+//        bgimg.position = CGPoint(x: 0, y: 0) //posiciona a variável no centro da tela
+//        self.addChild(bgimg) //adiciona a imagem ao node
+//        bgimg.zPosition = -3 //método para colocar a imagem ao fundo, atrás dos demais elementos que forem colocados na tela
+//        blackboard.position = CGPoint(x: 0, y: 250)
+//        blackboard.setScale(0.22)
+//        bgimg.addChild(blackboard)
         
         
         for i in 0...11{
@@ -125,9 +139,9 @@ class PaperScene: SKScene, SKPhysicsContactDelegate {
         if (levelFinished) {
             endLevel()
         }
-        if (levelWrong) {
-            returnInitialPosition()
-        }
+//        if (levelWrong) {
+//            returnInitialPosition()
+//        }
     }
     
     
@@ -155,30 +169,42 @@ class PaperScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
-    func returnInitialPosition () {
-        for i in 0...11{
-            imageArray[i].position = CGPoint(x: 0, y: -400)
-        }
+//    func returnInitialPosition () {
+//        for i in 0...11{
+//            imageArray[i].position = CGPoint(x: 0, y: -400)
+//        }
 //        GameScene.
 //        let newScene = GameScene(size: self.size)
-    }
+//    }
     
     
     func endLevel() {
+        
+        removeButtons()
+        removeLevelLabel()
         
         for i in 0...11{
             imageArray[i].removeFromParent()
             boxArray[i].removeFromParent()
         }
+        let endLabel = SKLabelNode()
+        endLabel.fontSize = self.size.height/40
+        endLabel.fontColor = .white
+        endLabel.text = levelcomplete[levelName]
+        endLabel.preferredMaxLayoutWidth = 700
+        endLabel.numberOfLines = 0
+        endLabel.position = CGPoint(x: 0, y: 0)
+        endLabel.zPosition = 1
+        self.addChild(endLabel)
         
-        endText = SKLabelNode(text: finalText)
-        endText.fontColor = .white
-        endText.fontSize = 70
-        endText.position = CGPoint(x: 0, y: -200)
-        endText.setScale(2)
-        endText.preferredMaxLayoutWidth = 900
-        endText.numberOfLines = 0
-        blackboard.addChild(endText)
+//        endText = SKLabelNode(text: finalText)
+//        endText.fontColor = .white
+//        endText.fontSize = 70
+//        endText.position = CGPoint(x: 0, y: -200)
+//        endText.setScale(2)
+//        endText.preferredMaxLayoutWidth = 900
+//        endText.numberOfLines = 0
+//        blackboard.addChild(endText)
         
     }
    

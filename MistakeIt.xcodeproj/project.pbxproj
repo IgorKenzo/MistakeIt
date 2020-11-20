@@ -36,6 +36,8 @@
 		05CF859A256706BD004C166A /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF8599256706BD004C166A /* Play.swift */; };
 		05CF85A025670757004C166A /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF859F25670757004C166A /* SceneManager.swift */; };
 		05FE18BC2554853E00758744 /* textFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FE18BB2554853E00758744 /* textFile.swift */; };
+		2E09CE51256701200065878D /* PaperLevel.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2E09CE50256701200065878D /* PaperLevel.sks */; };
+		2E09CE56256842510065878D /* credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E09CE55256842510065878D /* credit.swift */; };
 		9740489225630E6900B2DB45 /* Niveis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740489125630E6900B2DB45 /* Niveis.swift */; };
 		975D5A5A2555BDF9008D8E3F /* NiveisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A592555BDF9008D8E3F /* NiveisViewController.swift */; };
 		975D5A5F2555BE67008D8E3F /* NiveisCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */; };
@@ -94,6 +96,8 @@
 		05CF8599256706BD004C166A /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
 		05CF859F25670757004C166A /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
 		05FE18BB2554853E00758744 /* textFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textFile.swift; sourceTree = "<group>"; };
+		2E09CE50256701200065878D /* PaperLevel.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PaperLevel.sks; sourceTree = "<group>"; };
+		2E09CE55256842510065878D /* credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = credit.swift; sourceTree = "<group>"; };
 		9740489125630E6900B2DB45 /* Niveis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Niveis.swift; sourceTree = "<group>"; };
 		975D5A592555BDF9008D8E3F /* NiveisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisViewController.swift; sourceTree = "<group>"; };
 		975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 				975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */,
 				9740489125630E6900B2DB45 /* Niveis.swift */,
 				05A749AD2559B4BD0070F857 /* Main.storyboard */,
+				2E09CE55256842510065878D /* credit.swift */,
 				05A749B32559B55B0070F857 /* MenuViewController.swift */,
 				05CF85732566E914004C166A /* Launch Screen.storyboard */,
 			);
@@ -257,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				05A749F22559CB730070F857 /* PaperScene.swift */,
+				2E09CE50256701200065878D /* PaperLevel.sks */,
 			);
 			path = Paper;
 			sourceTree = "<group>";
@@ -425,6 +431,7 @@
 			files = (
 				05CF8595256706AC004C166A /* PlayScene.sks in Resources */,
 				05C718342565B67F00DF4EFA /* Abyss.otf in Resources */,
+				2E09CE51256701200065878D /* PaperLevel.sks in Resources */,
 				055862D325645C5B00C0477D /* PacemakerScene.sks in Resources */,
 				0516A85C2537926000685DB9 /* GameScene.sks in Resources */,
 				05A749AE2559B4BD0070F857 /* Main.storyboard in Resources */,
@@ -468,6 +475,7 @@
 				05A749F32559CB730070F857 /* PaperScene.swift in Sources */,
 				05A74A4F2559D83B0070F857 /* Navigation.swift in Sources */,
 				05007ECF254B64F700C3A280 /* RotateNote.swift in Sources */,
+				2E09CE56256842510065878D /* credit.swift in Sources */,
 				05CF859A256706BD004C166A /* Play.swift in Sources */,
 				05A74A092559D2530070F857 /* FaseLampada.swift in Sources */,
 				05A749F82559CB8C0070F857 /* PaperScreenViewController.swift in Sources */,
