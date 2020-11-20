@@ -11,15 +11,17 @@ class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollec
 
     @IBOutlet weak var bgImg: UIImageView!
     @IBOutlet weak var niveisCV: UICollectionView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    //@IBOutlet weak var scrollView: UIScrollView!
     
     let cellIdentifier = "NivelCell"
     
     var data: [Niveis] = []
     
+    private var levelname : LevelState? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: bgImg.bottomAnchor).isActive = true
+        //scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: bgImg.bottomAnchor).isActive = true
         niveisCV.delegate = self
         niveisCV.dataSource = self
         
@@ -42,7 +44,14 @@ class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        print(data[indexPath.item])
+        //print(data[indexPath.item])
+        self.levelname = data[indexPath.item].name
+        performSegue(withIdentifier: "callPlay", sender: nil)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? PlayViewController {
+            vc.LevelName = self.levelname
+        }
     }
 }
 

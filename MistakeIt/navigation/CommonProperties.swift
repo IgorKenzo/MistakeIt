@@ -23,6 +23,8 @@ protocol CommonProperties where Self : SKScene {
     func setLevelName(name : LevelState)
     func blurBackground()
     func addLevelLabel()
+    func endLevel(fowardDestination: @escaping () -> Void)
+    func endLevel(backgroundImage: SKTexture, fowardDestination: @escaping () -> Void)
 }
 
 //Default Implementation
@@ -52,7 +54,9 @@ extension CommonProperties {
         
         
         let btnRetry = GameButtonNode(image: SKTexture(imageNamed: "retry"), onTap: {})
-        let btnHome = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: {})
+        let btnHome = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: {
+            PlayViewController.BackToMenu()
+        })//
         let btnMusic = GameButtonNode(image: SKTexture(imageNamed: "music"), onTap: {})
 
         let settingsButtons = [btnRetry, btnHome, btnMusic]
@@ -162,5 +166,82 @@ extension CommonProperties {
     
     func removeLevelLabel(){
         self.levelLabel.removeFromParent()
+    }
+    
+    func endLevel(fowardDestination: @escaping () -> Void) {
+        //remove hint and settings buttons
+        //from protocol
+        self.removeButtons()
+        self.removeLevelLabel()
+
+
+        //end buttons
+        levelLabel.removeFromParent()
+
+        let home = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: PlayViewController.BackToMenu)
+        let foward = GameButtonNode(image: SKTexture(imageNamed: "foward"), onTap: fowardDestination)
+
+        home.position = CGPoint(x: -50 , y: -self.frame.height/2)
+        foward.position = CGPoint(x: 50 , y: -self.frame.height/2)
+
+        home.zPosition = 1
+        foward.zPosition = 1
+
+        self.addChild(home)
+        self.addChild(foward)
+
+        let endLabel = SKLabelNode()
+        endLabel.fontSize = self.size.height/40
+        endLabel.fontColor = .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
+        endLabel.text = levelcomplete[levelName]
+        endLabel.preferredMaxLayoutWidth = 500
+        endLabel.numberOfLines = 0
+        endLabel.position = CGPoint(x: 0, y: self.size.height/2 - endLabel.frame.height * 4/3) //
+        self.addChild(endLabel)
+        endLabel.zPosition = 3
+        //print(numberOfLines(lb: endLabel))
+
+        home.run(SKAction.move(to: CGPoint(x: -50 , y: -self.frame.height/2 + 150), duration: 0.7))
+        foward.run(SKAction.move(to: CGPoint(x: 50 , y: -self.frame.height/2 + 150), duration: 0.7))
+    }
+    
+    func endLevel(backgroundImage: SKTexture, fowardDestination: @escaping () -> Void) {
+        //remove hint and settings buttons
+        //from protocol
+        self.removeButtons()
+        self.removeLevelLabel()
+
+
+        //end background and buttons
+
+        let bg = background.childNode(withName: "LevelBackground") as! SKSpriteNode
+        bg.texture = backgroundImage
+        levelLabel.removeFromParent()
+
+        let home = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: PlayViewController.BackToMenu)
+        let foward = GameButtonNode(image: SKTexture(imageNamed: "foward"), onTap: {fowardDestination()})
+
+        home.position = CGPoint(x: -50 , y: -self.frame.height/2)
+        foward.position = CGPoint(x: 50 , y: -self.frame.height/2)
+
+        home.zPosition = 1
+        foward.zPosition = 1
+
+        self.addChild(home)
+        self.addChild(foward)
+
+        let endLabel = SKLabelNode()
+        endLabel.fontSize = self.size.height/40
+        endLabel.fontColor = .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
+        endLabel.text = levelcomplete[levelName]
+        endLabel.preferredMaxLayoutWidth = 500
+        endLabel.numberOfLines = 0
+        endLabel.position = CGPoint(x: 0, y: self.size.height/2 - endLabel.frame.height * 4/3) //
+        self.addChild(endLabel)
+        endLabel.zPosition = 3
+        //print(numberOfLines(lb: endLabel))
+
+        home.run(SKAction.move(to: CGPoint(x: -50 , y: -self.frame.height/2 + 150), duration: 0.7))
+        foward.run(SKAction.move(to: CGPoint(x: 50 , y: -self.frame.height/2 + 150), duration: 0.7))
     }
 }

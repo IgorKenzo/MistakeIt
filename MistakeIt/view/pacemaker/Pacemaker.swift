@@ -42,7 +42,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties {
 //        addLevelLabel()
 //        setButtons()
 //        addButtons()
-        
+
         setBackground(bgImg: SKSpriteNode(imageNamed: "bg2"))
 
         tool = SKSpriteNode(imageNamed: "tool")
@@ -55,7 +55,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties {
         fio1 = self.childNode(withName: "bg")!.childNode(withName: "bluewire") as! SKSpriteNode
         fio2 = self.childNode(withName: "bg")!.childNode(withName: "greenwire") as! SKSpriteNode
         fio3 = self.childNode(withName: "bg")!.childNode(withName: "redwire") as! SKSpriteNode
-        
+
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {

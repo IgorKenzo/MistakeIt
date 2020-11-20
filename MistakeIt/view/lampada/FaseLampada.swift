@@ -7,7 +7,7 @@
 
 import SpriteKit
 
-class FaseLampada: SKScene, CommonProperties {
+class FaseLampada: SKScene, CommonProperties, SceneManager {
     
     //Protocol
     var levelName: LevelState!
@@ -98,7 +98,7 @@ class FaseLampada: SKScene, CommonProperties {
             //Compare filaments rotation
             if (rad2deg(filament1.zRotation) % 360 == 0) && (rad2deg(filament2.zRotation) % 360 == 0) {
                 playing = false
-                endLevel()
+                endLevel(backgroundImage: SKTexture(imageNamed: "bgEnd"), fowardDestination: {self.loadScene(withIdentifier: .peni)})
             }
 
         }
@@ -120,44 +120,48 @@ class FaseLampada: SKScene, CommonProperties {
         lightining2.isHidden = true
     }
     
-    func endLevel() {
-        //remove hint and settings buttons
-        //from protocol
-        removeButtons()
-        
-        
-        //end background and buttons
-        
-        let bg = background.childNode(withName: "LevelBackground") as! SKSpriteNode
-        bg.texture = SKTexture(imageNamed: "bgEnd")
-        levelLabel.removeFromParent()
-        
-        let home = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: {})
-        let foward = GameButtonNode(image: SKTexture(imageNamed: "foward"), onTap: {})
-        
-        home.position = CGPoint(x: -50 , y: -self.frame.height/2)
-        foward.position = CGPoint(x: 50 , y: -self.frame.height/2)
-        
-        home.zPosition = 1
-        foward.zPosition = 1
-        
-        self.addChild(home)
-        self.addChild(foward)
-        
-        let endLabel = SKLabelNode()
-        endLabel.fontSize = self.size.height/40
-        endLabel.fontColor = .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
-        endLabel.text = levelcomplete[levelName]
-        endLabel.preferredMaxLayoutWidth = 500
-        endLabel.numberOfLines = 0
-        endLabel.position = CGPoint(x: 0, y: self.size.height/2 - endLabel.frame.height * 4/3) //
-        self.addChild(endLabel)
-        endLabel.zPosition = 3
-        //print(numberOfLines(lb: endLabel))
-        
-        home.run(SKAction.move(to: CGPoint(x: -50 , y: -self.frame.height/2 + 150), duration: 0.7))
-        foward.run(SKAction.move(to: CGPoint(x: 50 , y: -self.frame.height/2 + 150), duration: 0.7))
-        
-    }
+//    func endLevel() {
+//        //remove hint and settings buttons
+//        //from protocol
+//        removeButtons()
+//
+//
+//        //end background and buttons
+//
+//        let bg = background.childNode(withName: "LevelBackground") as! SKSpriteNode
+//        bg.texture = SKTexture(imageNamed: "bgEnd")
+//        levelLabel.removeFromParent()
+//
+//        let home = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: {})
+//        let foward = GameButtonNode(image: SKTexture(imageNamed: "foward"), onTap: {})
+//
+//        home.position = CGPoint(x: -50 , y: -self.frame.height/2)
+//        foward.position = CGPoint(x: 50 , y: -self.frame.height/2)
+//
+//        home.zPosition = 1
+//        foward.zPosition = 1
+//
+//        self.addChild(home)
+//        self.addChild(foward)
+//
+//        let endLabel = SKLabelNode()
+//        endLabel.fontSize = self.size.height/40
+//        endLabel.fontColor = .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
+//        endLabel.text = levelcomplete[levelName]
+//        endLabel.preferredMaxLayoutWidth = 500
+//        endLabel.numberOfLines = 0
+//        endLabel.position = CGPoint(x: 0, y: self.size.height/2 - endLabel.frame.height * 4/3) //
+//        self.addChild(endLabel)
+//        endLabel.zPosition = 3
+//        //print(numberOfLines(lb: endLabel))
+//
+//        home.run(SKAction.move(to: CGPoint(x: -50 , y: -self.frame.height/2 + 150), duration: 0.7))
+//        foward.run(SKAction.move(to: CGPoint(x: 50 , y: -self.frame.height/2 + 150), duration: 0.7))
+//
+//        foward.onTap = {
+//            self.loadScene(withIdentifier: .peni)
+//        }
+//
+//    }
     
 }
