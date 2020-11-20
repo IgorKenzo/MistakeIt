@@ -6,6 +6,7 @@
 //
 
 import SpriteKit
+import UIKit
 
 protocol SceneManager {
     func loadScene(withIdentifier identifier: LevelState)

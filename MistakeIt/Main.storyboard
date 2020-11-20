@@ -165,7 +165,7 @@ Não se preocupe, logo você pegará o jeito!</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                         <state key="normal" title="Back"/>
                                         <connections>
-                                            <segue destination="uui-yP-sx0" kind="show" id="JbU-Jl-6ee"/>
+                                            <segue destination="gff-Fk-dYk" kind="unwind" unwindAction="unwindToMenu:" id="Ex3-T0-Zcf"/>
                                         </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u69-6B-SLV">
@@ -240,9 +240,11 @@ Não se preocupe, logo você pegará o jeito!</string>
                         <outlet property="bgImg" destination="BPK-TX-baa" id="Vdm-wF-qRy"/>
                         <outlet property="niveisCV" destination="u69-6B-SLV" id="7Bp-lX-5qG"/>
                         <segue destination="uxI-s2-j9E" kind="show" identifier="callPlay" id="AY8-PB-ECl"/>
+                        <segue destination="gff-Fk-dYk" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenu:" id="sWo-5U-VQR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ziX-Xi-wbV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="gff-Fk-dYk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1605.7971014492755" y="69.642857142857139"/>
         </scene>
@@ -257,8 +259,12 @@ Não se preocupe, logo você pegará o jeito!</string>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="6Bb-mU-gm7"/>
+                    <connections>
+                        <segue destination="1jy-7J-sZJ" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenu:" id="N5f-Mf-kSQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i5Z-xD-r1H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="1jy-7J-sZJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2728" y="70"/>
         </scene>

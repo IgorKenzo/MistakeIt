@@ -19,6 +19,11 @@ class MenuViewController: UIViewController {
         animateOut(x: blurView)
     }
     
+    @IBAction func unwindToMenu(_ unwindSegue: UIStoryboardSegue) {
+        //let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
+    }
+    
     @IBOutlet var blurView: UIVisualEffectView!
     @IBOutlet var popUpView: UIView!
     
@@ -80,21 +85,3 @@ class MenuViewController: UIViewController {
         return true
     }
 }
-
-
-//if let view = self.view as! SKView? {
-//    // Load the SKScene from 'GameScene.sks'
-//    if let scene = SKScene(fileNamed: "FaseLampadaScene") { //FaseLampadaScene //FasePenicilinaScene //PacemakerScene
-//        // Set the scale mode to scale to fit the window
-//
-//        scene.scaleMode = .aspectFill
-//
-//        // Present the scene
-//        view.presentScene(scene)
-//    }
-//
-//    view.ignoresSiblingOrder = true
-//
-//    view.showsFPS = true
-//    view.showsNodeCount = true
-//}

@@ -10,6 +10,7 @@ import SpriteKit
 
 class PlayViewController: UIViewController {
     var LevelName : LevelState?
+    static var BackToMenu = {}
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +22,12 @@ class PlayViewController: UIViewController {
                 scene.scaleMode = .aspectFill
                 
                 scene.LevelName = LevelName
+                scene.backToMenu = {}
                 // Present the scene
                 view.presentScene(scene)
+            }
+            PlayViewController.BackToMenu = {
+                self.performSegue(withIdentifier: "unwindToMenu", sender: nil)
             }
             
             view.ignoresSiblingOrder = true

@@ -16,7 +16,7 @@ struct CategoryMasks : OptionSet {
     static let bacteria = CategoryMasks(rawValue: 0x1 << 1)
 }
 
-class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties {
+class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManager {
     //Protocol
     var levelLabel: SKLabelNode!
     
@@ -132,27 +132,27 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties {
     override func update(_ currentTime: TimeInterval) {
         if playing {
             if numBac == 0 {
-                endGame()
+                endLevel(fowardDestination: {self.loadScene(withIdentifier: .pace)})
                 playing = false
             }
         }
     }
     
     
-    func endGame(){
-        removeButtons()
-        removeLevelLabel()
-        
-        let endLabel = SKLabelNode()
-        endLabel.fontSize = self.size.height/40
-        endLabel.fontColor = .brown// .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
-        endLabel.text = levelcomplete[levelName]
-        endLabel.preferredMaxLayoutWidth = 700
-        endLabel.numberOfLines = 0
-        endLabel.position = CGPoint(x: 0, y: self.size.height/2 - endLabel.frame.height * 4/3) //
-        endLabel.zPosition = 1
-        self.addChild(endLabel)
-    }
+//    func endGame(){
+//        removeButtons()
+//        removeLevelLabel()
+//
+//        let endLabel = SKLabelNode()
+//        endLabel.fontSize = self.size.height/40
+//        endLabel.fontColor = .brown// .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
+//        endLabel.text = levelcomplete[levelName]
+//        endLabel.preferredMaxLayoutWidth = 700
+//        endLabel.numberOfLines = 0
+//        endLabel.position = CGPoint(x: 0, y: self.size.height/2 - endLabel.frame.height * 4/3) //
+//        endLabel.zPosition = 1
+//        self.addChild(endLabel)
+//    }
 }
 
 
