@@ -31,7 +31,7 @@ extension SceneManager where Self: SKScene {
                 scene = SKScene(size: sceneSize)
         }
 
-        let transition = SKTransition()
+        let transition = SKTransition.crossFade(withDuration: 1)
         scene.scaleMode = .aspectFill
         scene.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         view?.presentScene(scene, transition: transition)

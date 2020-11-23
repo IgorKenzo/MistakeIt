@@ -43,7 +43,8 @@ extension CommonProperties {
         
         hintButton.zPosition = 1
         
-        let hintLabel = SKLabelNode(text: hints[self.levelName])
+        let hintLabel = SKLabelNode(fontNamed: "Abyss")
+        hintLabel.text = hints[self.levelName]
         hintLabel.zPosition = 2
         hintLabel.fontColor = .black
         
@@ -178,8 +179,8 @@ extension CommonProperties {
         //end buttons
         levelLabel.removeFromParent()
 
-        let home = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: PlayViewController.BackToMenu)
-        let foward = GameButtonNode(image: SKTexture(imageNamed: "foward"), onTap: fowardDestination)
+        let home = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: {PlayViewController.BackToMenu()})
+        let foward = GameButtonNode(image: SKTexture(imageNamed: "foward"), onTap: {fowardDestination()})
 
         home.position = CGPoint(x: -50 , y: -self.frame.height/2)
         foward.position = CGPoint(x: 50 , y: -self.frame.height/2)
@@ -190,7 +191,7 @@ extension CommonProperties {
         self.addChild(home)
         self.addChild(foward)
 
-        let endLabel = SKLabelNode()
+        let endLabel = SKLabelNode(fontNamed: "Abyss")
         endLabel.fontSize = self.size.height/40
         endLabel.fontColor = .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
         endLabel.text = levelcomplete[levelName]
@@ -203,6 +204,8 @@ extension CommonProperties {
 
         home.run(SKAction.move(to: CGPoint(x: -50 , y: -self.frame.height/2 + 150), duration: 0.7))
         foward.run(SKAction.move(to: CGPoint(x: 50 , y: -self.frame.height/2 + 150), duration: 0.7))
+        
+        UserDefaultManager.shared.storeLastLevelPlayed(level: self.levelName)
     }
     
     func endLevel(backgroundImage: SKTexture, fowardDestination: @escaping () -> Void) {
@@ -230,7 +233,7 @@ extension CommonProperties {
         self.addChild(home)
         self.addChild(foward)
 
-        let endLabel = SKLabelNode()
+        let endLabel = SKLabelNode(fontNamed: "Abyss")
         endLabel.fontSize = self.size.height/40
         endLabel.fontColor = .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
         endLabel.text = levelcomplete[levelName]
@@ -243,5 +246,7 @@ extension CommonProperties {
 
         home.run(SKAction.move(to: CGPoint(x: -50 , y: -self.frame.height/2 + 150), duration: 0.7))
         foward.run(SKAction.move(to: CGPoint(x: 50 , y: -self.frame.height/2 + 150), duration: 0.7))
+        
+        UserDefaultManager.shared.storeLastLevelPlayed(level: self.levelName)
     }
 }

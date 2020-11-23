@@ -7,12 +7,12 @@
 import Foundation
 
     
-let MAXLEVEL = 4
+let MAXLEVEL : Int = 4
 
 enum LevelState : Int {
-    case lamp
-    case pace
-    case postit
+    case lamp = 0
     case peni
-    case doceleite
+    case postit
+    case pace
+    case credits
 }
