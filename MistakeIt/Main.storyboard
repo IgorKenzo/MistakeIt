@@ -21,6 +21,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vJ-LA-hBm">
+                                <rect key="frame" x="130" y="679" width="154" height="106"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playButton:" destination="BV1-FR-VrT" eventType="touchUpInside" id="9zV-ny-UWz"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="giV-gP-WTW">
                                 <rect key="frame" x="96" y="793" width="67" height="69"/>
                                 <constraints>
@@ -97,6 +106,7 @@
                     <connections>
                         <outlet property="blurView" destination="cur-jj-qHV" id="dQ6-8O-cbH"/>
                         <outlet property="popUpView" destination="CH5-3y-l3K" id="fAr-zd-u78"/>
+                        <segue destination="uxI-s2-j9E" kind="show" identifier="actionPlay" id="Kn6-fn-6LD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -303,6 +313,9 @@ Não se preocupe, logo você pegará o jeito!</string>
             <point key="canvasLocation" x="-197.10144927536234" y="69.642857142857139"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Kn6-fn-6LD"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Homepage" width="414" height="896"/>
         <image name="Niveis" width="414" height="896"/>

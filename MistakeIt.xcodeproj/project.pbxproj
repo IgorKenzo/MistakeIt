@@ -20,6 +20,7 @@
 		052464872563022A00A7F5CE /* CommonProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 052464862563022A00A7F5CE /* CommonProperties.swift */; };
 		055862CB25645C4A00C0477D /* Pacemaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055862CA25645C4A00C0477D /* Pacemaker.swift */; };
 		055862D325645C5B00C0477D /* PacemakerScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 055862D225645C5B00C0477D /* PacemakerScene.sks */; };
+		05884645256C4EE300EC5A45 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05884644256C4EE300EC5A45 /* UserDefaultManager.swift */; };
 		05A749AE2559B4BD0070F857 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05A749AD2559B4BD0070F857 /* Main.storyboard */; };
 		05A749B42559B55B0070F857 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A749B32559B55B0070F857 /* MenuViewController.swift */; };
 		05A749F32559CB730070F857 /* PaperScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A749F22559CB730070F857 /* PaperScene.swift */; };
@@ -81,6 +82,7 @@
 		05449E992548945C00452B0A /* GameButtoNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButtoNode.swift; sourceTree = "<group>"; };
 		055862CA25645C4A00C0477D /* Pacemaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pacemaker.swift; sourceTree = "<group>"; };
 		055862D225645C5B00C0477D /* PacemakerScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PacemakerScene.sks; sourceTree = "<group>"; };
+		05884644256C4EE300EC5A45 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		05A749AD2559B4BD0070F857 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		05A749B32559B55B0070F857 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		05A749F22559CB730070F857 /* PaperScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperScene.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 			children = (
 				05A74A4E2559D83B0070F857 /* Navigation.swift */,
 				052464862563022A00A7F5CE /* CommonProperties.swift */,
+				05884644256C4EE300EC5A45 /* UserDefaultManager.swift */,
 			);
 			path = navigation;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				05CF859A256706BD004C166A /* Play.swift in Sources */,
 				05A74A092559D2530070F857 /* FaseLampada.swift in Sources */,
 				05A749F82559CB8C0070F857 /* PaperScreenViewController.swift in Sources */,
+				05884645256C4EE300EC5A45 /* UserDefaultManager.swift in Sources */,
 				055862CB25645C4A00C0477D /* Pacemaker.swift in Sources */,
 				052464872563022A00A7F5CE /* CommonProperties.swift in Sources */,
 				05CF85A025670757004C166A /* SceneManager.swift in Sources */,

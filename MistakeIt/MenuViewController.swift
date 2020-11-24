@@ -8,6 +8,8 @@
 import SpriteKit
 
 class MenuViewController: UIViewController {
+    
+    var levelToPlay : LevelState?
 
     @IBAction func helpBtn(_ sender: Any) {
         animateIn(x: blurView)
@@ -24,6 +26,10 @@ class MenuViewController: UIViewController {
         // Use data from the view controller which initiated the unwind segue
     }
     
+    @IBAction func playButton(_ sender: Any) {
+        updadeLevelPlayed()
+        performSegue(withIdentifier: "actionPlay", sender: nil)
+    }
     @IBOutlet var blurView: UIVisualEffectView!
     @IBOutlet var popUpView: UIView!
     
@@ -35,8 +41,21 @@ class MenuViewController: UIViewController {
         //tamanho do popUp
         popUpView.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 450)
         
+        updadeLevelPlayed()
     }
     
+    func updadeLevelPlayed(){
+        let levelrawvalue = UserDefaultManager.shared.getLastLevelPlayed()
+        if let level = levelrawvalue {
+            if level < 1 {
+                levelToPlay = LevelState(rawValue: level+1)
+            } else {
+                levelToPlay = LevelState(rawValue: 0)
+            }
+        } else {
+            levelToPlay = LevelState(rawValue: 0)
+        }
+    }
     //função para criar animação quando o popUp aparecer
     func animateIn(x: UIView){
         let backgroundView = self.view!
@@ -83,5 +102,12 @@ class MenuViewController: UIViewController {
 
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let vc = segue.destination as? PlayViewController {
+            vc.LevelName = self.levelToPlay
+        }
     }
 }
