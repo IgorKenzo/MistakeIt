@@ -33,8 +33,6 @@ extension SceneManager where Self: SKScene {
                 scene = Pacemaker(size: sceneSize)
             case .credits:
                 scene = credit(size: sceneSize)
-            default:
-                scene = SKScene(size: sceneSize)
         }
 
         let transition = SKTransition.crossFade(withDuration: 1)
