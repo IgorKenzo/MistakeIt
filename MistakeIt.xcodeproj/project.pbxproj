@@ -169,9 +169,9 @@
 				975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */,
 				9740489125630E6900B2DB45 /* Niveis.swift */,
 				05A749AD2559B4BD0070F857 /* Main.storyboard */,
-				2E09CE55256842510065878D /* credit.swift */,
 				05A749B32559B55B0070F857 /* MenuViewController.swift */,
 				05CF85732566E914004C166A /* Launch Screen.storyboard */,
+				2E09CE55256842510065878D /* credit.swift */,
 			);
 			path = MistakeIt;
 			sourceTree = "<group>";
