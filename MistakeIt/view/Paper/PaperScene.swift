@@ -10,7 +10,7 @@ import GameplayKit
 
 
 
-class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties {
+class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManager {
     
     //Protocol
     var levelLabel: SKLabelNode!
@@ -59,20 +59,22 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties {
             imageArray[i] = SKSpriteNode(imageNamed: "\(i)")
             imageArray[i].name = String(i)
             imageArray[i].position = CGPoint(x: 0, y: -400) //posiciona o adesivo no centro, na parte de baixo da tela
+            imageArray[i].zPosition = 2
             self.addChild(imageArray[i])
             self.physicsWorld.gravity = CGVector(dx: 0, dy: 0) //determina que a gravidade sobre o formato do papel será estática sobre o eixo x-y
             self.physicsWorld.contactDelegate = self
             
             //label com a mensagem que aparece colocada sobre o papel.
-            text = SKLabelNode(text: String(i))
-            text.setScale(1.8)
-            text.fontColor = .white
-            text.position = CGPoint(x: 0, y: 0)
-            imageArray[i].addChild(text)
+      //      text = SKLabelNode(text: String(i))
+  //          text.setScale(1.8)
+  //          text.fontColor = .white
+  //          text.position = CGPoint(x: 0, y: 0)
+     //       imageArray[i].addChild(text)
+            
         }
         
         var alpha : Int = -300
-        var beta : Int = 400
+        var beta : Int = 350
         for k in 0...11 {
             boxArray.append(box)
             boxArray[k] = SKSpriteNode(color: .init(white: 10, alpha: 0), size: CGSize(width: 300, height: 300))
@@ -80,13 +82,13 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties {
             boxArray[k].position = CGPoint(x: alpha, y: beta)
             boxArray[k].physicsBody?.isDynamic = false //determina que o objeto seja estático e, consequentemente, reduz o processamento do programa
             self.addChild(boxArray[k])
-            boxArray[k].zPosition = -1
+            boxArray[k].zPosition = 1
 
-            text = SKLabelNode(text: String(k))
-            text.setScale(1.2)
-            text.fontColor = .white
-            text.position = CGPoint(x: 0, y: 0)
-            boxArray[k].addChild(text)
+       //     text = SKLabelNode(text: String(k))
+//            text.setScale(1.2)
+//            text.fontColor = .white
+//            text.position = CGPoint(x: 0, y: 0)
+//            boxArray[k].addChild(text)
             if (k == 3 || k == 7) {
                 alpha = alpha - 600
                 beta = beta - 150
@@ -127,17 +129,16 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         // a posição atual passa a ser nil, para que o Node não seja movimentado para a próxima posição.
         actual = nil
-        if (cont >= 11) {
-            checkLevel()
-        }
-        cont += 1
+        checkLevel()
+        
     }
 
     //função de atualização, cuja atualização ocorre automaticamente
     func checkLevel () {
+        
         checkNodes()
         if (levelFinished) {
-            endLevel()
+            endLevelPaper()
         }
 //        if (levelWrong) {
 //            returnInitialPosition()
@@ -158,14 +159,14 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties {
             }
         }
         
-        if (nodeIntersect[0] == true && nodeIntersect[1] == true && nodeIntersect[2] == true && nodeIntersect[3] == true && nodeIntersect[4] == true && nodeIntersect[5] == true && nodeIntersect[6] == true && nodeIntersect[7] == true && nodeIntersect[8] == true && nodeIntersect[9] == true && nodeIntersect[10] == true && nodeIntersect[11] == true){
+        if (nodeIntersect[1] == true && nodeIntersect[2] == true && nodeIntersect[4] == true && nodeIntersect[5] == true && nodeIntersect[6] == true && nodeIntersect[7] == true && nodeIntersect[9] == true && nodeIntersect[10] == true){
             levelFinished = true
         }
         
         // method to check if all paper nodes were moved to the wrong position.
-        if (nodeMoved[0] == true && nodeMoved[1] == true && nodeMoved[2] == true && nodeMoved[3] == true && nodeMoved[4] == true && nodeMoved[5] == true && nodeMoved[6] == true && nodeMoved[7] == true && nodeMoved[8] == true && nodeMoved[9] == true && nodeMoved[10] == true && nodeMoved[11] == true){
-            levelWrong = true
-        }
+//        if (nodeMoved[0] == true && nodeMoved[1] == true && nodeMoved[2] == true && nodeMoved[3] == true && nodeMoved[4] == true && nodeMoved[5] == true && nodeMoved[6] == true && nodeMoved[7] == true && nodeMoved[8] == true && nodeMoved[9] == true && nodeMoved[10] == true && nodeMoved[11] == true){
+//            levelWrong = true
+//        }
     }
     
     
@@ -178,24 +179,14 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties {
 //    }
     
     
-    func endLevel() {
-        
-        removeButtons()
-        removeLevelLabel()
-        
+    func endLevelPaper() {
+
         for i in 0...11{
             imageArray[i].removeFromParent()
             boxArray[i].removeFromParent()
         }
-        let endLabel = SKLabelNode()
-        endLabel.fontSize = self.size.height/40
-        endLabel.fontColor = .white
-        endLabel.text = levelcomplete[levelName]
-        endLabel.preferredMaxLayoutWidth = 700
-        endLabel.numberOfLines = 0
-        endLabel.position = CGPoint(x: 0, y: 0)
-        endLabel.zPosition = 1
-        self.addChild(endLabel)
+        
+        endLevel(fowardDestination: {self.loadScene(withIdentifier: .pace)})
         
 //        endText = SKLabelNode(text: finalText)
 //        endText.fontColor = .white

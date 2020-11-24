@@ -14,5 +14,5 @@ enum LevelState : Int {
     case pace
     case paper
     case peni
-    case doceleite
+    case credits
 }

@@ -8,15 +8,15 @@
 import Foundation
 import SpriteKit
 
-class credit: SKScene, CommonProperties {
+class credit: SKScene {
     
-    var background: SKEffectNode!
+    var background: SKSpriteNode!
     
-    var labelName : SKLabelNode
+    var labelName : SKLabelNode!
     
     let gameName = "Mistake it!"
     
-    var laelInfo : SKLabelNode
+    var laelInfo : SKLabelNode!
     
     let infoText1 = """
                 O presente software foi desenvolvido com a proposta de mostrar ao usuário, de uma forma leve e simples, como erros fazem parte do dia a dia, em especial de processos criativos, e como erros podem ser incorporados em nosso aprendizado.
@@ -30,7 +30,7 @@ class credit: SKScene, CommonProperties {
                 As informações apresentadas no presente software foram obtidas pelos desenvolvedores a partir de pesquisas realizadas e retratam, de forma resumida, eventos históricos.
                 """
     
-    var labelEquipe : SKLabelNode
+    var labelEquipe : SKLabelNode!
     
     let equipe = """
                 Desenvolvedores:
@@ -41,7 +41,7 @@ class credit: SKScene, CommonProperties {
                     Maria Luiza Sayuri Hioki
                 """
     
-    var labelFinalInfo : SKLabelNode
+    var labelFinalInfo : SKLabelNode!
     
     let finalInfo = """
                     Imagens e textos de propriedade exclusiva dos desenvolvedores.
@@ -52,8 +52,9 @@ class credit: SKScene, CommonProperties {
     
     override func didMove(to view: SKView) {
         
-        setBackground(bgImg: SKSpriteNode(imageNamed: "bg2"))
-
+        background = SKSpriteNode(imageNamed: "bg2")
+        self.addChild(background)
+        
         labelName = SKLabelNode(text: gameName)
         labelName.fontSize = self.size.height/70
         labelName.fontColor = .white
