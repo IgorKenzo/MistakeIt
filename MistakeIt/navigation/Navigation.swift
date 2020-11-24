@@ -12,7 +12,7 @@ let MAXLEVEL : Int = 4
 enum LevelState : Int {
     case lamp = 0
     case peni
-    case postit
+    case paper
     case pace
     case credits
 }

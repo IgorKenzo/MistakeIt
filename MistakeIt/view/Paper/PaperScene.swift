@@ -10,9 +10,18 @@ import GameplayKit
 
 
 
-class PaperScene: SKScene, SKPhysicsContactDelegate {
+class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManager {
     
-    let bgimg = SKSpriteNode(imageNamed: "bg") //atribui a imagem à variável de fundo
+    //Protocol
+    var levelLabel: SKLabelNode!
+    var levelName: LevelState!
+    
+    var background: SKEffectNode!
+    var settingsButton: GameButtonNode!
+    var hintButton: GameButtonNode!
+    
+    // Level Specific
+ //   let bgimg = SKSpriteNode(imageNamed: "bg") //atribui a imagem à variável de fundo
     var paper : SKSpriteNode?
     var actual : Int! // variável para recebimento da ordem das imagens da array e depois comparar com posição / ordem etc.
     var text: SKLabelNode!
@@ -25,18 +34,23 @@ class PaperScene: SKScene, SKPhysicsContactDelegate {
     var finalBox = SKSpriteNode(imageNamed: "3-quadro")
     var endText : SKLabelNode!
     var cont = 0
-    let finalText = "O inventor do primeiro papel auto-colante, Spencer Silver, procurava criar uma cola super aderente, mas conseguiu apenas uma cola de pouca aderência. Seu parceiro de trabalho, Arthur Fry, observou que a cola permitia aderir folhas de papel sem rasgá-las no momento de descolar. Juntos, a partir do erro inicial, inventaram um papel adesivado que pode ser colocado e descolado diversas vezes, transformando-se em um verdadeiro sucesso comercial."
-
-
     
     override func didMove(to view: SKView) {
         
-        bgimg.position = CGPoint(x: 0, y: 0) //posiciona a variável no centro da tela
-        self.addChild(bgimg) //adiciona a imagem ao node
-        bgimg.zPosition = -3 //método para colocar a imagem ao fundo, atrás dos demais elementos que forem colocados na tela
-        blackboard.position = CGPoint(x: 0, y: 250)
-        blackboard.setScale(0.22)
-        bgimg.addChild(blackboard)
+        setLevelName(name: .paper)
+        setBackground(bgImg: SKSpriteNode(imageNamed: "bg2"))
+        
+        addLevelLabel()
+        setButtons()
+        addButtons()
+        
+        
+//        bgimg.position = CGPoint(x: 0, y: 0) //posiciona a variável no centro da tela
+//        self.addChild(bgimg) //adiciona a imagem ao node
+//        bgimg.zPosition = -3 //método para colocar a imagem ao fundo, atrás dos demais elementos que forem colocados na tela
+//        blackboard.position = CGPoint(x: 0, y: 250)
+//        blackboard.setScale(0.22)
+//        bgimg.addChild(blackboard)
         
         
         for i in 0...11{
@@ -45,20 +59,22 @@ class PaperScene: SKScene, SKPhysicsContactDelegate {
             imageArray[i] = SKSpriteNode(imageNamed: "\(i)")
             imageArray[i].name = String(i)
             imageArray[i].position = CGPoint(x: 0, y: -400) //posiciona o adesivo no centro, na parte de baixo da tela
+            imageArray[i].zPosition = 2
             self.addChild(imageArray[i])
             self.physicsWorld.gravity = CGVector(dx: 0, dy: 0) //determina que a gravidade sobre o formato do papel será estática sobre o eixo x-y
             self.physicsWorld.contactDelegate = self
             
             //label com a mensagem que aparece colocada sobre o papel.
-            text = SKLabelNode(text: String(i))
-            text.setScale(1.8)
-            text.fontColor = .white
-            text.position = CGPoint(x: 0, y: 0)
-            imageArray[i].addChild(text)
+      //      text = SKLabelNode(text: String(i))
+  //          text.setScale(1.8)
+  //          text.fontColor = .white
+  //          text.position = CGPoint(x: 0, y: 0)
+     //       imageArray[i].addChild(text)
+            
         }
         
         var alpha : Int = -300
-        var beta : Int = 400
+        var beta : Int = 350
         for k in 0...11 {
             boxArray.append(box)
             boxArray[k] = SKSpriteNode(color: .init(white: 10, alpha: 0), size: CGSize(width: 300, height: 300))
@@ -66,13 +82,13 @@ class PaperScene: SKScene, SKPhysicsContactDelegate {
             boxArray[k].position = CGPoint(x: alpha, y: beta)
             boxArray[k].physicsBody?.isDynamic = false //determina que o objeto seja estático e, consequentemente, reduz o processamento do programa
             self.addChild(boxArray[k])
-            boxArray[k].zPosition = -1
+            boxArray[k].zPosition = 1
 
-            text = SKLabelNode(text: String(k))
-            text.setScale(1.2)
-            text.fontColor = .white
-            text.position = CGPoint(x: 0, y: 0)
-            boxArray[k].addChild(text)
+       //     text = SKLabelNode(text: String(k))
+//            text.setScale(1.2)
+//            text.fontColor = .white
+//            text.position = CGPoint(x: 0, y: 0)
+//            boxArray[k].addChild(text)
             if (k == 3 || k == 7) {
                 alpha = alpha - 600
                 beta = beta - 150
@@ -113,21 +129,20 @@ class PaperScene: SKScene, SKPhysicsContactDelegate {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         // a posição atual passa a ser nil, para que o Node não seja movimentado para a próxima posição.
         actual = nil
-        if (cont >= 11) {
-            checkLevel()
-        }
-        cont += 1
+        checkLevel()
+        
     }
 
     //função de atualização, cuja atualização ocorre automaticamente
     func checkLevel () {
+        
         checkNodes()
         if (levelFinished) {
-            endLevel()
+            endLevelPaper()
         }
-        if (levelWrong) {
-            returnInitialPosition()
-        }
+//        if (levelWrong) {
+//            returnInitialPosition()
+//        }
     }
     
     
@@ -144,41 +159,43 @@ class PaperScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        if (nodeIntersect[0] == true && nodeIntersect[1] == true && nodeIntersect[2] == true && nodeIntersect[3] == true && nodeIntersect[4] == true && nodeIntersect[5] == true && nodeIntersect[6] == true && nodeIntersect[7] == true && nodeIntersect[8] == true && nodeIntersect[9] == true && nodeIntersect[10] == true && nodeIntersect[11] == true){
+        if (nodeIntersect[1] == true && nodeIntersect[2] == true && nodeIntersect[4] == true && nodeIntersect[5] == true && nodeIntersect[6] == true && nodeIntersect[7] == true && nodeIntersect[9] == true && nodeIntersect[10] == true){
             levelFinished = true
         }
         
         // method to check if all paper nodes were moved to the wrong position.
-        if (nodeMoved[0] == true && nodeMoved[1] == true && nodeMoved[2] == true && nodeMoved[3] == true && nodeMoved[4] == true && nodeMoved[5] == true && nodeMoved[6] == true && nodeMoved[7] == true && nodeMoved[8] == true && nodeMoved[9] == true && nodeMoved[10] == true && nodeMoved[11] == true){
-            levelWrong = true
-        }
+//        if (nodeMoved[0] == true && nodeMoved[1] == true && nodeMoved[2] == true && nodeMoved[3] == true && nodeMoved[4] == true && nodeMoved[5] == true && nodeMoved[6] == true && nodeMoved[7] == true && nodeMoved[8] == true && nodeMoved[9] == true && nodeMoved[10] == true && nodeMoved[11] == true){
+//            levelWrong = true
+//        }
     }
     
     
-    func returnInitialPosition () {
-        for i in 0...11{
-            imageArray[i].position = CGPoint(x: 0, y: -400)
-        }
+//    func returnInitialPosition () {
+//        for i in 0...11{
+//            imageArray[i].position = CGPoint(x: 0, y: -400)
+//        }
 //        GameScene.
 //        let newScene = GameScene(size: self.size)
-    }
+//    }
     
     
-    func endLevel() {
-        
+    func endLevelPaper() {
+
         for i in 0...11{
             imageArray[i].removeFromParent()
             boxArray[i].removeFromParent()
         }
         
-        endText = SKLabelNode(text: finalText)
-        endText.fontColor = .white
-        endText.fontSize = 70
-        endText.position = CGPoint(x: 0, y: -200)
-        endText.setScale(2)
-        endText.preferredMaxLayoutWidth = 900
-        endText.numberOfLines = 0
-        blackboard.addChild(endText)
+        endLevel(fowardDestination: {self.loadScene(withIdentifier: .pace)})
+        
+//        endText = SKLabelNode(text: finalText)
+//        endText.fontColor = .white
+//        endText.fontSize = 70
+//        endText.position = CGPoint(x: 0, y: -200)
+//        endText.setScale(2)
+//        endText.preferredMaxLayoutWidth = 900
+//        endText.numberOfLines = 0
+//        blackboard.addChild(endText)
         
     }
    

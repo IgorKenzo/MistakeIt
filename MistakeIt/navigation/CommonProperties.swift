@@ -33,13 +33,13 @@ extension CommonProperties {
     //Instanciate Hint and Settings Buttons
     func setButtons() {
         settingsButton = GameButtonNode(image: SKTexture(imageNamed: "settings"), onTap: {})
-        settingsButton.position = CGPoint(x: 270, y: -510)
+        settingsButton.position = CGPoint(x: 270, y: -710)
         
         settingsButton.zPosition = 1
         
         //MARK: Hint and Settings buttons
         hintButton = GameButtonNode(image: SKTexture(imageNamed: "hint"), onTap: {})
-        hintButton.position = CGPoint(x: -270, y: -510)
+        hintButton.position = CGPoint(x: -270, y: -710)
         
         hintButton.zPosition = 1
         

@@ -27,6 +27,12 @@ extension SceneManager where Self: SKScene {
                 scene = FaseLampada(size: sceneSize)
             case .peni:
                 scene = FasePenicilina(size: sceneSize)
+            case .paper:
+                scene = PaperScene(size: sceneSize)
+            case .pace:
+                scene = Pacemaker(size: sceneSize)
+            case .credits:
+                scene = credit(size: sceneSize)
             default:
                 scene = SKScene(size: sceneSize)
         }
