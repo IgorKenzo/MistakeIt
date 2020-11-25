@@ -12,7 +12,14 @@ var AudioPlayer = AVAudioPlayer()
 class MenuViewController: UIViewController {
     
     var levelToPlay : LevelState?
-
+    var tocando = true
+    
+    @IBOutlet weak var musicBtn: UIButton!
+    
+    @IBAction func musicaBtn(_ sender: UIButton) {
+        musicaTocando()
+    }
+    
     @IBAction func niveisBtn(_ sender: Any) {
         AudioPlayer.stop()
     }
@@ -96,7 +103,20 @@ class MenuViewController: UIViewController {
             x.removeFromSuperview()
         })
     }
+    
+    func musicaTocando(){
+        if(tocando){
+            AudioPlayer.stop()
+            tocando = false
+            musicBtn.setImage(UIImage(named:"sem-musica.png"), for: .normal)
+        }else{
+            AudioPlayer.play()
+            tocando = true
+            musicBtn.setImage(UIImage(named:"musica.png"), for: .normal)
 
+        }
+    }
+    
     override var shouldAutorotate: Bool {
         return true
     }

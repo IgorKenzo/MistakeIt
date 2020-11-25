@@ -28,6 +28,7 @@ class PlayViewController: UIViewController {
             }
             PlayViewController.BackToMenu = {
                 self.performSegue(withIdentifier: "unwindToMenu", sender: nil)
+                AudioPlayer.play()
             }
             
             view.ignoresSiblingOrder = true
