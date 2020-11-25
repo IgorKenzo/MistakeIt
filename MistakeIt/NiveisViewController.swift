@@ -6,12 +6,15 @@
 //
 
 import UIKit
-
+import AVFoundation
 class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-
+    
     @IBOutlet weak var bgImg: UIImageView!
     @IBOutlet weak var niveisCV: UICollectionView!
     //@IBOutlet weak var scrollView: UIScrollView!
+    @IBAction func voltarBtn(_ sender: Any) {
+        AVAudioPlayer.play()
+    }
     
     let cellIdentifier = "NivelCell"
     

@@ -6,11 +6,17 @@
 //
 
 import SpriteKit
+import AVFoundation
+var AudioPlayer = AVAudioPlayer()
 
 class MenuViewController: UIViewController {
     
     var levelToPlay : LevelState?
 
+    @IBAction func niveisBtn(_ sender: Any) {
+        AudioPlayer.stop()
+    }
+    
     @IBAction func helpBtn(_ sender: Any) {
         animateIn(x: blurView)
         animateIn(x: popUpView)
@@ -19,6 +25,7 @@ class MenuViewController: UIViewController {
     @IBAction func okBtn(_ sender: Any) {
         animateOut(x: popUpView)
         animateOut(x: blurView)
+        UIDevice.vibrate()
     }
     
     @IBAction func unwindToMenu(_ unwindSegue: UIStoryboardSegue) {
@@ -29,13 +36,15 @@ class MenuViewController: UIViewController {
     @IBAction func playButton(_ sender: Any) {
         updadeLevelPlayed()
         performSegue(withIdentifier: "actionPlay", sender: nil)
+        AudioPlayer.stop()
     }
     @IBOutlet var blurView: UIVisualEffectView!
     @IBOutlet var popUpView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //configuração do som de fundo
+        AVAudioPlayer.play()
         //tamanho da blurView
         blurView.bounds = self.view.bounds
         //tamanho do popUp
@@ -108,6 +117,21 @@ class MenuViewController: UIViewController {
         
         if let vc = segue.destination as? PlayViewController {
             vc.LevelName = self.levelToPlay
+            AudioPlayer.stop()
         }
+    }
+}
+extension UIDevice {
+    static func vibrate() {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+    }
+}
+extension AVAudioPlayer{
+    static func play(){
+        let AssortedMusics = NSURL(fileURLWithPath: Bundle.main.path(forResource: "teste", ofType: "mp3")!)
+        AudioPlayer = try! AVAudioPlayer(contentsOf: AssortedMusics as URL)
+        AudioPlayer.prepareToPlay()
+        AudioPlayer.numberOfLoops = -1
+        AudioPlayer.play()
     }
 }
