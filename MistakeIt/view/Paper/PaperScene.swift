@@ -34,6 +34,7 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
     var finalBox = SKSpriteNode(imageNamed: "3-quadro")
     var endText : SKLabelNode!
     var cont = 0
+    var finalText : SKSpriteNode = SKSpriteNode(imageNamed: "completiontextpaper")
     
     override func didMove(to view: SKView) {
         
@@ -185,6 +186,11 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
             imageArray[i].removeFromParent()
             boxArray[i].removeFromParent()
         }
+        
+        finalText.position = CGPoint (x: 0, y: 100)
+        finalText.setScale(0.1)
+        finalText.zPosition = 2
+        self.addChild(finalText)
         
         endLevel(fowardDestination: {self.loadScene(withIdentifier: .pace)})
         
