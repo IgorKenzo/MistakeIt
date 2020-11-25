@@ -36,6 +36,7 @@
 		05CF8595256706AC004C166A /* PlayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05CF8594256706AC004C166A /* PlayScene.sks */; };
 		05CF859A256706BD004C166A /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF8599256706BD004C166A /* Play.swift */; };
 		05CF85A025670757004C166A /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF859F25670757004C166A /* SceneManager.swift */; };
+		05DE8F13256DA5CF00210AB2 /* HapticsFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DE8F12256DA5CF00210AB2 /* HapticsFeedback.swift */; };
 		05FE18BC2554853E00758744 /* textFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FE18BB2554853E00758744 /* textFile.swift */; };
 		2E09CE51256701200065878D /* PaperLevel.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2E09CE50256701200065878D /* PaperLevel.sks */; };
 		2E09CE56256842510065878D /* credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E09CE55256842510065878D /* credit.swift */; };
@@ -97,6 +98,7 @@
 		05CF8594256706AC004C166A /* PlayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayScene.sks; sourceTree = "<group>"; };
 		05CF8599256706BD004C166A /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
 		05CF859F25670757004C166A /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
+		05DE8F12256DA5CF00210AB2 /* HapticsFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsFeedback.swift; sourceTree = "<group>"; };
 		05FE18BB2554853E00758744 /* textFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textFile.swift; sourceTree = "<group>"; };
 		2E09CE50256701200065878D /* PaperLevel.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PaperLevel.sks; sourceTree = "<group>"; };
 		2E09CE55256842510065878D /* credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = credit.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 		0516A8582537926000685DB9 /* MistakeIt */ = {
 			isa = PBXGroup;
 			children = (
+				05DE8F11256DA5B200210AB2 /* feedback */,
 				05CF859E2567073F004C166A /* scenemanager */,
 				05C718322565B66D00DF4EFA /* Fonts */,
 				05A749DC2559BE170070F857 /* navigation */,
@@ -329,6 +332,14 @@
 			path = scenemanager;
 			sourceTree = "<group>";
 		};
+		05DE8F11256DA5B200210AB2 /* feedback */ = {
+			isa = PBXGroup;
+			children = (
+				05DE8F12256DA5CF00210AB2 /* HapticsFeedback.swift */,
+			);
+			path = feedback;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -485,6 +496,7 @@
 				05884645256C4EE300EC5A45 /* UserDefaultManager.swift in Sources */,
 				055862CB25645C4A00C0477D /* Pacemaker.swift in Sources */,
 				052464872563022A00A7F5CE /* CommonProperties.swift in Sources */,
+				05DE8F13256DA5CF00210AB2 /* HapticsFeedback.swift in Sources */,
 				05CF85A025670757004C166A /* SceneManager.swift in Sources */,
 				05CF858F2567061A004C166A /* PlayViewController.swift in Sources */,
 				05A749B42559B55B0070F857 /* MenuViewController.swift in Sources */,

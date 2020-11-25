@@ -104,6 +104,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
     
     func didBegin(_ contact: SKPhysicsContact) {
         contact.bodyB.node?.removeFromParent()
+        HapticsFeedback.shared.vibrate()
         numBac -= 1
     }
     
@@ -132,8 +133,9 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
     override func update(_ currentTime: TimeInterval) {
         if playing {
             if numBac == 0 {
-                endLevel(fowardDestination: {self.loadScene(withIdentifier: .pace)})
                 playing = false
+                endLevel(fowardDestination: {self.loadScene(withIdentifier: .pace)})
+                fungus.removeFromParent()
             }
         }
     }

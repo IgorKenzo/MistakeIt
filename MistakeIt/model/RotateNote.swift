@@ -20,6 +20,7 @@ class RotateNode : SKSpriteNode {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.isUserInteractionEnabled = false
+        HapticsFeedback.shared.vibrate()
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.rotate()

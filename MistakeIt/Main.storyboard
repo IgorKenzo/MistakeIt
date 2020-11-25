@@ -186,7 +186,6 @@ Não se preocupe, logo você pegará o jeito!</string>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u69-6B-SLV">
                                         <rect key="frame" x="100" y="202" width="214" height="694"/>
-                                        <color key="backgroundColor" red="0.95229023690000003" green="0.91885060070000002" blue="0.83136004210000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5MH-ch-3GA">
                                             <size key="itemSize" width="205" height="205"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -304,7 +303,7 @@ Não se preocupe, logo você pegará o jeito!</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Kn6-fn-6LD"/>
+        <segue reference="AY8-PB-ECl"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Homepage" width="414" height="896"/>
