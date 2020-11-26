@@ -47,7 +47,7 @@ class MenuViewController: UIViewController {
     func updadeLevelPlayed(){
         let levelrawvalue = UserDefaultManager.shared.getLastLevelPlayed()
         if let level = levelrawvalue {
-            if level < 1 {
+            if level < MAXLEVEL-1 {
                 levelToPlay = LevelState(rawValue: level+1)
             } else {
                 levelToPlay = LevelState(rawValue: 0)

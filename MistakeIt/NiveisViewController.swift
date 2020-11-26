@@ -20,6 +20,8 @@ class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     private var levelname : LevelState? = nil
     
+    private var levelStatus : [Bool]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: bgImg.bottomAnchor).isActive = true
@@ -27,6 +29,8 @@ class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollec
         niveisCV.dataSource = self
         
         data = create()
+        
+        levelStatus = UserDefaultManager.shared.getUnlockedLevels()
     }
 
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -36,7 +40,7 @@ class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollec
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = UICollectionViewCell()
         if let Cell = collectionView.dequeueReusableCell(withReuseIdentifier:cellIdentifier, for: indexPath) as? NiveisCollectionViewCell{
-            Cell.configure(with: data[indexPath.item])
+            Cell.configure(with: data[indexPath.item], unlocked: levelStatus?[indexPath.item])
             
             cell = Cell
          }
@@ -46,8 +50,11 @@ class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollec
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         //print(data[indexPath.item])
-        self.levelname = data[indexPath.item].name
-        performSegue(withIdentifier: "callPlay", sender: nil)
+        if levelStatus![indexPath.item] {
+            self.levelname = data[indexPath.item].name
+            performSegue(withIdentifier: "callPlay", sender: nil)
+        }
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? PlayViewController {
