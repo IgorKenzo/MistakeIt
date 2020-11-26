@@ -36,9 +36,12 @@
 		05CF8595256706AC004C166A /* PlayScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 05CF8594256706AC004C166A /* PlayScene.sks */; };
 		05CF859A256706BD004C166A /* Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF8599256706BD004C166A /* Play.swift */; };
 		05CF85A025670757004C166A /* SceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CF859F25670757004C166A /* SceneManager.swift */; };
+		05DE8F13256DA5CF00210AB2 /* HapticsFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DE8F12256DA5CF00210AB2 /* HapticsFeedback.swift */; };
 		05FE18BC2554853E00758744 /* textFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FE18BB2554853E00758744 /* textFile.swift */; };
 		2E09CE51256701200065878D /* PaperLevel.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2E09CE50256701200065878D /* PaperLevel.sks */; };
-		2E09CE56256842510065878D /* credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E09CE55256842510065878D /* credit.swift */; };
+		2E09CE56256842510065878D /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E09CE55256842510065878D /* Credits.swift */; };
+		2E2428F9256EF1E800E4773F /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2428F8256EF1E800E4773F /* CreditsViewController.swift */; };
+		2E242903256EF31200E4773F /* PaceMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E242902256EF31200E4773F /* PaceMakerViewController.swift */; };
 		9740489225630E6900B2DB45 /* Niveis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740489125630E6900B2DB45 /* Niveis.swift */; };
 		975D5A5A2555BDF9008D8E3F /* NiveisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A592555BDF9008D8E3F /* NiveisViewController.swift */; };
 		975D5A5F2555BE67008D8E3F /* NiveisCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */; };
@@ -99,9 +102,12 @@
 		05CF8594256706AC004C166A /* PlayScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayScene.sks; sourceTree = "<group>"; };
 		05CF8599256706BD004C166A /* Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Play.swift; sourceTree = "<group>"; };
 		05CF859F25670757004C166A /* SceneManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneManager.swift; sourceTree = "<group>"; };
+		05DE8F12256DA5CF00210AB2 /* HapticsFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsFeedback.swift; sourceTree = "<group>"; };
 		05FE18BB2554853E00758744 /* textFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = textFile.swift; sourceTree = "<group>"; };
 		2E09CE50256701200065878D /* PaperLevel.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PaperLevel.sks; sourceTree = "<group>"; };
-		2E09CE55256842510065878D /* credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = credit.swift; sourceTree = "<group>"; };
+		2E09CE55256842510065878D /* Credits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
+		2E2428F8256EF1E800E4773F /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
+		2E242902256EF31200E4773F /* PaceMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceMakerViewController.swift; sourceTree = "<group>"; };
 		9740489125630E6900B2DB45 /* Niveis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Niveis.swift; sourceTree = "<group>"; };
 		975D5A592555BDF9008D8E3F /* NiveisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisViewController.swift; sourceTree = "<group>"; };
 		975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -160,6 +166,7 @@
 				05CF85732566E914004C166A /* Launch Screen.storyboard */,
 				05A749AD2559B4BD0070F857 /* Main.storyboard */,
 				979B8919256D9169008E49AD /* sounds */,
+				05DE8F11256DA5B200210AB2 /* feedback */,
 				05CF859E2567073F004C166A /* scenemanager */,
 				05C718322565B66D00DF4EFA /* Fonts */,
 				05A749DC2559BE170070F857 /* navigation */,
@@ -173,6 +180,12 @@
 				0516A8662537926100685DB9 /* Assets.xcassets */,
 				0516A8682537926100685DB9 /* Info.plist */,
 				2E09CE55256842510065878D /* credit.swift */,
+				975D5A592555BDF9008D8E3F /* NiveisViewController.swift */,
+				975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */,
+				9740489125630E6900B2DB45 /* Niveis.swift */,
+				05A749AD2559B4BD0070F857 /* Main.storyboard */,
+				05A749B32559B55B0070F857 /* MenuViewController.swift */,
+				05CF85732566E914004C166A /* Launch Screen.storyboard */,
 			);
 			path = MistakeIt;
 			sourceTree = "<group>";
@@ -224,6 +237,7 @@
 		05449E94254893CF00452B0A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				2E242907256EF38700E4773F /* Credits */,
 				05CF859325670698004C166A /* play */,
 				055862C825645C2800C0477D /* pacemaker */,
 				0521B433255C7294003A7290 /* penicilina */,
@@ -237,6 +251,8 @@
 			isa = PBXGroup;
 			children = (
 				979B892E256F1777008E49AD /* telas UI */,
+				2E242901256EF2F900E4773F /* Pace */,
+				2E2428F7256EF1D100E4773F /* credits */,
 				05CF858D256705AC004C166A /* play */,
 				05CF85842566F050004C166A /* lampada */,
 				0521B447255C7523003A7290 /* Penicilina */,
@@ -349,6 +365,36 @@
 				975D5A592555BDF9008D8E3F /* NiveisViewController.swift */,
 			);
 			path = "telas UI";
+		05DE8F11256DA5B200210AB2 /* feedback */ = {
+			isa = PBXGroup;
+			children = (
+				05DE8F12256DA5CF00210AB2 /* HapticsFeedback.swift */,
+			);
+			path = feedback;
+	    sourceTree = "<group>";
+		};
+		2E2428F7256EF1D100E4773F /* credits */ = {
+			isa = PBXGroup;
+			children = (
+				2E2428F8256EF1E800E4773F /* CreditsViewController.swift */,
+			);
+			path = credits;
+			sourceTree = "<group>";
+		};
+		2E242901256EF2F900E4773F /* Pace */ = {
+			isa = PBXGroup;
+			children = (
+				2E242902256EF31200E4773F /* PaceMakerViewController.swift */,
+			);
+			path = Pace;
+			sourceTree = "<group>";
+		};
+		2E242907256EF38700E4773F /* Credits */ = {
+			isa = PBXGroup;
+			children = (
+				2E09CE55256842510065878D /* Credits.swift */,
+			);
+			path = Credits;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -498,17 +544,20 @@
 				05A74A592559D8B60070F857 /* GameButtoNode.swift in Sources */,
 				05FE18BC2554853E00758744 /* textFile.swift in Sources */,
 				05CF85862566F068004C166A /* FaseLampadaViewController.swift in Sources */,
+				2E2428F9256EF1E800E4773F /* CreditsViewController.swift in Sources */,
+				2E242903256EF31200E4773F /* PaceMakerViewController.swift in Sources */,
 				0521B436255C72D3003A7290 /* FasePenicilina.swift in Sources */,
 				05A749F32559CB730070F857 /* PaperScene.swift in Sources */,
 				05A74A4F2559D83B0070F857 /* Navigation.swift in Sources */,
 				05007ECF254B64F700C3A280 /* RotateNote.swift in Sources */,
-				2E09CE56256842510065878D /* credit.swift in Sources */,
+				2E09CE56256842510065878D /* Credits.swift in Sources */,
 				05CF859A256706BD004C166A /* Play.swift in Sources */,
 				05A74A092559D2530070F857 /* FaseLampada.swift in Sources */,
 				05A749F82559CB8C0070F857 /* PaperScreenViewController.swift in Sources */,
 				05884645256C4EE300EC5A45 /* UserDefaultManager.swift in Sources */,
 				055862CB25645C4A00C0477D /* Pacemaker.swift in Sources */,
 				052464872563022A00A7F5CE /* CommonProperties.swift in Sources */,
+				05DE8F13256DA5CF00210AB2 /* HapticsFeedback.swift in Sources */,
 				05CF85A025670757004C166A /* SceneManager.swift in Sources */,
 				05CF858F2567061A004C166A /* PlayViewController.swift in Sources */,
 				05A749B42559B55B0070F857 /* MenuViewController.swift in Sources */,

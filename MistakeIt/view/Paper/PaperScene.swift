@@ -34,6 +34,7 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
     var finalBox = SKSpriteNode(imageNamed: "3-quadro")
     var endText : SKLabelNode!
     var cont = 0
+    var finalText : SKSpriteNode = SKSpriteNode(imageNamed: "completiontextpaper")
     
     override func didMove(to view: SKView) {
         
@@ -59,8 +60,8 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
             imageArray[i] = SKSpriteNode(imageNamed: "\(i)")
             imageArray[i].name = String(i)
             imageArray[i].position = CGPoint(x: 0, y: -400) //posiciona o adesivo no centro, na parte de baixo da tela
-            imageArray[i].zPosition = 2
-            self.addChild(imageArray[i])
+            imageArray[i].zPosition = 1
+            background.addChild(imageArray[i])
             self.physicsWorld.gravity = CGVector(dx: 0, dy: 0) //determina que a gravidade sobre o formato do papel será estática sobre o eixo x-y
             self.physicsWorld.contactDelegate = self
             
@@ -185,6 +186,11 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
             imageArray[i].removeFromParent()
             boxArray[i].removeFromParent()
         }
+        
+        finalText.position = CGPoint (x: 0, y: 180)
+        finalText.setScale(0.24)
+        finalText.zPosition = 2
+        self.addChild(finalText)
         
         endLevel(fowardDestination: {self.loadScene(withIdentifier: .pace)})
         

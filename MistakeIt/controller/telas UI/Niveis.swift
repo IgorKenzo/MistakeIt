@@ -13,11 +13,10 @@ struct Niveis {
     var name : LevelState
 }
 
-//declaration of each level
-let nivel1 = Niveis(image: UIImage(named: "blur.jpg")!, name: .lamp)
-let nivel2 = Niveis(image: UIImage(named: "2-bg.jpg")!, name: .peni)
-let nivel3 = Niveis(image: UIImage(named: "4.png")!, name: .paper)
-let nivel4 = Niveis(image: UIImage(named: "corasson.png")!, name: .pace)
+let nivel1 = Niveis(image: UIImage(named: "level1Icon")!, name: .lamp)
+let nivel2 = Niveis(image: UIImage(named: "level2Icon")!, name: .peni)
+let nivel3 = Niveis(image: UIImage(named: "level3Icon")!, name: .paper)
+let nivel4 = Niveis(image: UIImage(named: "level4Icon")!, name: .pace)
 
 //function to send the levels to the view
 func create() -> [Niveis]{

@@ -33,6 +33,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
     var fungus : SKSpriteNode!
     private var numBac : Int!
     private var playing = true
+    private var finalText : SKSpriteNode = SKSpriteNode(imageNamed: "completiontextpenicilin")
     
     override func didMove(to view: SKView) {
         //Contact
@@ -104,6 +105,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
     
     func didBegin(_ contact: SKPhysicsContact) {
         contact.bodyB.node?.removeFromParent()
+        HapticsFeedback.shared.vibrate()
         numBac -= 1
         //audios["comecome"]!.play()
     }
@@ -133,9 +135,13 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
     override func update(_ currentTime: TimeInterval) {
         if playing {
             if numBac == 0 {
-                endLevel(fowardDestination: {self.loadScene(withIdentifier: .pace)})
+                fungus.removeFromParent()
+                endLevel(fowardDestination: {self.loadScene(withIdentifier: .paper)})
                 playing = false
-                
+                finalText.position = CGPoint(x: -10, y: -50)
+                finalText.zPosition = 1
+                finalText.setScale(0.255)
+                self.addChild(finalText)
             }
         }
     }

@@ -157,7 +157,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EpR-Sr-eKt">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BPK-TX-baa">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="bgLevels" translatesAutoresizingMaskIntoConstraints="NO" id="iE4-vm-DUQ">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -177,7 +177,7 @@
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u69-6B-SLV">
                                         <rect key="frame" x="100" y="202" width="214" height="694"/>
-                                        <color key="backgroundColor" red="0.95229023690000003" green="0.91885060070000002" blue="0.83136004210000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5MH-ch-3GA">
                                             <size key="itemSize" width="205" height="205"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -219,7 +219,6 @@
                                         </connections>
                                     </collectionView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="u69-6B-SLV" secondAttribute="bottom" id="3NO-dn-vfM"/>
                                     <constraint firstItem="FxT-mV-BTd" firstAttribute="leading" secondItem="EpR-Sr-eKt" secondAttribute="leading" constant="22" id="Kdw-Vt-u46"/>
@@ -244,7 +243,7 @@
                     <navigationItem key="navigationItem" id="hGd-Zp-fVB"/>
                     <connections>
                         <outlet property="NiveisCV" destination="u69-6B-SLV" id="JFn-m6-FEt"/>
-                        <outlet property="bgImg" destination="BPK-TX-baa" id="Vdm-wF-qRy"/>
+                        <outlet property="bglevels" destination="iE4-vm-DUQ" id="M8B-B0-Bj4"/>
                         <outlet property="niveisCV" destination="u69-6B-SLV" id="7Bp-lX-5qG"/>
                         <segue destination="uxI-s2-j9E" kind="show" identifier="callPlay" id="AY8-PB-ECl"/>
                         <segue destination="gff-Fk-dYk" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenu:" id="sWo-5U-VQR"/>
@@ -304,6 +303,8 @@
         <image name="musica" width="5261" height="5023"/>
         <image name="niveis" width="4155" height="3376"/>
         <image name="play" width="4023" height="4838"/>
+        <image name="Homepage" width="414" height="896"/>
+        <image name="bgLevels" width="828" height="1792"/>
         <image name="tray.2.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

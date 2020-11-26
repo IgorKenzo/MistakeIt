@@ -8,8 +8,9 @@
 import UIKit
 import AVFoundation
 class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    @IBOutlet weak var bgImg: UIImageView!
+
+    @IBOutlet weak var bglevels: UIImageView!
+//    @IBOutlet weak var bgImg: UIImageView!
     @IBOutlet weak var niveisCV: UICollectionView!
     
     //the back button that goes back to the home view
