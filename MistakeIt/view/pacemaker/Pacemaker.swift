@@ -223,9 +223,9 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         wire1.removeFromParent()
         wire2.removeFromParent()
         wire3.removeFromParent()
-        finalText.position = CGPoint (x: 0, y: 0)
-        finalText.setScale(0.9)
-        monitor.addChild(finalText)
+        finalText.position = CGPoint (x: 0, y: 400)
+        finalText.setScale(0.25)
+        self.addChild(finalText)
         endLevel(fowardDestination: {self.loadScene(withIdentifier: .credits)})
         
     }
