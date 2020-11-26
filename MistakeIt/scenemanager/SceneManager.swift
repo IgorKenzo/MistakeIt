@@ -33,8 +33,8 @@ extension SceneManager where Self: SKScene {
                 scene = Pacemaker(size: sceneSize)
             case .credits:
                 scene = Credits(size: sceneSize)
-        case .new:
-            scene = 
+        default:
+                scene = FaseLampada(size: sceneSize)
         }
 
         let transition = SKTransition.crossFade(withDuration: 1)

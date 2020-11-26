@@ -71,7 +71,7 @@ class Credits: SKScene, CommonProperties, SceneManager {
         labelEquipe = compile(text: equipe, position: CGPoint(x: 0, y: -200))
         labelFinalInfo = compile(text: finalInfo, position: CGPoint(x: 0, y: -500))
         
-        endLevel(fowardDestination: {self.loadScene(withIdentifier: .credits)})
+        endLevel(fowardDestination: {self.loadScene(withIdentifier: .lamp)})
     }
     
     
@@ -86,17 +86,7 @@ class Credits: SKScene, CommonProperties, SceneManager {
         self.addChild(labelNode)
         return labelNode
     }
-    
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
     
 }
 

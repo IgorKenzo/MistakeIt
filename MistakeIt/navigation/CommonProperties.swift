@@ -233,6 +233,9 @@ extension CommonProperties {
         home.position = CGPoint(x: -50 , y: -self.frame.height/2)
         foward.position = CGPoint(x: 50 , y: -self.frame.height/2)
 
+        home.setScale(0.02)
+        foward.setScale(0.02)
+        
         home.zPosition = 1
         foward.zPosition = 1
 

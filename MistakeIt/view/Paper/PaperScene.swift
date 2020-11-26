@@ -187,8 +187,8 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
             boxArray[i].removeFromParent()
         }
         
-        finalText.position = CGPoint (x: 0, y: 100)
-        finalText.setScale(0.1)
+        finalText.position = CGPoint (x: 0, y: 200)
+        finalText.setScale(0.24)
         finalText.zPosition = 2
         self.addChild(finalText)
         

@@ -214,6 +214,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
     
 
     func endLevel () {
+        monitor.removeFromParent()
         heartbeatblue.removeFromParent()
         heartbeatgreen.removeFromParent()
         heartbeatred.removeFromParent()
@@ -223,7 +224,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         wire2.removeFromParent()
         wire3.removeFromParent()
         finalText.position = CGPoint (x: 0, y: 0)
-        finalText.setScale(0.8)
+        finalText.setScale(0.9)
         monitor.addChild(finalText)
         endLevel(fowardDestination: {self.loadScene(withIdentifier: .credits)})
         
