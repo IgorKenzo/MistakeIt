@@ -6,7 +6,7 @@
 //
 
 import SpriteKit
-
+import AVFoundation
 class FaseLampada: SKScene, CommonProperties, SceneManager {
     
     //Protocol
@@ -77,6 +77,7 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
                 for node in filament1.children {
                     node.isHidden = false
                 }
+                //audios["lightning"]!.play()
             }
             else{
                 for node in filament1.children {
@@ -88,6 +89,7 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
                 for node in filament2.children {
                     node.isHidden = false
                 }
+                //audios["lightning"]!.play()
             }
             else{
                 for node in filament2.children {
@@ -99,6 +101,7 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
             if (rad2deg(filament1.zRotation) % 360 == 0) && (rad2deg(filament2.zRotation) % 360 == 0) {
                 playing = false
                 endLevel(backgroundImage: SKTexture(imageNamed: "bgEnd"), fowardDestination: {self.loadScene(withIdentifier: .peni)})
+                
             }
 
         }
@@ -119,6 +122,8 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
         lightining2.position = CGPoint(x: 0, y: 90)
         lightining2.isHidden = true
     }
+    
+    
     
 //    func endLevel() {
 //        //remove hint and settings buttons

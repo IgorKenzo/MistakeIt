@@ -7,6 +7,7 @@
 
 import Foundation
 import SpriteKit
+import AVFoundation
 
 class PlayViewController: UIViewController {
     var LevelName : LevelState?
@@ -28,7 +29,7 @@ class PlayViewController: UIViewController {
             }
             PlayViewController.BackToMenu = {
                 self.performSegue(withIdentifier: "unwindToMenu", sender: nil)
-                AudioPlayer.play()
+                audios["teste"]!.play()
             }
             
             view.ignoresSiblingOrder = true

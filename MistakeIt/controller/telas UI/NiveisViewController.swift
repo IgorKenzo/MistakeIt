@@ -11,30 +11,34 @@ class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @IBOutlet weak var bgImg: UIImageView!
     @IBOutlet weak var niveisCV: UICollectionView!
-    //@IBOutlet weak var scrollView: UIScrollView!
+    
+    //the back button that goes back to the home view
     @IBAction func voltarBtn(_ sender: Any) {
-        AVAudioPlayer.play()
+        //the home view's background sound starts to play again
+        audios["teste"]!.play()
     }
     
     let cellIdentifier = "NivelCell"
     
+    //array with all the levels
     var data: [Niveis] = []
     
     private var levelname : LevelState? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: bgImg.bottomAnchor).isActive = true
         niveisCV.delegate = self
         niveisCV.dataSource = self
         
         data = create()
     }
 
+    //function that counts the number os items to create the same number os cells
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
     
+    //function to place the level image in the cell
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = UICollectionViewCell()
         if let Cell = collectionView.dequeueReusableCell(withReuseIdentifier:cellIdentifier, for: indexPath) as? NiveisCollectionViewCell{
@@ -45,12 +49,15 @@ class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollec
         return cell
     }
     
+    //function to detect wich cell was clicked
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         //print(data[indexPath.item])
         self.levelname = data[indexPath.item].name
         performSegue(withIdentifier: "callPlay", sender: nil)
     }
+    
+    //function responsible for sending the level settings to the game screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? PlayViewController {
             vc.LevelName = self.levelname

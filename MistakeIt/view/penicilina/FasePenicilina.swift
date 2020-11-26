@@ -105,6 +105,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
     func didBegin(_ contact: SKPhysicsContact) {
         contact.bodyB.node?.removeFromParent()
         numBac -= 1
+        //audios["comecome"]!.play()
     }
     
     
@@ -134,6 +135,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
             if numBac == 0 {
                 endLevel(fowardDestination: {self.loadScene(withIdentifier: .pace)})
                 playing = false
+                
             }
         }
     }

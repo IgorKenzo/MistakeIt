@@ -7,32 +7,37 @@
 
 import SpriteKit
 import AVFoundation
-var AudioPlayer = AVAudioPlayer()
+
+//dictionary with all audios used in the project
+var audios: [String: AVAudioPlayer] = ["teste": AVAudioPlayer(), "lightning": AVAudioPlayer()]
 
 class MenuViewController: UIViewController {
     
+    //variables declaration
     var levelToPlay : LevelState?
     var tocando = true
     
+    //button to stop and play the home's background music
     @IBOutlet weak var musicBtn: UIButton!
-    
     @IBAction func musicaBtn(_ sender: UIButton) {
         musicaTocando()
     }
     
+    //when the levels button is clicked the background sound stops
     @IBAction func niveisBtn(_ sender: Any) {
-        AudioPlayer.stop()
+        audios["teste"]!.stop()
     }
     
+    //shows a view with a basic explanation of the game
     @IBAction func helpBtn(_ sender: Any) {
         animateIn(x: blurView)
         animateIn(x: popUpView)
     }
     
+    //goes back from the explanation view to the home view
     @IBAction func okBtn(_ sender: Any) {
         animateOut(x: popUpView)
         animateOut(x: blurView)
-        UIDevice.vibrate()
     }
     
     @IBAction func unwindToMenu(_ unwindSegue: UIStoryboardSegue) {
@@ -40,21 +45,26 @@ class MenuViewController: UIViewController {
         // Use data from the view controller which initiated the unwind segue
     }
     
+    //goes straight to the next level to be played
     @IBAction func playButton(_ sender: Any) {
         updadeLevelPlayed()
         performSegue(withIdentifier: "actionPlay", sender: nil)
-        AudioPlayer.stop()
+        //stops the background sound
+        audios["teste"]!.stop()
     }
+    
     @IBOutlet var blurView: UIVisualEffectView!
     @IBOutlet var popUpView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //configuração do som de fundo
-        AVAudioPlayer.play()
-        //tamanho da blurView
+        //initializing function that brings all the sounds of the game
+        importAudio()
+        //background sound setting
+        audios["teste"]!.play()
+        //blurView size
         blurView.bounds = self.view.bounds
-        //tamanho do popUp
+        //popUpView size
         popUpView.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 450)
         
         updadeLevelPlayed()
@@ -72,7 +82,20 @@ class MenuViewController: UIViewController {
             levelToPlay = LevelState(rawValue: 0)
         }
     }
-    //função para criar animação quando o popUp aparecer
+    
+    //function to import all the sounds used in the game
+    func importAudio(){
+        for i in 0...audios.count-1{
+            let chave = Array(audios)[i].key
+            let AssortedMusics = NSURL(fileURLWithPath: Bundle.main.path(forResource: chave, ofType: "mp3")!)
+            audios[chave] = try! AVAudioPlayer(contentsOf: AssortedMusics as URL)
+            if(chave == "lightning"){
+                audios[chave]!.numberOfLoops = -1
+            }
+        }
+    }
+    
+    //function to create the animation when the popUp appears
     func animateIn(x: UIView){
         let backgroundView = self.view!
         
@@ -89,13 +112,11 @@ class MenuViewController: UIViewController {
         UIView.animate(withDuration: 0.4, animations: {
             x.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
             x.alpha = 1
-            
         })
     }
     
-    //função para desaparecer o popUp
+    //function to create the animation when the popUp disappears
     func animateOut(x: UIView){
-        
         UIView.animate(withDuration: 0.4, animations: {
             x.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             x.alpha = 0
@@ -104,16 +125,22 @@ class MenuViewController: UIViewController {
         })
     }
     
+    //implementation of the music function on the screen
     func musicaTocando(){
         if(tocando){
-            AudioPlayer.stop()
+            //if the boolean "tocando" is true then the audio is stopped
+            audios["teste"]!.stop()
+            //the variable changes to false
             tocando = false
+            //and the sound icon changes to a different one
             musicBtn.setImage(UIImage(named:"sem-musica.png"), for: .normal)
         }else{
-            AudioPlayer.play()
+            //if the boolean "tocando" is false then the audio is played
+            audios["teste"]!.play()
+            //the variable changes to true
             tocando = true
+            //and the sound icon changes to the original one
             musicBtn.setImage(UIImage(named:"musica.png"), for: .normal)
-
         }
     }
     
@@ -137,21 +164,8 @@ class MenuViewController: UIViewController {
         
         if let vc = segue.destination as? PlayViewController {
             vc.LevelName = self.levelToPlay
-            AudioPlayer.stop()
+            audios["teste"]!.stop()
         }
     }
 }
-extension UIDevice {
-    static func vibrate() {
-        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
-    }
-}
-extension AVAudioPlayer{
-    static func play(){
-        let AssortedMusics = NSURL(fileURLWithPath: Bundle.main.path(forResource: "teste", ofType: "mp3")!)
-        AudioPlayer = try! AVAudioPlayer(contentsOf: AssortedMusics as URL)
-        AudioPlayer.prepareToPlay()
-        AudioPlayer.numberOfLoops = -1
-        AudioPlayer.play()
-    }
-}
+
