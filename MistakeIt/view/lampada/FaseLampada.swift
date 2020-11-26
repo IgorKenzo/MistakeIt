@@ -25,6 +25,8 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
     var filament2 : RotateNode!
     var playing = true
     
+    var finalText : SKSpriteNode = SKSpriteNode(imageNamed: "completiontextlamp")
+    
     override func didMove(to view: SKView) {
         
         //MARK: setting the common properties
@@ -99,6 +101,10 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
             if (rad2deg(filament1.zRotation) % 360 == 0) && (rad2deg(filament2.zRotation) % 360 == 0) {
                 playing = false
                 endLevel(backgroundImage: SKTexture(imageNamed: "bgEnd"), fowardDestination: {self.loadScene(withIdentifier: .peni)})
+                finalText.position = CGPoint(x: 0, y: 400)
+                finalText.zPosition = 1
+                finalText.setScale(0.25)
+                self.addChild(finalText)
             }
 
         }

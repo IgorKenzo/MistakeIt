@@ -33,6 +33,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
     var fungus : SKSpriteNode!
     private var numBac : Int!
     private var playing = true
+    private var finalText : SKSpriteNode = SKSpriteNode(imageNamed: "completiontextpenicilin")
     
     override func didMove(to view: SKView) {
         //Contact
@@ -134,6 +135,10 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
             if numBac == 0 {
                 endLevel(fowardDestination: {self.loadScene(withIdentifier: .paper)})
                 playing = false
+                finalText.position = CGPoint(x: -10, y: -50)
+                finalText.zPosition = 1
+                finalText.setScale(0.255)
+                self.addChild(finalText)
             }
         }
     }
