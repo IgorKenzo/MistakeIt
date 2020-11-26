@@ -107,6 +107,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
         contact.bodyB.node?.removeFromParent()
         HapticsFeedback.shared.vibrate()
         numBac -= 1
+        //audios["comecome"]!.play()
     }
     
     
