@@ -132,7 +132,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
     override func update(_ currentTime: TimeInterval) {
         if playing {
             if numBac == 0 {
-                endLevel(fowardDestination: {self.loadScene(withIdentifier: .pace)})
+                endLevel(fowardDestination: {self.loadScene(withIdentifier: .paper)})
                 playing = false
             }
         }

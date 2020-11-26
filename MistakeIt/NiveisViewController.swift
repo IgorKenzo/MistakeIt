@@ -9,7 +9,8 @@ import UIKit
 
 class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
-    @IBOutlet weak var bgImg: UIImageView!
+    @IBOutlet weak var bglevels: UIImageView!
+//    @IBOutlet weak var bgImg: UIImageView!
     @IBOutlet weak var niveisCV: UICollectionView!
     //@IBOutlet weak var scrollView: UIScrollView!
     
