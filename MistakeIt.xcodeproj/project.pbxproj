@@ -45,6 +45,8 @@
 		9740489225630E6900B2DB45 /* Niveis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740489125630E6900B2DB45 /* Niveis.swift */; };
 		975D5A5A2555BDF9008D8E3F /* NiveisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A592555BDF9008D8E3F /* NiveisViewController.swift */; };
 		975D5A5F2555BE67008D8E3F /* NiveisCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */; };
+		979B891B256D9173008E49AD /* teste.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 979B891A256D9173008E49AD /* teste.mp3 */; };
+		979B8929256EFA4C008E49AD /* lightning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 979B8928256EFA4B008E49AD /* lightning.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		9740489125630E6900B2DB45 /* Niveis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Niveis.swift; sourceTree = "<group>"; };
 		975D5A592555BDF9008D8E3F /* NiveisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisViewController.swift; sourceTree = "<group>"; };
 		975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisCollectionViewCell.swift; sourceTree = "<group>"; };
+		979B891A256D9173008E49AD /* teste.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = teste.mp3; sourceTree = "<group>"; };
+		979B8928256EFA4B008E49AD /* lightning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lightning.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,9 @@
 		0516A8582537926000685DB9 /* MistakeIt */ = {
 			isa = PBXGroup;
 			children = (
+				05CF85732566E914004C166A /* Launch Screen.storyboard */,
+				05A749AD2559B4BD0070F857 /* Main.storyboard */,
+				979B8919256D9169008E49AD /* sounds */,
 				05DE8F11256DA5B200210AB2 /* feedback */,
 				05CF859E2567073F004C166A /* scenemanager */,
 				05C718322565B66D00DF4EFA /* Fonts */,
@@ -172,6 +179,7 @@
 				05FE18BB2554853E00758744 /* textFile.swift */,
 				0516A8662537926100685DB9 /* Assets.xcassets */,
 				0516A8682537926100685DB9 /* Info.plist */,
+				2E09CE55256842510065878D /* credit.swift */,
 				975D5A592555BDF9008D8E3F /* NiveisViewController.swift */,
 				975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */,
 				9740489125630E6900B2DB45 /* Niveis.swift */,
@@ -242,6 +250,7 @@
 		05449E95254893D500452B0A /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				979B892E256F1777008E49AD /* telas UI */,
 				2E242901256EF2F900E4773F /* Pace */,
 				2E2428F7256EF1D100E4773F /* credits */,
 				05CF858D256705AC004C166A /* play */,
@@ -338,6 +347,24 @@
 			path = scenemanager;
 			sourceTree = "<group>";
 		};
+		979B8919256D9169008E49AD /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				979B8928256EFA4B008E49AD /* lightning.mp3 */,
+				979B891A256D9173008E49AD /* teste.mp3 */,
+			);
+			path = sounds;
+			sourceTree = "<group>";
+		};
+		979B892E256F1777008E49AD /* telas UI */ = {
+			isa = PBXGroup;
+			children = (
+				975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */,
+				9740489125630E6900B2DB45 /* Niveis.swift */,
+				05A749B32559B55B0070F857 /* MenuViewController.swift */,
+				975D5A592555BDF9008D8E3F /* NiveisViewController.swift */,
+			);
+			path = "telas UI";
 		05DE8F11256DA5B200210AB2 /* feedback */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,8 +507,10 @@
 				0516A85C2537926000685DB9 /* GameScene.sks in Resources */,
 				05A749AE2559B4BD0070F857 /* Main.storyboard in Resources */,
 				0521B43E255C72E6003A7290 /* FasePenicilinaScene.sks in Resources */,
+				979B891B256D9173008E49AD /* teste.mp3 in Resources */,
 				0516A8672537926100685DB9 /* Assets.xcassets in Resources */,
 				0516A85E2537926000685DB9 /* Actions.sks in Resources */,
+				979B8929256EFA4C008E49AD /* lightning.mp3 in Resources */,
 				05CF85742566E914004C166A /* Launch Screen.storyboard in Resources */,
 				05A74A0A2559D2530070F857 /* FaseLampadaScene.sks in Resources */,
 			);
@@ -690,7 +719,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YGLNR3UHKC;
+				DEVELOPMENT_TEAM = 9X475P5993;
 				INFOPLIST_FILE = MistakeIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -709,7 +738,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YGLNR3UHKC;
+				DEVELOPMENT_TEAM = 9X475P5993;
 				INFOPLIST_FILE = MistakeIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
