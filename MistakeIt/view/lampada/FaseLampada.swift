@@ -100,6 +100,8 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
             //Compare filaments rotation
             if (rad2deg(filament1.zRotation) % 360 == 0) && (rad2deg(filament2.zRotation) % 360 == 0) {
                 playing = false
+                filament1.isUserInteractionEnabled = false
+                filament2.isUserInteractionEnabled = false
                 endLevel(backgroundImage: SKTexture(imageNamed: "bgEnd"), fowardDestination: {self.loadScene(withIdentifier: .peni)})
                 finalText.position = CGPoint(x: 0, y: 400)
                 finalText.zPosition = 1
