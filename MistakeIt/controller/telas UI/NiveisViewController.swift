@@ -26,12 +26,16 @@ class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     private var levelname : LevelState? = nil
     
+    private var levelStatus : [Bool]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         niveisCV.delegate = self
         niveisCV.dataSource = self
         
         data = create()
+        
+        levelStatus = UserDefaultManager.shared.getUnlockedLevels()
     }
 
     //function that counts the number os items to create the same number os cells
@@ -43,7 +47,7 @@ class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollec
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = UICollectionViewCell()
         if let Cell = collectionView.dequeueReusableCell(withReuseIdentifier:cellIdentifier, for: indexPath) as? NiveisCollectionViewCell{
-            Cell.configure(with: data[indexPath.item])
+            Cell.configure(with: data[indexPath.item], unlocked: levelStatus?[indexPath.item])
             
             cell = Cell
          }
@@ -54,8 +58,11 @@ class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollec
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         //print(data[indexPath.item])
-        self.levelname = data[indexPath.item].name
-        performSegue(withIdentifier: "callPlay", sender: nil)
+        if levelStatus![indexPath.item] {
+            self.levelname = data[indexPath.item].name
+            performSegue(withIdentifier: "callPlay", sender: nil)
+        }
+        
     }
     
     //function responsible for sending the level settings to the game screen
