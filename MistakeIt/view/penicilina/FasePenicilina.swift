@@ -105,7 +105,9 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
     
     func didBegin(_ contact: SKPhysicsContact) {
         contact.bodyB.node?.removeFromParent()
+        HapticsFeedback.shared.vibrate()
         numBac -= 1
+        //audios["comecome"]!.play()
     }
     
     
@@ -133,6 +135,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
     override func update(_ currentTime: TimeInterval) {
         if playing {
             if numBac == 0 {
+                fungus.removeFromParent()
                 endLevel(fowardDestination: {self.loadScene(withIdentifier: .paper)})
                 playing = false
                 finalText.position = CGPoint(x: -10, y: -50)

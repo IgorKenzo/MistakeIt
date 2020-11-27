@@ -212,6 +212,7 @@ extension CommonProperties {
         foward.run(SKAction.move(to: CGPoint(x: 50 , y: -self.frame.height/2 + 150), duration: 0.7))
         
         UserDefaultManager.shared.storeLastLevelPlayed(level: self.levelName)
+        UserDefaultManager.shared.unlockLevel(currentLevel: self.levelName)
     }
     
     func endLevel(backgroundImage: SKTexture, fowardDestination: @escaping () -> Void) {
@@ -257,5 +258,6 @@ extension CommonProperties {
         foward.run(SKAction.move(to: CGPoint(x: 50 , y: -self.frame.height/2 + 150), duration: 0.7))
         
         UserDefaultManager.shared.storeLastLevelPlayed(level: self.levelName)
+        UserDefaultManager.shared.unlockLevel(currentLevel: self.levelName)
     }
 }
