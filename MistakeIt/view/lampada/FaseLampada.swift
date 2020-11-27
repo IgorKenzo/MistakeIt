@@ -79,7 +79,7 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
                 for node in filament1.children {
                     node.isHidden = false
                 }
-                //audios["lightning"]!.play()
+                audios["raio"]?.play()
             }
             else{
                 for node in filament1.children {
@@ -91,7 +91,7 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
                 for node in filament2.children {
                     node.isHidden = false
                 }
-                //audios["lightning"]!.play()
+                audios["raio"]!.play()
             }
             else{
                 for node in filament2.children {

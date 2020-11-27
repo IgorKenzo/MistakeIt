@@ -177,7 +177,8 @@ extension CommonProperties {
         self.removeButtons()
         self.removeLevelLabel()
 
-
+        audios["fim-nivel"]?.play()
+        
         //end buttons
         levelLabel.removeFromParent()
 
@@ -221,6 +222,7 @@ extension CommonProperties {
         self.removeButtons()
         self.removeLevelLabel()
 
+        audios["fim-nivel"]?.play()
 
         //end background and buttons
 

@@ -89,7 +89,8 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
         
         //method to move the first node on the pile of nodes created on the same position (gets the last node created)
         if let firstnode = selectednode.first {
-                actualNode = firstnode
+            actualNode = firstnode
+            audios["post-it"]?.play()
         }
     }
     
