@@ -32,7 +32,7 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
         //MARK: setting the common properties
         setLevelName(name: .lamp)
         setBackground(bgImg: SKSpriteNode(imageNamed: "blur"))
-        setButtons()
+        setButtons(retry: {self.loadScene(withIdentifier: self.levelName)})
         addButtons()
         addLevelLabel()
         

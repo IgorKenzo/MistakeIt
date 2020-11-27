@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uui-yP-sx0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uui-yP-sx0">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -161,20 +161,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FxT-mV-BTd">
-                                        <rect key="frame" x="22" y="26" width="56" height="44"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="LHY-Uh-3oN"/>
-                                            <constraint firstAttribute="width" constant="56" id="edN-ha-H6Y"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                        <state key="normal" title="Back"/>
-                                        <connections>
-                                            <action selector="voltarBtn:" destination="jjt-j4-vCf" eventType="touchUpInside" id="IME-LK-JmW"/>
-                                            <segue destination="gff-Fk-dYk" kind="unwind" unwindAction="unwindToMenu:" id="Ex3-T0-Zcf"/>
-                                        </connections>
-                                    </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="u69-6B-SLV">
                                         <rect key="frame" x="100" y="202" width="214" height="694"/>
                                         <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -218,11 +204,23 @@
                                             <outlet property="delegate" destination="jjt-j4-vCf" id="Q31-Iu-UJh"/>
                                         </connections>
                                     </collectionView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FxT-mV-BTd">
+                                        <rect key="frame" x="23" y="43" width="72" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="LHY-Uh-3oN"/>
+                                            <constraint firstAttribute="width" constant="72" id="edN-ha-H6Y"/>
+                                        </constraints>
+                                        <state key="normal" title="Back" image="back"/>
+                                        <connections>
+                                            <action selector="voltarBtn:" destination="jjt-j4-vCf" eventType="touchUpInside" id="IME-LK-JmW"/>
+                                            <segue destination="gff-Fk-dYk" kind="unwind" unwindAction="unwindToMenu:" id="Ex3-T0-Zcf"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="u69-6B-SLV" secondAttribute="bottom" id="3NO-dn-vfM"/>
-                                    <constraint firstItem="FxT-mV-BTd" firstAttribute="leading" secondItem="EpR-Sr-eKt" secondAttribute="leading" constant="22" id="Kdw-Vt-u46"/>
-                                    <constraint firstItem="FxT-mV-BTd" firstAttribute="top" secondItem="EpR-Sr-eKt" secondAttribute="top" constant="26" id="PwP-li-t3u"/>
+                                    <constraint firstItem="FxT-mV-BTd" firstAttribute="leading" secondItem="EpR-Sr-eKt" secondAttribute="leading" constant="23" id="Kdw-Vt-u46"/>
+                                    <constraint firstItem="FxT-mV-BTd" firstAttribute="top" secondItem="EpR-Sr-eKt" secondAttribute="top" constant="43" id="PwP-li-t3u"/>
                                     <constraint firstItem="u69-6B-SLV" firstAttribute="top" secondItem="EpR-Sr-eKt" secondAttribute="top" constant="202" id="SM5-Ox-eJn"/>
                                     <constraint firstItem="u69-6B-SLV" firstAttribute="leading" secondItem="EpR-Sr-eKt" secondAttribute="leading" constant="100" id="TMB-bi-qYn"/>
                                     <constraint firstAttribute="trailing" secondItem="u69-6B-SLV" secondAttribute="trailing" constant="100" id="bbJ-rI-Af1"/>
@@ -297,14 +295,14 @@
         <segue reference="AY8-PB-ECl"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="back" width="4787" height="1875"/>
         <image name="balao-tutorial" width="3808.5" height="4314"/>
+        <image name="bgLevels" width="828" height="1792"/>
         <image name="duvida" width="335" height="676"/>
         <image name="menu-bg" width="828" height="1792"/>
         <image name="musica" width="5261" height="5023"/>
         <image name="niveis" width="4155" height="3376"/>
         <image name="play" width="4023" height="4838"/>
-        <image name="Homepage" width="414" height="896"/>
-        <image name="bgLevels" width="828" height="1792"/>
         <image name="tray.2.fill" catalog="system" width="128" height="114"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

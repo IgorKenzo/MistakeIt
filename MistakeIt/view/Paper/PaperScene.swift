@@ -35,7 +35,7 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
         setBackground(bgImg: SKSpriteNode(imageNamed: "bg2"))
         
         addLevelLabel()
-        setButtons()
+        setButtons(retry: {self.loadScene(withIdentifier: self.levelName)})
         addButtons()
         
         //method to fill the array of nodes with the paper images and add the nodes into the view

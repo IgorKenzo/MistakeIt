@@ -71,6 +71,9 @@ class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollec
             vc.LevelName = self.levelname
         }
     }
+    override var prefersStatusBarHidden: Bool {
+           return true
+       }
 }
 
 

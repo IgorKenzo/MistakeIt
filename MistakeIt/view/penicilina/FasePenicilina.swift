@@ -43,7 +43,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
         setLevelName(name: .peni)
         setBackground(bgImg: SKSpriteNode(imageNamed: "2-bg"))
         addLevelLabel()
-        setButtons()
+        setButtons(retry: {self.loadScene(withIdentifier: self.levelName)})
         addButtons()
         
 //        let c = SKShapeNode(circleOfRadius: self.frame.width/2 - 50)
