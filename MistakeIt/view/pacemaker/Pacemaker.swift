@@ -55,30 +55,25 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         monitor = SKSpriteNode(imageNamed: "4-monitor")
         monitor.position = CGPoint(x: 0, y: 350)
         monitor.setScale(0.28)
-  //      monitor.zPosition = 1
         background.addChild(monitor)
         
         heart = SKSpriteNode(imageNamed: "corasson")
         heart.position = CGPoint(x: 800, y: 200)
-  //      heart.zPosition = 2
         monitor.addChild(heart)
 
         heartbeatblue = SKSpriteNode(imageNamed: "bluewave")
         heartbeatblue.setScale(5)
         heartbeatblue.position = CGPoint(x: -500, y: 550)
-  //      heartbeatblue.zPosition = 2
         monitor.addChild(heartbeatblue)
         
         heartbeatgreen = SKSpriteNode(imageNamed: "greenwave")
         heartbeatgreen.setScale(5)
         heartbeatgreen.position = CGPoint(x: -500, y: -550)
-  //      heartbeatgreen.zPosition = 2
         monitor.addChild(heartbeatgreen)
         
         heartbeatred = SKSpriteNode(imageNamed: "redwave")
         heartbeatred.setScale(5)
         heartbeatred.position = CGPoint(x: -500, y: 0)
-  //      heartbeatred.zPosition = 2
         monitor.addChild(heartbeatred)
         
         box = SKSpriteNode(imageNamed: "box")
@@ -120,6 +115,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
     
     //method to allow movement to the pliers tool
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         if let touch = touches.first {
             let location = touch.location(in: self)
             
@@ -134,6 +130,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
     
     // method to move the pliers tool node once the user touches over it
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         if let touch = touches.first, let node = self.currentNode {
             let touchLocation = touch.location(in: self)
             node.position = touchLocation
@@ -142,23 +139,19 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
     
     //method to end the movement of the nodes whenever the user stop touching the screen
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         self.currentNode = nil
+        
         //call the method to check the intersection
         intersect()
         
-//        if (check == false) {
-//            //call the method to check if the level is finished or not
-//            checkLevel()
-//        }
         //restore the tool position node to its initial position
         tool.position = CGPoint(x: -235, y: 0)
-
     }
     
     //method to check if the tool node are intersects with the wires nodes
-//    func intersect() -> Bool {
-     
     func intersect() {
+        
         if (tool.frame.intersects(wire1.frame)){
             //hidde the wire node
             wire1.isHidden = true
@@ -170,8 +163,8 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
                 self.heartbeat(heartbeat: self.heartbeatblue)
             }
             check = false
-  //          return check
         }
+        
         if (tool.frame.intersects(wire2.frame)) {
             //hidde the wire node
             wire2.isHidden = true
@@ -184,8 +177,8 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
             }
             check = true
             endLevelPace()
-  //          return check
         }
+        
         if (tool.frame.intersects(wire3.frame)) {
             //hidde the wire node
             wire3.isHidden = true
@@ -197,9 +190,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
                 self.heartbeat(heartbeat: self.heartbeatred)
             }
             check = false
-   //         return check
         }
-   //     return check
     }
     
     //method to stablishe the speed of time the hearbeat image nodes will fade in and out of the screen and the heart image node will increase and decrease scale
@@ -230,13 +221,6 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         heartbeat.run(SKAction.repeatForever(fadeSequence))
     }
     
-//    func checkLevel() {
-//        if (intersect()){
-//            endLevelPace()
-//        }
-//
-//    }
-    
     //method when the user finishes the level
     func endLevelPace () {
 
@@ -258,8 +242,6 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         
         //call the method on CommonProperties to send the user to the credits screen
         endLevel(fowardDestination: {self.loadScene(withIdentifier: .credits)})
-        
     }
-
-
+    
 }

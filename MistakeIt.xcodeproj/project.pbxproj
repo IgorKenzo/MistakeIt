@@ -41,6 +41,7 @@
 		2E09CE56256842510065878D /* Credits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E09CE55256842510065878D /* Credits.swift */; };
 		2E2428F9256EF1E800E4773F /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2428F8256EF1E800E4773F /* CreditsViewController.swift */; };
 		2E242903256EF31200E4773F /* PaceMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E242902256EF31200E4773F /* PaceMakerViewController.swift */; };
+		2EC1D585257193490091EE98 /* PaperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1D584257193490091EE98 /* PaperModel.swift */; };
 		9740489225630E6900B2DB45 /* Niveis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9740489125630E6900B2DB45 /* Niveis.swift */; };
 		975D5A5A2555BDF9008D8E3F /* NiveisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A592555BDF9008D8E3F /* NiveisViewController.swift */; };
 		975D5A5F2555BE67008D8E3F /* NiveisCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */; };
@@ -104,6 +105,7 @@
 		2E09CE55256842510065878D /* Credits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credits.swift; sourceTree = "<group>"; };
 		2E2428F8256EF1E800E4773F /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		2E242902256EF31200E4773F /* PaceMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceMakerViewController.swift; sourceTree = "<group>"; };
+		2EC1D584257193490091EE98 /* PaperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperModel.swift; sourceTree = "<group>"; };
 		9740489125630E6900B2DB45 /* Niveis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Niveis.swift; sourceTree = "<group>"; };
 		975D5A592555BDF9008D8E3F /* NiveisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisViewController.swift; sourceTree = "<group>"; };
 		975D5A5E2555BE67008D8E3F /* NiveisCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiveisCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			children = (
 				05449E992548945C00452B0A /* GameButtoNode.swift */,
 				05007ECE254B64F700C3A280 /* RotateNote.swift */,
+				2EC1D584257193490091EE98 /* PaperModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				2E2428F9256EF1E800E4773F /* CreditsViewController.swift in Sources */,
 				2E242903256EF31200E4773F /* PaceMakerViewController.swift in Sources */,
 				0521B436255C72D3003A7290 /* FasePenicilina.swift in Sources */,
+				2EC1D585257193490091EE98 /* PaperModel.swift in Sources */,
 				05A749F32559CB730070F857 /* PaperScene.swift in Sources */,
 				05A74A4F2559D83B0070F857 /* Navigation.swift in Sources */,
 				05007ECF254B64F700C3A280 /* RotateNote.swift in Sources */,

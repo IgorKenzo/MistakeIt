@@ -21,19 +21,13 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
     var hintButton: GameButtonNode!
     
     // Level Specific
-    var paper : SKSpriteNode?
-    var actual : Int! // variable to receive the ordem of an array and compare with the array position
-  //  var text: SKLabelNode!
-    var imageArray : [SKSpriteNode] = []
-    let box = SKSpriteNode(color: .black, size: CGSize(width: 10, height: 10))
+    var imageArray : [Paper] = []
     var boxArray: [SKSpriteNode] = []
- //   let blackboard = SKSpriteNode(imageNamed: "blackboard")
     var levelFinished : Bool = false
- //   var levelWrong : Bool = false
     var finalBox = SKSpriteNode(imageNamed: "3-quadro")
- //   var endText : SKLabelNode!
- //   var cont = 0
     var finalText : SKSpriteNode = SKSpriteNode(imageNamed: "completiontextpaper")
+    var actualNode : SKSpriteNode! // variable to receive the ordem of an array and compare with the array position
+    
     
     override func didMove(to view: SKView) {
         
@@ -44,50 +38,21 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
         setButtons()
         addButtons()
         
-        
-//        bgimg.position = CGPoint(x: 0, y: 0) //posiciona a variável no centro da tela
-//        self.addChild(bgimg) //adiciona a imagem ao node
-//        bgimg.zPosition = -3 //método para colocar a imagem ao fundo, atrás dos demais elementos que forem colocados na tela
-//        blackboard.position = CGPoint(x: 0, y: 250)
-//        blackboard.setScale(0.22)
-//        bgimg.addChild(blackboard)
-        
         //method to fill the array of nodes with the paper images and add the nodes into the view
         for i in 0...11{
-            paper = SKSpriteNode(imageNamed: "\(i)")
-            imageArray.append(paper!)
-            imageArray[i] = SKSpriteNode(imageNamed: "\(i)")
+            imageArray.append(Paper(imageNamed: "\(i)"))
             imageArray[i].name = String(i)
             imageArray[i].position = CGPoint(x: 0, y: -400) //posiciona o adesivo no centro, na parte de baixo da tela
             imageArray[i].zPosition = 1
-            
-            
-            background.addChild(imageArray[i])
-            
-            
             self.physicsWorld.gravity = CGVector(dx: 0, dy: 0) //determina que a gravidade sobre o formato do papel será estática sobre o eixo x-y
             self.physicsWorld.contactDelegate = self
-        
         }
         
-   //         label com a mensagem que aparece colocada sobre o papel.
-   //         text = SKLabelNode(text: String(i))
-   //         text.setScale(1.8)
-   //         text.fontColor = .white
-   //         text.position = CGPoint(x: 0, y: 0)
-   //         imageArray[i].addChild(text)
-   //
-   //     }
+        imageArray.shuffle()
         
-        
-        
-        
-//        imageArray.shuffle()
-//        for i in 0...11{
-//            background.addChild(imageArray[i])
-//        }
-        
-        
+        for i in 0...11{
+            background.addChild(imageArray[i])
+        }
         
         
         // value for the position x axe of each box that will be used to compared the final position of each paper
@@ -96,21 +61,10 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
         var beta : Int = 350
         //method to create the array of boxes nodes and add them into the view
         for k in 0...11 {
-            boxArray.append(box)
-            boxArray[k] = SKSpriteNode(color: .init(white: 10, alpha: 0), size: CGSize(width: 300, height: 300))
-            
-  //          boxArray[k] = SKSpriteNode(color: .red, size: CGSize(width: 250, height: 250))
-            
+            boxArray.append(SKSpriteNode(color: .init(white: 10, alpha: 0), size: CGSize(width: 300, height: 300)))
             boxArray[k].position = CGPoint(x: alpha, y: beta)
             boxArray[k].physicsBody?.isDynamic = false //make the node static to reduce CPU use
             background.addChild(boxArray[k])
-            
-   //         boxArray[k].zPosition = 1
-   //         text = SKLabelNode(text: String(k))
-   //         text.setScale(1.2)
-   //         text.fontColor = .white
-   //         text.position = CGPoint(x: 0, y: 0)
-   //         boxArray[k].addChild(text)
             
             //method to create the correct position of each following box node
             if (k == 3 || k == 7) {
@@ -125,22 +79,18 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        //puxar, pelo touch, se há algum outro node sobre o node clicado.
-        // observar se o usuário está clicando sobre o vazio, para não pretender movimentar o vazio
-        
         let touch = touches.first
         let touchLocation = touch?.location(in: self)
         let nodes = self.nodes(at: touchLocation!)
         
         //check if the node selected is a SKSpriteNode
         let selectednode = nodes.compactMap({nodeontop in
-                                                nodeontop as? SKSpriteNode})
+                                                nodeontop as? Paper})
         
         //method to move the first node on the pile of nodes created on the same position (gets the last node created)
-        if let firstnode = selectednode.first?.name {
-                actual = Int(firstnode)
+        if let firstnode = selectednode.first {
+                actualNode = firstnode
         }
-              
     }
     
     // method to move the paper node once the user touches over it
@@ -148,19 +98,21 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
         
         let touch = touches.first
         let touchLocation = touch?.location(in: self)
-        if let i = actual{
-            imageArray[i].position = touchLocation!
-            
+        
+        if let node = actualNode {
+            let i = imageArray.firstIndex(of: node as! Paper)
+            imageArray[i!].position = touchLocation!
+
         }
     }
     
     //method to end the movement of the nodes whenever the user stop touching the screen
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // a posição atual passa a ser nil, para que o Node não seja movimentado para a próxima posição.
-        actual = nil
+        
+        actualNode = nil
         //call the method to check the level everytime the user finishes touching the screen
         if (levelFinished != true){
-        checkLevel()
+            checkLevel()
         }
     }
 
@@ -171,23 +123,16 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
         if (levelFinished) {
             endLevelPaper()
         }
-//        if (levelWrong) {
-//            returnInitialPosition()
-//        }
     }
     
     //method to check if the paper nodes are in their correct position, compared to the box nodes created previously
     func checkNodes() {
-        let point2 = CGPoint(x: 0, y: -400)
+
         var nodeIntersect = Array(repeating: false, count: 12) //boolean array used to check if each node is movedto the right position
-        var nodeMoved = Array(repeating: false, count: 12) //boolean array used to check if each node is moved, but it is in the wrong position
-        
+
         for i in 0...11{
-            if (!imageArray[i].position.equalTo(point2)){
-                nodeMoved[i] = true
-                if (boxArray[i].frame.contains(imageArray[i].frame)){
-                    nodeIntersect[i] = true
-                }
+            if (imageArray[i].frame.intersects(boxArray[Int(imageArray[i].name!)!].frame)){
+                nodeIntersect[Int(imageArray[i].name!)!] = true
             }
         }
         
@@ -195,30 +140,17 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
         if (nodeIntersect[1] == true && nodeIntersect[2] == true && nodeIntersect[4] == true && nodeIntersect[5] == true && nodeIntersect[6] == true && nodeIntersect[7] == true && nodeIntersect[9] == true && nodeIntersect[10] == true){
             levelFinished = true
         }
-        
-        // method to check if all paper nodes were moved to the wrong position.
-//        if (nodeMoved[0] == true && nodeMoved[1] == true && nodeMoved[2] == true && nodeMoved[3] == true && nodeMoved[4] == true && nodeMoved[5] == true && nodeMoved[6] == true && nodeMoved[7] == true && nodeMoved[8] == true && nodeMoved[9] == true && nodeMoved[10] == true && nodeMoved[11] == true){
-//            levelWrong = true
-//        }
-        
     }
-    
-    
-//    func returnInitialPosition () {
-//        for i in 0...11{
-//            imageArray[i].position = CGPoint(x: 0, y: -400)
-//        }
-//        GameScene.
-//        let newScene = GameScene(size: self.size)
-//    }
     
     //method when the user finishes the level
     func endLevelPaper() {
+        
         //remove the paper and boxes nodes
         for i in 0...11{
             imageArray[i].removeFromParent()
             boxArray[i].removeFromParent()
         }
+        
         //set the position and add the node with the explanation text
         finalText.position = CGPoint (x: 0, y: 180)
         finalText.setScale(0.24)
@@ -227,8 +159,6 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
         
         //call the method on CommonProperties to send the user to the next stage
         endLevel(fowardDestination: {self.loadScene(withIdentifier: .pace)})
-        
     }
    
-    
 }
