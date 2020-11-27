@@ -38,6 +38,7 @@ class MenuViewController: UIViewController {
     @IBAction func okBtn(_ sender: Any) {
         animateOut(x: popUpView)
         animateOut(x: blurView)
+        UserDefaultManager.shared.storeValue(forKey: .alreadyPlayed, value: true)
     }
     
     @IBAction func unwindToMenu(_ unwindSegue: UIStoryboardSegue) {
@@ -68,6 +69,14 @@ class MenuViewController: UIViewController {
         popUpView.bounds = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 450)
         
         updadeLevelPlayed()
+        
+        if !(UserDefaultManager.shared.getIsFirstTime(forKey: .alreadyPlayed)) {
+            print("entrei")
+            //UserDefaultManager.shared.storeUnlockedLevels(forKey: .unlockedLevel, levels: [true,false,false,false])
+            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) {_ in
+                self.helpBtn(self)
+            }
+        }
     }
     
     func updadeLevelPlayed(){

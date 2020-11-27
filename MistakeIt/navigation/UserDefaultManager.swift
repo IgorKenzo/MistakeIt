@@ -12,6 +12,7 @@ class UserDefaultManager {
     enum Key :String {
         case lastLevelPlayed = "lastlevelplayed"
         case unlockedLevel = "unlockedLevels"
+        case alreadyPlayed = "alreadyPlayed"
     }
     
     static let shared = UserDefaultManager()
@@ -40,6 +41,14 @@ class UserDefaultManager {
             lvl![level.rawValue+1] = true
         }
         storeUnlockedLevels(forKey: .unlockedLevel, levels: lvl!)
+    }
+    
+    func getIsFirstTime(forKey key : Key) -> Bool {
+        return userDefaults.bool(forKey: key.rawValue)
+    }
+    
+    func storeValue(forKey key : Key, value : Any){
+        userDefaults.set(value, forKey: key.rawValue)
     }
     
      // MARK: - Private
