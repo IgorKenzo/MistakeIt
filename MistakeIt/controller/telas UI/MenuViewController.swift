@@ -62,6 +62,7 @@ class MenuViewController: UIViewController {
         //initializing function that brings all the sounds of the game
         importAudio()
         //background sound setting
+        audios["background"]?.volume = 0.3
         audios["background"]?.play()
         //blurView size
         blurView.bounds = self.view.bounds

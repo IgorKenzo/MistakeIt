@@ -27,6 +27,8 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
     
     var finalText : SKSpriteNode = SKSpriteNode(imageNamed: "completiontextlamp")
     
+    var playaudio : SKAction!
+    
     override func didMove(to view: SKView) {
         
         //MARK: setting the common properties
@@ -39,6 +41,8 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
         //MARK: Load Sprites and positions
         setfilaments()
         setLighting()
+        
+        playaudio = SKAction.playSoundFileNamed("raio_01", waitForCompletion: false)
     }
     
     //Setting Filaments
@@ -79,7 +83,8 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
                 for node in filament1.children {
                     node.isHidden = false
                 }
-                audios["raio"]?.play()
+               
+   //             audios["raio_01"]?.play()
             }
             else{
                 for node in filament1.children {
@@ -91,7 +96,8 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
                 for node in filament2.children {
                     node.isHidden = false
                 }
-                audios["raio"]!.play()
+                
+  //              audios["raio_01"]?.play()
             }
             else{
                 for node in filament2.children {
@@ -101,6 +107,7 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
             
             //Compare filaments rotation
             if (rad2deg(filament1.zRotation) % 360 == 0) && (rad2deg(filament2.zRotation) % 360 == 0) {
+                
                 playing = false
                 filament1.isUserInteractionEnabled = false
                 filament2.isUserInteractionEnabled = false

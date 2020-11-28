@@ -34,6 +34,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
     private var numBac : Int!
     private var playing = true
     private var finalText : SKSpriteNode = SKSpriteNode(imageNamed: "completiontextpenicilin")
+    var playaudio : SKAction!
     
     override func didMove(to view: SKView) {
         //Contact
@@ -45,6 +46,8 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
         addLevelLabel()
         setButtons(retry: {self.loadScene(withIdentifier: self.levelName)})
         addButtons()
+        
+        playaudio = SKAction.playSoundFileNamed("bacteria_01", waitForCompletion: false)
         
 //        let c = SKShapeNode(circleOfRadius: self.frame.width/2 - 50)
 //        c.position = CGPoint(x: 0, y: -20)
@@ -80,6 +83,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
             for node in touchedNodes.reversed() {
                 if node.name == "fungus" {
                     self.currentNode = node
+                    
                 }
             }
         }
@@ -90,7 +94,8 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
             let baseRadius = self.frame.width/2 - 50
             let distance = sqrt(pow(touchLocation.x, 2) + pow(touchLocation.y + 20, 2))
             let distanceDiff = distance - baseRadius
-            audios["post-it"]?.play()
+            
+
             if distanceDiff > 0 {
                 let handlePosition = CGPoint(x: touchLocation.x / distance * baseRadius, y: touchLocation.y / distance * baseRadius)
                 node.position = handlePosition
@@ -107,6 +112,8 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
         contact.bodyB.node?.removeFromParent()
         HapticsFeedback.shared.vibrate()
         numBac -= 1
+        self.run(playaudio)
+//            audios["bacteria_01"]?.play()
         //audios["comecome"]!.play()
     }
     
