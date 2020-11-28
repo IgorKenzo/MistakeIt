@@ -52,7 +52,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         setLevelName(name: .pace)
         setBackground(bgImg: SKSpriteNode(color: .clear, size: self.size))
         addLevelLabel()
-        setButtons()
+        setButtons(retry: {self.loadScene(withIdentifier: self.levelName)})
         addButtons()
         
         monitor = SKSpriteNode(imageNamed: "4-monitor")

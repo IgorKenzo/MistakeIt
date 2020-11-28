@@ -16,7 +16,7 @@ protocol CommonProperties where Self : SKScene {
     var background : SKEffectNode! { get set }
     var levelLabel : SKLabelNode! { get set }
     
-    func setButtons()
+    func setButtons(retry: @escaping () -> Void)
     func addButtons()
     func removeButtons()
     func setBackground(bgImg : SKSpriteNode)
@@ -31,7 +31,7 @@ protocol CommonProperties where Self : SKScene {
 extension CommonProperties {
     
     //Instanciate Hint and Settings Buttons
-    func setButtons() {
+    func setButtons(retry: @escaping () -> Void) {
         settingsButton = GameButtonNode(image: SKTexture(imageNamed: "settings"), onTap: {})
         settingsButton.position = CGPoint(x: 270, y: -710)
         settingsButton.setScale(0.03)
@@ -51,10 +51,15 @@ extension CommonProperties {
         let hintPopUp = SKSpriteNode(imageNamed: "hint-bubble")
         hintPopUp.size = CGSize(width: hintPopUp.size.width * 2, height: hintPopUp.size.height * 2)
         hintPopUp.position = CGPoint(x: hintButton.position.x + hintPopUp.size.width/2, y: hintButton.position.y + hintPopUp.size.height/2)
+        
+        hintLabel.preferredMaxLayoutWidth = hintPopUp.frame.width - 20
+        hintLabel.numberOfLines = 0
         hintPopUp.addChild(hintLabel)
+        hintLabel.position = CGPoint.zero
         
-        
-        let btnRetry = GameButtonNode(image: SKTexture(imageNamed: "retry"), onTap: {})
+        let btnRetry = GameButtonNode(image: SKTexture(imageNamed: "retry"), onTap: {
+            retry()
+        })
         let btnHome = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: {
             PlayViewController.BackToMenu()
         })//
@@ -95,24 +100,31 @@ extension CommonProperties {
             if !settingsButton.pressed {
                 self.blurBackground()
                 settingsButton.run(SKAction.rotate(byAngle: -.pi/2, duration: 0.3))
-                
+                settingsButton.isUserInteractionEnabled = false
                 for i in 0..<settingsButtons.count {
                     self.addChild(settingsButtons[i])
                     settingsButtons[i].run(animationsFw[i])
                 }
                 
                 hintButton.zPosition = -3
+                Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false){_ in
+                    self.settingsButton.isUserInteractionEnabled = true
+                }
+                
             }
             else{
                 self.blurBackground()
                 settingsButton.run(SKAction.rotate(byAngle: .pi/2, duration: 0.3))
-                
+                settingsButton.isUserInteractionEnabled = false
                 for i in 0..<settingsButtons.count {
                     settingsButtons[i].run(animationBack,completion: {
                         settingsButtons[i].removeFromParent()
                     })
                 }
                 hintButton.zPosition = 1
+                Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false){_ in
+                    self.settingsButton.isUserInteractionEnabled = true
+                }
             }
             
         }
