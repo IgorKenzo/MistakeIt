@@ -46,6 +46,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         physicsWorld.contactDelegate = self
         
         //Background sound
+        audios["monitor"]?.volume = 0.08
         audios["monitor"]?.play()
         
         //MARK: setting the common properties
@@ -222,6 +223,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         let fadeOut = SKAction.fadeOut(withDuration: 0.09)
         let fadeSequence = SKAction.sequence([fadeIn, fadeOut])
         heartbeat.run(SKAction.repeatForever(fadeSequence))
+        
     }
     
     //method when the user finishes the level

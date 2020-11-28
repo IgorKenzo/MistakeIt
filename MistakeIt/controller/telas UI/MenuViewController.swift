@@ -9,7 +9,7 @@ import SpriteKit
 import AVFoundation
 
 //dictionary with all audios used in the project
-var audios: [String: AVAudioPlayer] = ["background": AVAudioPlayer(), "bacteria": AVAudioPlayer(), "fim-nivel": AVAudioPlayer(), "heartbeat":AVAudioPlayer(), "monitor": AVAudioPlayer(), "post-it": AVAudioPlayer(), "puff": AVAudioPlayer(), "raio": AVAudioPlayer()]
+var audios: [String: AVAudioPlayer] = ["background": AVAudioPlayer(), "fim-nivel": AVAudioPlayer(), "heartbeat":AVAudioPlayer(), "monitor": AVAudioPlayer(), "post-it": AVAudioPlayer(), "puff": AVAudioPlayer()]
 
 class MenuViewController: UIViewController {
     
@@ -153,6 +153,20 @@ class MenuViewController: UIViewController {
             musicBtn.setImage(UIImage(named:"musica.png"), for: .normal)
         }
     }
+    
+    //method to stop sounds from stages of game
+    func stopForGood(){
+        for player in audios {
+            if (player.0 != "background"){
+                player.1.stop()
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        stopForGood()
+    }
+    
     
     override var shouldAutorotate: Bool {
         return true
