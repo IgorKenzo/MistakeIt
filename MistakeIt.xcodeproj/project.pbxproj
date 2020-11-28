@@ -45,10 +45,11 @@
 		2E09CE51256701200065878D /* PaperLevel.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2E09CE50256701200065878D /* PaperLevel.sks */; };
 		2E2428F9256EF1E800E4773F /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2428F8256EF1E800E4773F /* CreditsViewController.swift */; };
 		2E242903256EF31200E4773F /* PaceMakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E242902256EF31200E4773F /* PaceMakerViewController.swift */; };
+		2E3FECD02571E23000D3430B /* raio_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E3FECCE2571E23000D3430B /* raio_01.mp3 */; };
+		2E3FECD12571E23000D3430B /* bacteria_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E3FECCF2571E23000D3430B /* bacteria_01.mp3 */; };
 		2EC1D585257193490091EE98 /* PaperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1D584257193490091EE98 /* PaperModel.swift */; };
 		979B891B256D9173008E49AD /* teste.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 979B891A256D9173008E49AD /* teste.mp3 */; };
 		979B8929256EFA4C008E49AD /* lightning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 979B8928256EFA4B008E49AD /* lightning.mp3 */; };
-
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,10 +114,11 @@
 		2E09CE50256701200065878D /* PaperLevel.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PaperLevel.sks; sourceTree = "<group>"; };
 		2E2428F8256EF1E800E4773F /* CreditsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
 		2E242902256EF31200E4773F /* PaceMakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaceMakerViewController.swift; sourceTree = "<group>"; };
+		2E3FECCE2571E23000D3430B /* raio_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = raio_01.mp3; sourceTree = "<group>"; };
+		2E3FECCF2571E23000D3430B /* bacteria_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bacteria_01.mp3; sourceTree = "<group>"; };
 		2EC1D584257193490091EE98 /* PaperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperModel.swift; sourceTree = "<group>"; };
 		979B891A256D9173008E49AD /* teste.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = teste.mp3; sourceTree = "<group>"; };
 		979B8928256EFA4B008E49AD /* lightning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lightning.mp3; sourceTree = "<group>"; };
-
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +382,8 @@
 		979B8919256D9169008E49AD /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				2E3FECCF2571E23000D3430B /* bacteria_01.mp3 */,
+				2E3FECCE2571E23000D3430B /* raio_01.mp3 */,
 				979B8928256EFA4B008E49AD /* lightning.mp3 */,
 				979B891A256D9173008E49AD /* teste.mp3 */,
 			);
@@ -508,6 +512,8 @@
 				05A749AE2559B4BD0070F857 /* Main.storyboard in Resources */,
 				0521B43E255C72E6003A7290 /* FasePenicilinaScene.sks in Resources */,
 				979B891B256D9173008E49AD /* teste.mp3 in Resources */,
+				2E3FECD02571E23000D3430B /* raio_01.mp3 in Resources */,
+				2E3FECD12571E23000D3430B /* bacteria_01.mp3 in Resources */,
 				0516A8672537926100685DB9 /* Assets.xcassets in Resources */,
 				0516A85E2537926000685DB9 /* Actions.sks in Resources */,
 				979B8929256EFA4C008E49AD /* lightning.mp3 in Resources */,
