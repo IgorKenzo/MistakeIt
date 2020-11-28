@@ -35,13 +35,13 @@ extension CommonProperties {
         settingsButton = GameButtonNode(image: SKTexture(imageNamed: "settings"), onTap: {})
         settingsButton.position = CGPoint(x: 270, y: -710)
         settingsButton.setScale(0.03)
-        settingsButton.zPosition = 1
+        settingsButton.zPosition = 3
         
         //MARK: Hint and Settings buttons
         hintButton = GameButtonNode(image: SKTexture(imageNamed: "hint"), onTap: {})
         hintButton.position = CGPoint(x: -270, y: -710)
         hintButton.setScale(0.03)
-        hintButton.zPosition = 1
+        hintButton.zPosition = 3
         
         let hintLabel = SKLabelNode(fontNamed: "Abyss")
         hintLabel.text = hints[self.levelName]
@@ -63,12 +63,12 @@ extension CommonProperties {
         let btnHome = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: {
             PlayViewController.BackToMenu()
         })//
-        let btnMusic = GameButtonNode(image: SKTexture(imageNamed: "music"), onTap: {})
+   //     let btnMusic = GameButtonNode(image: SKTexture(imageNamed: "music"), onTap: {})
 
-        let settingsButtons = [btnRetry, btnHome, btnMusic]
+        let settingsButtons = [btnRetry, btnHome]   //, btnMusic]
         btnHome.setScale(0.03)
         btnRetry.setScale(0.03)
-        btnMusic.setScale(0.02)
+  //      btnMusic.setScale(0.02)
         
         //MARK: Buttons Animations
         var animationsFw : [SKAction] = []
@@ -76,7 +76,7 @@ extension CommonProperties {
 
         for i in 0 ..< settingsButtons.count {
             settingsButtons[i].position = settingsButton.position
-            settingsButtons[i].zPosition = 1
+            settingsButtons[i].zPosition = 3
             animationsFw.append(SKAction.move(to: CGPoint(x: settingsButton.position.x, y: settingsButton.position.y + (CGFloat(i + 1) * (settingsButtons[i].size.height + 60))), duration: 0.3))
         }
         
@@ -91,7 +91,7 @@ extension CommonProperties {
             else {
                 self.blurBackground()
                 hintPopUp.removeFromParent()
-                settingsButton.zPosition = 1
+                settingsButton.zPosition = 3
             }
         }
         
@@ -121,7 +121,7 @@ extension CommonProperties {
                         settingsButtons[i].removeFromParent()
                     })
                 }
-                hintButton.zPosition = 1
+                hintButton.zPosition = 3
                 Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false){_ in
                     self.settingsButton.isUserInteractionEnabled = true
                 }
@@ -197,29 +197,17 @@ extension CommonProperties {
         let home = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: {PlayViewController.BackToMenu()})
         let foward = GameButtonNode(image: SKTexture(imageNamed: "foward"), onTap: {fowardDestination()})
         
-        
         home.position = CGPoint(x: -50 , y: -self.frame.height/2)
         foward.position = CGPoint(x: 50 , y: -self.frame.height/2)
 
         home.setScale(0.02)
         foward.setScale(0.02)
         
-        home.zPosition = 1
-        foward.zPosition = 1
+        home.zPosition = 3
+        foward.zPosition = 3
 
         self.addChild(home)
         self.addChild(foward)
-
-        let endLabel = SKLabelNode(fontNamed: "Abyss")
-        endLabel.fontSize = self.size.height/40
-        endLabel.fontColor = .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
-        endLabel.text = levelcomplete[levelName]
-        endLabel.preferredMaxLayoutWidth = 500
-        endLabel.numberOfLines = 0
-        endLabel.position = CGPoint(x: 0, y: self.size.height/2 - endLabel.frame.height * 4/3) //
- //       self.addChild(endLabel)
-        endLabel.zPosition = 3
-        //print(numberOfLines(lb: endLabel))
 
         home.run(SKAction.move(to: CGPoint(x: -50 , y: -self.frame.height/2 + 150), duration: 0.7))
         foward.run(SKAction.move(to: CGPoint(x: 50 , y: -self.frame.height/2 + 150), duration: 0.7))
@@ -251,22 +239,11 @@ extension CommonProperties {
         home.setScale(0.02)
         foward.setScale(0.02)
         
-        home.zPosition = 1
-        foward.zPosition = 1
+        home.zPosition = 3
+        foward.zPosition = 3
 
         self.addChild(home)
         self.addChild(foward)
-
-        let endLabel = SKLabelNode(fontNamed: "Abyss")
-        endLabel.fontSize = self.size.height/40
-        endLabel.fontColor = .init(red: 0.2, green: 0.08, blue: 0.22, alpha: 1.0) //50,21,56
-        endLabel.text = levelcomplete[levelName]
-        endLabel.preferredMaxLayoutWidth = 500
-        endLabel.numberOfLines = 0
-        endLabel.position = CGPoint(x: 0, y: self.size.height/2 - endLabel.frame.height * 4/3) //
-    //    self.addChild(endLabel)
-        endLabel.zPosition = 3
-        //print(numberOfLines(lb: endLabel))
 
         home.run(SKAction.move(to: CGPoint(x: -50 , y: -self.frame.height/2 + 150), duration: 0.7))
         foward.run(SKAction.move(to: CGPoint(x: 50 , y: -self.frame.height/2 + 150), duration: 0.7))
