@@ -9,6 +9,8 @@ import SpriteKit
 
 class RotateNode : SKSpriteNode {
     
+    private let playaudio = SKAction.playSoundFileNamed("raio_01", waitForCompletion: false)
+    
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
         self.isUserInteractionEnabled = true
@@ -20,6 +22,8 @@ class RotateNode : SKSpriteNode {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.isUserInteractionEnabled = false
+        HapticsFeedback.shared.vibrate()
+        self.run(playaudio)
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.rotate()

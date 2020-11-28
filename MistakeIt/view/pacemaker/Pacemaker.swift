@@ -34,47 +34,49 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
     private var box : SKSpriteNode!
     private var endedLocation : CGPoint!
     
+    var checkbox1 : SKSpriteNode = SKSpriteNode(color: .init(white: 1, alpha: 1), size: CGSize(width: 80, height: 400))
+    var checkbox2 : SKSpriteNode! = SKSpriteNode(color: .init(white: 1, alpha: 1), size: CGSize(width: 80, height: 400))
+    var checkbox3 : SKSpriteNode! = SKSpriteNode(color: .init(white: 1, alpha: 1), size: CGSize(width: 80, height: 400))
+    
+    var finalText : SKSpriteNode = SKSpriteNode(imageNamed: "completiontextpace")
+
     
     override func didMove(to view: SKView) {
         //Contact
         physicsWorld.contactDelegate = self
         
+        //Background sound
+        audios["monitor"]?.play()
+        
         //MARK: setting the common properties
         setLevelName(name: .pace)
         setBackground(bgImg: SKSpriteNode(color: .clear, size: self.size))
         addLevelLabel()
-        setButtons()
+        setButtons(retry: {self.loadScene(withIdentifier: self.levelName)})
         addButtons()
-        
-        
         
         monitor = SKSpriteNode(imageNamed: "4-monitor")
         monitor.position = CGPoint(x: 0, y: 350)
         monitor.setScale(0.28)
-  //      monitor.zPosition = 1
         background.addChild(monitor)
         
         heart = SKSpriteNode(imageNamed: "corasson")
         heart.position = CGPoint(x: 800, y: 200)
-  //      heart.zPosition = 2
         monitor.addChild(heart)
 
         heartbeatblue = SKSpriteNode(imageNamed: "bluewave")
         heartbeatblue.setScale(5)
         heartbeatblue.position = CGPoint(x: -500, y: 550)
-  //      heartbeatblue.zPosition = 2
         monitor.addChild(heartbeatblue)
         
         heartbeatgreen = SKSpriteNode(imageNamed: "greenwave")
         heartbeatgreen.setScale(5)
         heartbeatgreen.position = CGPoint(x: -500, y: -550)
-  //      heartbeatgreen.zPosition = 2
         monitor.addChild(heartbeatgreen)
         
         heartbeatred = SKSpriteNode(imageNamed: "redwave")
         heartbeatred.setScale(5)
         heartbeatred.position = CGPoint(x: -500, y: 0)
-  //      heartbeatred.zPosition = 2
         monitor.addChild(heartbeatred)
         
         box = SKSpriteNode(imageNamed: "box")
@@ -85,7 +87,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         
         tool = SKSpriteNode(imageNamed: "tool")
         tool.name = "drag"
-        tool.setScale(0.25)
+        tool.setScale(0.2)
         tool.position = CGPoint(x: -235, y: 0)
         tool.zPosition = 1
         box.addChild(tool)
@@ -108,9 +110,15 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         wire3.zPosition = 1
         box.addChild(wire3)
         
+        heartbeat(heartbeat: heartbeatblue)
+        heartbeat(heartbeat: heartbeatgreen)
+        heartbeat(heartbeat: heartbeatred)
         
     }
+    
+    //method to allow movement to the pliers tool
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         if let touch = touches.first {
             let location = touch.location(in: self)
             
@@ -123,6 +131,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         }
     }
     
+    // method to move the pliers tool node once the user touches over it
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if let touch = touches.first, let node = self.currentNode {
@@ -131,77 +140,111 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         }
     }
     
-    func touchUp(atPoint pos : CGPoint) {
-        endedLocation = pos
-    }
-    
+    //method to end the movement of the nodes whenever the user stop touching the screen
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         self.currentNode = nil
+        
+        //call the method to check the intersection
+        intersect()
+        
+        //restore the tool position node to its initial position
+        tool.position = CGPoint(x: -235, y: 0)
     }
     
-    
-    func intersect() -> Bool {
-        if (wire1.frame.intersects(tool.frame)){
-            wire1.removeFromParent()
-        }
-        if (endedLocation == wire1.position){
-            wire1.removeFromParent()
-        }
+    //method to check if the tool node are intersects with the wires nodes
+    func intersect() {
+        
         if (tool.frame.intersects(wire1.frame)){
-            wire1.removeFromParent()
+            //hidde the wire node
+            wire1.isHidden = true
+            //call the method to increase the heart beat speed
             increaseHeartBeat(heartbeat : heartbeatblue)
-            check = true
-            return check
+            //creates a time interval without action. after it, restore the view of the hidden wire and restore the normal speed of the heart beat
+            Timer.scheduledTimer(withTimeInterval: 4, repeats: false) {timer in
+                self.wire1.isHidden = false
+                self.heartbeat(heartbeat: self.heartbeatblue)
+            }
+            check = false
         }
+        
         if (tool.frame.intersects(wire2.frame)) {
-            wire2.removeFromParent()
+            //hidde the wire node
+            wire2.isHidden = true
+            //call the method to increase the heart beat speed
             increaseHeartBeat(heartbeat : heartbeatgreen)
+            //creates a time interval without action. after it, restore the view of the hidden wire and restore the normal speed of the heart beat
+            Timer.scheduledTimer(withTimeInterval: 4, repeats: false) {timer in
+                self.wire2.isHidden = false
+                self.heartbeat(heartbeat: self.heartbeatgreen)
+            }
             check = true
-            return check
+            endLevelPace()
         }
+        
         if (tool.frame.intersects(wire3.frame)) {
-            wire3.removeFromParent()
+            //hidde the wire node
+            wire3.isHidden = true
+            //call the method to increase the heart beat speed
             increaseHeartBeat(heartbeat : heartbeatred)
-            check = true
-            return check
+            //creates a time interval without action. after it, restore the view of the hidden wire and restore the normal speed of the heart beat
+            Timer.scheduledTimer(withTimeInterval: 4, repeats: false) {timer in
+                self.wire3.isHidden = false
+                self.heartbeat(heartbeat: self.heartbeatred)
+            }
+            check = false
         }
-        return check
     }
     
-
-    func heartbeat () {
-        let fadeOut = SKAction.fadeOut(withDuration: 1)
-        heartbeatblue.run(fadeOut)
-        heartbeatgreen.run(fadeOut)
-        heartbeatred.run(fadeOut)
+    //method to stablishe the speed of time the hearbeat image nodes will fade in and out of the screen and the heart image node will increase and decrease scale
+    func heartbeat (heartbeat :  SKSpriteNode) {
+        
+        let fadeIn = SKAction.fadeIn(withDuration: 0.9)
+        let fadeOut = SKAction.fadeOut(withDuration: 0.9)
+        let fadeSequence = SKAction.sequence([fadeIn, fadeOut])
+        heartbeat.run(SKAction.repeatForever(fadeSequence))
+        
+        let scaleUp = SKAction.scale(to: 1.2, duration: 0.2)
+        let scaleDown = SKAction.scale(to: 1, duration: 0.2)
+        let scaleSequence = SKAction.sequence([scaleUp, scaleDown])
+        
+        heart.run(SKAction.repeatForever(scaleSequence))
+        
+        if (check == true){
+            heartbeatblue.run(SKAction.stop())
+        }
     }
     
+    
+    //method to stablishe the accelerated speed of time the hearbeat image nodes will fade in and out of the screen
     func increaseHeartBeat (heartbeat : SKSpriteNode) {
-        let fadeOut = SKAction.fadeOut(withDuration: 0.5)
-        heartbeat.run(fadeOut)
+        let fadeIn = SKAction.fadeIn(withDuration: 0.09)
+        let fadeOut = SKAction.fadeOut(withDuration: 0.09)
+        let fadeSequence = SKAction.sequence([fadeIn, fadeOut])
+        heartbeat.run(SKAction.repeatForever(fadeSequence))
     }
     
-    func checkLevel() {
-        if (intersect()){
-            endLevel()
-        }
-        else {
-            heartbeat()
-            //precisa colocar um método de recolocar os fios e o alicate na posição correta.
-        }
-    }
-    
-
-    func endLevel () {
-        heartbeatgreen.removeFromParent()
+    //method when the user finishes the level
+    func endLevelPace () {
+        audios["monitor"]?.stop()
+        //remove the nodes of the screen
+        monitor.removeFromParent()
+        heartbeatblue.removeFromParent()
         heartbeatgreen.removeFromParent()
         heartbeatred.removeFromParent()
         tool.removeFromParent()
         heart.removeFromParent()
+        wire1.removeFromParent()
+        wire2.removeFromParent()
+        wire3.removeFromParent()
         
+        //set the position and add the node with the explanation text
+        finalText.position = CGPoint (x: 0, y: 400)
+        finalText.setScale(0.25)
+        self.addChild(finalText)
+        
+        //call the method on CommonProperties to send the user to the credits screen
         endLevel(fowardDestination: {self.loadScene(withIdentifier: .credits)})
-        
     }
-
-
+    
 }

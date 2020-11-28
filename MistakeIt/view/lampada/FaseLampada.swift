@@ -6,7 +6,7 @@
 //
 
 import SpriteKit
-
+import AVFoundation
 class FaseLampada: SKScene, CommonProperties, SceneManager {
     
     //Protocol
@@ -25,18 +25,24 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
     var filament2 : RotateNode!
     var playing = true
     
+    var finalText : SKSpriteNode = SKSpriteNode(imageNamed: "completiontextlamp")
+    
+    var playaudio : SKAction!
+    
     override func didMove(to view: SKView) {
         
         //MARK: setting the common properties
         setLevelName(name: .lamp)
         setBackground(bgImg: SKSpriteNode(imageNamed: "blur"))
-        setButtons()
+        setButtons(retry: {self.loadScene(withIdentifier: self.levelName)})
         addButtons()
         addLevelLabel()
         
         //MARK: Load Sprites and positions
         setfilaments()
         setLighting()
+        
+        playaudio = SKAction.playSoundFileNamed("raio_01", waitForCompletion: false)
     }
     
     //Setting Filaments
@@ -77,6 +83,8 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
                 for node in filament1.children {
                     node.isHidden = false
                 }
+               
+   //             audios["raio_01"]?.play()
             }
             else{
                 for node in filament1.children {
@@ -88,6 +96,8 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
                 for node in filament2.children {
                     node.isHidden = false
                 }
+                
+  //              audios["raio_01"]?.play()
             }
             else{
                 for node in filament2.children {
@@ -97,8 +107,15 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
             
             //Compare filaments rotation
             if (rad2deg(filament1.zRotation) % 360 == 0) && (rad2deg(filament2.zRotation) % 360 == 0) {
+                
                 playing = false
+                filament1.isUserInteractionEnabled = false
+                filament2.isUserInteractionEnabled = false
                 endLevel(backgroundImage: SKTexture(imageNamed: "bgEnd"), fowardDestination: {self.loadScene(withIdentifier: .peni)})
+                finalText.position = CGPoint(x: 0, y: 400)
+                finalText.zPosition = 1
+                finalText.setScale(0.25)
+                self.addChild(finalText)
             }
 
         }
@@ -119,6 +136,8 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
         lightining2.position = CGPoint(x: 0, y: 90)
         lightining2.isHidden = true
     }
+    
+    
     
 //    func endLevel() {
 //        //remove hint and settings buttons
