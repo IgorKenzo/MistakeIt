@@ -90,7 +90,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
             let baseRadius = self.frame.width/2 - 50
             let distance = sqrt(pow(touchLocation.x, 2) + pow(touchLocation.y + 20, 2))
             let distanceDiff = distance - baseRadius
-            
+            audios["post-it"]?.play()
             if distanceDiff > 0 {
                 let handlePosition = CGPoint(x: touchLocation.x / distance * baseRadius, y: touchLocation.y / distance * baseRadius)
                 node.position = handlePosition

@@ -16,7 +16,7 @@ class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollec
     //the back button that goes back to the home view
     @IBAction func voltarBtn(_ sender: Any) {
         //the home view's background sound starts to play again
-        audios["teste"]!.play()
+        audios["background"]?.play()
     }
     
     let cellIdentifier = "NivelCell"
