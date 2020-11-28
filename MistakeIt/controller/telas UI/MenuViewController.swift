@@ -9,7 +9,7 @@ import SpriteKit
 import AVFoundation
 
 //dictionary with all audios used in the project
-var audios: [String: AVAudioPlayer] = ["teste": AVAudioPlayer(), "lightning": AVAudioPlayer()]
+var audios: [String: AVAudioPlayer] = ["background": AVAudioPlayer(), "bacteria": AVAudioPlayer(), "fim-nivel": AVAudioPlayer(), "heartbeat":AVAudioPlayer(), "monitor": AVAudioPlayer(), "post-it": AVAudioPlayer(), "puff": AVAudioPlayer(), "raio": AVAudioPlayer()]
 
 class MenuViewController: UIViewController {
     
@@ -25,7 +25,7 @@ class MenuViewController: UIViewController {
     
     //when the levels button is clicked the background sound stops
     @IBAction func niveisBtn(_ sender: Any) {
-        audios["teste"]!.stop()
+        audios["background"]?.stop()
     }
     
     //shows a view with a basic explanation of the game
@@ -51,7 +51,7 @@ class MenuViewController: UIViewController {
         updadeLevelPlayed()
         performSegue(withIdentifier: "actionPlay", sender: nil)
         //stops the background sound
-        audios["teste"]!.stop()
+        audios["background"]?.stop()
     }
     
     @IBOutlet var blurView: UIVisualEffectView!
@@ -62,7 +62,7 @@ class MenuViewController: UIViewController {
         //initializing function that brings all the sounds of the game
         importAudio()
         //background sound setting
-        audios["teste"]!.play()
+        audios["background"]?.play()
         //blurView size
         blurView.bounds = self.view.bounds
         //popUpView size
@@ -98,7 +98,7 @@ class MenuViewController: UIViewController {
             let chave = Array(audios)[i].key
             let AssortedMusics = NSURL(fileURLWithPath: Bundle.main.path(forResource: chave, ofType: "mp3")!)
             audios[chave] = try! AVAudioPlayer(contentsOf: AssortedMusics as URL)
-            if(chave == "lightning"){
+            if(chave == "background" || chave == "monitor"){
                 audios[chave]!.numberOfLoops = -1
             }
         }
@@ -138,14 +138,14 @@ class MenuViewController: UIViewController {
     func musicaTocando(){
         if(tocando){
             //if the boolean "tocando" is true then the audio is stopped
-            audios["teste"]!.stop()
+            audios["background"]?.stop()
             //the variable changes to false
             tocando = false
             //and the sound icon changes to a different one
             musicBtn.setImage(UIImage(named:"sem-musica.png"), for: .normal)
         }else{
             //if the boolean "tocando" is false then the audio is played
-            audios["teste"]!.play()
+            audios["background"]?.play()
             //the variable changes to true
             tocando = true
             //and the sound icon changes to the original one
@@ -173,7 +173,7 @@ class MenuViewController: UIViewController {
         
         if let vc = segue.destination as? PlayViewController {
             vc.LevelName = self.levelToPlay
-            audios["teste"]!.stop()
+            audios["background"]?.stop()
         }
     }
 }

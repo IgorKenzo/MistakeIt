@@ -48,8 +48,17 @@
 		2E3FECD02571E23000D3430B /* raio_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E3FECCE2571E23000D3430B /* raio_01.mp3 */; };
 		2E3FECD12571E23000D3430B /* bacteria_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E3FECCF2571E23000D3430B /* bacteria_01.mp3 */; };
 		2EC1D585257193490091EE98 /* PaperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1D584257193490091EE98 /* PaperModel.swift */; };
+		979B891B256D9173008E49AD /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 979B891A256D9173008E49AD /* background.mp3 */; };
+		97EAD0052571B17700FCCE91 /* heartbeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 97EACFFD2571B17700FCCE91 /* heartbeat.mp3 */; };
+		97EAD0062571B17700FCCE91 /* bacteria.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 97EACFFE2571B17700FCCE91 /* bacteria.mp3 */; };
+		97EAD0072571B17700FCCE91 /* raio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 97EACFFF2571B17700FCCE91 /* raio.mp3 */; };
+		97EAD0092571B17700FCCE91 /* fim-nivel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 97EAD0012571B17700FCCE91 /* fim-nivel.mp3 */; };
+		97EAD00A2571B17700FCCE91 /* monitor.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 97EAD0022571B17700FCCE91 /* monitor.mp3 */; };
+		97EAD00B2571B17700FCCE91 /* puff.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 97EAD0032571B17700FCCE91 /* puff.mp3 */; };
+		97EAD00C2571B17700FCCE91 /* post-it.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 97EAD0042571B17700FCCE91 /* post-it.mp3 */; };
 		979B891B256D9173008E49AD /* teste.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 979B891A256D9173008E49AD /* teste.mp3 */; };
 		979B8929256EFA4C008E49AD /* lightning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 979B8928256EFA4B008E49AD /* lightning.mp3 */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,8 +126,17 @@
 		2E3FECCE2571E23000D3430B /* raio_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = raio_01.mp3; sourceTree = "<group>"; };
 		2E3FECCF2571E23000D3430B /* bacteria_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bacteria_01.mp3; sourceTree = "<group>"; };
 		2EC1D584257193490091EE98 /* PaperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperModel.swift; sourceTree = "<group>"; };
+		979B891A256D9173008E49AD /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
+		97EACFFD2571B17700FCCE91 /* heartbeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = heartbeat.mp3; sourceTree = "<group>"; };
+		97EACFFE2571B17700FCCE91 /* bacteria.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bacteria.mp3; sourceTree = "<group>"; };
+		97EACFFF2571B17700FCCE91 /* raio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = raio.mp3; sourceTree = "<group>"; };
+		97EAD0012571B17700FCCE91 /* fim-nivel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fim-nivel.mp3"; sourceTree = "<group>"; };
+		97EAD0022571B17700FCCE91 /* monitor.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = monitor.mp3; sourceTree = "<group>"; };
+		97EAD0032571B17700FCCE91 /* puff.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = puff.mp3; sourceTree = "<group>"; };
+		97EAD0042571B17700FCCE91 /* post-it.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "post-it.mp3"; sourceTree = "<group>"; };
 		979B891A256D9173008E49AD /* teste.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = teste.mp3; sourceTree = "<group>"; };
 		979B8928256EFA4B008E49AD /* lightning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = lightning.mp3; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,6 +400,14 @@
 		979B8919256D9169008E49AD /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				97EACFFE2571B17700FCCE91 /* bacteria.mp3 */,
+				97EAD0012571B17700FCCE91 /* fim-nivel.mp3 */,
+				97EACFFD2571B17700FCCE91 /* heartbeat.mp3 */,
+				97EAD0022571B17700FCCE91 /* monitor.mp3 */,
+				97EAD0042571B17700FCCE91 /* post-it.mp3 */,
+				97EAD0032571B17700FCCE91 /* puff.mp3 */,
+				97EACFFF2571B17700FCCE91 /* raio.mp3 */,
+				979B891A256D9173008E49AD /* background.mp3 */,
 				2E3FECCF2571E23000D3430B /* bacteria_01.mp3 */,
 				2E3FECCE2571E23000D3430B /* raio_01.mp3 */,
 				979B8928256EFA4B008E49AD /* lightning.mp3 */,
@@ -505,20 +531,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				05CF8595256706AC004C166A /* PlayScene.sks in Resources */,
+				97EAD0072571B17700FCCE91 /* raio.mp3 in Resources */,
+				97EAD00C2571B17700FCCE91 /* post-it.mp3 in Resources */,
 				05C718342565B67F00DF4EFA /* Abyss.otf in Resources */,
 				2E09CE51256701200065878D /* PaperLevel.sks in Resources */,
 				055862D325645C5B00C0477D /* PacemakerScene.sks in Resources */,
 				0516A85C2537926000685DB9 /* GameScene.sks in Resources */,
 				05A749AE2559B4BD0070F857 /* Main.storyboard in Resources */,
 				0521B43E255C72E6003A7290 /* FasePenicilinaScene.sks in Resources */,
+				979B891B256D9173008E49AD /* background.mp3 in Resources */,
 				979B891B256D9173008E49AD /* teste.mp3 in Resources */,
 				2E3FECD02571E23000D3430B /* raio_01.mp3 in Resources */,
 				2E3FECD12571E23000D3430B /* bacteria_01.mp3 in Resources */,
+
 				0516A8672537926100685DB9 /* Assets.xcassets in Resources */,
+				97EAD00B2571B17700FCCE91 /* puff.mp3 in Resources */,
 				0516A85E2537926000685DB9 /* Actions.sks in Resources */,
-				979B8929256EFA4C008E49AD /* lightning.mp3 in Resources */,
 				05CF85742566E914004C166A /* Launch Screen.storyboard in Resources */,
+				97EAD0062571B17700FCCE91 /* bacteria.mp3 in Resources */,
+				97EAD0092571B17700FCCE91 /* fim-nivel.mp3 in Resources */,
+				97EAD0052571B17700FCCE91 /* heartbeat.mp3 in Resources */,
 				05A74A0A2559D2530070F857 /* FaseLampadaScene.sks in Resources */,
+				97EAD00A2571B17700FCCE91 /* monitor.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

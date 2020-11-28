@@ -45,6 +45,9 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         //Contact
         physicsWorld.contactDelegate = self
         
+        //Background sound
+        audios["monitor"]?.play()
+        
         //MARK: setting the common properties
         setLevelName(name: .pace)
         setBackground(bgImg: SKSpriteNode(color: .clear, size: self.size))
@@ -223,7 +226,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
     
     //method when the user finishes the level
     func endLevelPace () {
-
+        audios["monitor"]?.stop()
         //remove the nodes of the screen
         monitor.removeFromParent()
         heartbeatblue.removeFromParent()
