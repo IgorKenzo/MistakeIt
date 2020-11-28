@@ -20,5 +20,7 @@ class SplashScreen: UIViewController {
             self.performSegue(withIdentifier: "goMenu", sender: nil)
         }
     }
-    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 }
