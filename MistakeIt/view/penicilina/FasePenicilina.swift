@@ -145,9 +145,9 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
                 fungus.removeFromParent()
                 endLevel(fowardDestination: {self.loadScene(withIdentifier: .paper)})
                 playing = false
-                finalText.position = CGPoint(x: -10, y: -50)
+                finalText.position = CGPoint(x: 0, y: 50)
                 finalText.zPosition = 1
-                finalText.setScale(0.255)
+                //finalText.setScale(0.9)
                 self.addChild(finalText)
             }
         }
