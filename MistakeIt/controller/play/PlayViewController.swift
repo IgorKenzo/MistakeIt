@@ -29,7 +29,7 @@ class PlayViewController: UIViewController {
             }
             PlayViewController.BackToMenu = {
                 self.performSegue(withIdentifier: "unwindToMenu", sender: nil)
-                audios["background"]!.play()
+    //            audios["background"]!.play()
             }
             
             view.ignoresSiblingOrder = true

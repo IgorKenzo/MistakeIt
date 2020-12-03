@@ -24,7 +24,7 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
     var imageArray : [Paper] = []
     var boxArray: [SKSpriteNode] = []
     var levelFinished : Bool = false
-    var finalBox = SKSpriteNode(imageNamed: "3-quadro")
+  //  var finalBox = SKSpriteNode(imageNamed: "3-quadro")
     var finalText : SKSpriteNode = SKSpriteNode(imageNamed: "completiontextpaper")
     var actualNode : SKSpriteNode! // variable to receive the ordem of an array and compare with the array position
     
@@ -61,7 +61,7 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
         var beta : Int = 350
         //method to create the array of boxes nodes and add them into the view
         for k in 0...11 {
-            boxArray.append(SKSpriteNode(color: .init(white: 10, alpha: 0), size: CGSize(width: 300, height: 300)))
+            boxArray.append(SKSpriteNode(color: .clear, size: CGSize(width: 300, height: 300)))
             boxArray[k].position = CGPoint(x: alpha, y: beta)
             boxArray[k].physicsBody?.isDynamic = false //make the node static to reduce CPU use
             background.addChild(boxArray[k])

@@ -56,7 +56,7 @@ class Credits: SKScene, CommonProperties, SceneManager {
     let finalInfo = """
                     Imagens e textos de propriedade exclusiva dos desenvolvedores.
 
-                    Apple Developer Academy / SENAC/SP - 2020
+                    Apple Developer Academy | SENAC/SP - 2020
 
                                     Obrigado por Jogar!
                     """
