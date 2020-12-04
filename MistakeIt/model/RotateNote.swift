@@ -9,11 +9,14 @@ import SpriteKit
 
 class RotateNode : SKSpriteNode {
     
-    private let playaudio = SKAction.playSoundFileNamed("raio_01", waitForCompletion: false)
+//    private let playaudio = SKAction.playSoundFileNamed("raio_01", waitForCompletion: false)
+    
+    private var playaudio : SKAction!
     
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
         self.isUserInteractionEnabled = true
+        playaudio = SKAction.playSoundFileNamed("raio_01", waitForCompletion: false)
     }
     
     required init?(coder aDecoder: NSCoder) {

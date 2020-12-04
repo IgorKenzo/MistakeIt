@@ -88,9 +88,12 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         
         tool = SKSpriteNode(imageNamed: "tool")
         tool.name = "drag"
-        tool.setScale(0.2)
-        tool.position = CGPoint(x: -235, y: 0)
-        tool.zPosition = 1
+        tool.size = CGSize(width: tool.size.width * 0.2, height: tool.size.height * 0.2)
+   //     tool.setScale(0.2)
+   //     tool.position = CGPoint(x: -280, y: -330)
+        tool.position = CGPoint(x: -230, y: 0)
+
+        tool.zPosition = 2
         box.addChild(tool)
         
         wire1 = SKSpriteNode(imageNamed: "bluewire")
@@ -136,7 +139,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         if let touch = touches.first, let node = self.currentNode {
-            let touchLocation = touch.location(in: self)
+            let touchLocation = touch.location(in: box)
             node.position = touchLocation
         }
     }
@@ -150,7 +153,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         intersect()
         
         //restore the tool position node to its initial position
-        tool.position = CGPoint(x: -235, y: 0)
+        tool.position = CGPoint(x: -230, y: 0)
     }
     
     //method to check if the tool node are intersects with the wires nodes
@@ -223,7 +226,6 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         let fadeOut = SKAction.fadeOut(withDuration: 0.09)
         let fadeSequence = SKAction.sequence([fadeIn, fadeOut])
         heartbeat.run(SKAction.repeatForever(fadeSequence))
-        
     }
     
     //method when the user finishes the level

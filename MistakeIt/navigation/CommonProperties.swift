@@ -58,9 +58,11 @@ extension CommonProperties {
         hintLabel.position = CGPoint.zero
         
         let btnRetry = GameButtonNode(image: SKTexture(imageNamed: "retry"), onTap: {
+            HapticsFeedback.shared.vibrate()
             retry()
         })
         let btnHome = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: {
+            HapticsFeedback.shared.vibrate()
             PlayViewController.BackToMenu()
         })//
    //     let btnMusic = GameButtonNode(image: SKTexture(imageNamed: "music"), onTap: {})
@@ -83,6 +85,7 @@ extension CommonProperties {
         //MARK: Buttons actions
         
         hintButton.onTap = { [self] in
+            HapticsFeedback.shared.vibrate()
             if !hintButton.pressed {
                 self.blurBackground()
                 self.addChild(hintPopUp)
@@ -96,7 +99,7 @@ extension CommonProperties {
         }
         
         settingsButton.onTap = { [self] in
-            
+            HapticsFeedback.shared.vibrate()
             if !settingsButton.pressed {
                 self.blurBackground()
                 settingsButton.run(SKAction.rotate(byAngle: -.pi/2, duration: 0.3))
@@ -194,8 +197,15 @@ extension CommonProperties {
         //end buttons
         levelLabel.removeFromParent()
 
-        let home = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: {PlayViewController.BackToMenu()})
-        let foward = GameButtonNode(image: SKTexture(imageNamed: "foward"), onTap: {fowardDestination()})
+        let home = GameButtonNode(image: SKTexture(imageNamed: "home"), onTap: {
+            HapticsFeedback.shared.vibrate()
+            PlayViewController.BackToMenu()
+        })
+        let foward = GameButtonNode(image: SKTexture(imageNamed: "foward"), onTap: {
+            HapticsFeedback.shared.vibrate()
+            fowardDestination()
+            
+        })
         
         home.position = CGPoint(x: -50 , y: -self.frame.height/2)
         foward.position = CGPoint(x: 50 , y: -self.frame.height/2)

@@ -16,7 +16,7 @@ class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollec
     //the back button that goes back to the home view
     @IBAction func voltarBtn(_ sender: Any) {
         //the home view's background sound starts to play again
-        audios["background"]?.play()
+        //audios["background"]?.play()
     }
     
     let cellIdentifier = "NivelCell"
@@ -59,6 +59,7 @@ class NiveisViewController: UIViewController, UICollectionViewDelegate, UICollec
         collectionView.deselectItem(at: indexPath, animated: true)
         //print(data[indexPath.item])
         if levelStatus![indexPath.item] {
+            HapticsFeedback.shared.vibrate()
             self.levelname = data[indexPath.item].name
             performSegue(withIdentifier: "callPlay", sender: nil)
         }
