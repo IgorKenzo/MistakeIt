@@ -20,22 +20,26 @@ class MenuViewController: UIViewController {
     //button to stop and play the home's background music
     @IBOutlet weak var musicBtn: UIButton!
     @IBAction func musicaBtn(_ sender: UIButton) {
+        HapticsFeedback.shared.vibrate()
         musicaTocando()
     }
     
     //when the levels button is clicked the background sound stops
     @IBAction func niveisBtn(_ sender: Any) {
+        HapticsFeedback.shared.vibrate()
         audios["background"]?.stop()
     }
     
     //shows a view with a basic explanation of the game
     @IBAction func helpBtn(_ sender: Any) {
+        HapticsFeedback.shared.vibrate()
         animateIn(x: blurView)
         animateIn(x: popUpView)
     }
     
     //goes back from the explanation view to the home view
     @IBAction func okBtn(_ sender: Any) {
+        HapticsFeedback.shared.vibrate()
         animateOut(x: popUpView)
         animateOut(x: blurView)
         UserDefaultManager.shared.storeValue(forKey: .alreadyPlayed, value: true)
@@ -49,6 +53,7 @@ class MenuViewController: UIViewController {
     //goes straight to the next level to be played
     @IBAction func playButton(_ sender: Any) {
         updadeLevelPlayed()
+        HapticsFeedback.shared.vibrate()
         performSegue(withIdentifier: "actionPlay", sender: nil)
         //stops the background sound
         audios["background"]?.stop()
