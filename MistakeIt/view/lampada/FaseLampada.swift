@@ -121,9 +121,9 @@ class FaseLampada: SKScene, CommonProperties, SceneManager {
                 bgend.zPosition = 1
                 self.addChild(bgend)
                 endLevel(fowardDestination: {self.loadScene(withIdentifier: .peni)})
-                finalText.position = CGPoint(x: 0, y: 400)
+                finalText.position = CGPoint(x: 0, y: 500)
                 finalText.zPosition = 2
-                finalText.setScale(0.25)
+                finalText.setScale(0.5)
                 self.addChild(finalText)
             }
 

@@ -51,6 +51,7 @@
 		2E3FECD02571E23000D3430B /* raio_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E3FECCE2571E23000D3430B /* raio_01.mp3 */; };
 		2E3FECD12571E23000D3430B /* bacteria_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E3FECCF2571E23000D3430B /* bacteria_01.mp3 */; };
 		2E469E732571E780005FC750 /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2E469E722571E780005FC750 /* background.mp3 */; };
+		2EA3710B257EC80600BD88A8 /* Chalkduster.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2EA370FE257EB79C00BD88A8 /* Chalkduster.ttf */; };
 		2EC1D585257193490091EE98 /* PaperModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC1D584257193490091EE98 /* PaperModel.swift */; };
 		97EAD0052571B17700FCCE91 /* heartbeat.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 97EACFFD2571B17700FCCE91 /* heartbeat.mp3 */; };
 		97EAD0092571B17700FCCE91 /* fim-nivel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 97EAD0012571B17700FCCE91 /* fim-nivel.mp3 */; };
@@ -127,6 +128,7 @@
 		2E3FECCE2571E23000D3430B /* raio_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = raio_01.mp3; sourceTree = "<group>"; };
 		2E3FECCF2571E23000D3430B /* bacteria_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bacteria_01.mp3; sourceTree = "<group>"; };
 		2E469E722571E780005FC750 /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
+		2EA370FE257EB79C00BD88A8 /* Chalkduster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chalkduster.ttf; sourceTree = "<group>"; };
 		2EC1D584257193490091EE98 /* PaperModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperModel.swift; sourceTree = "<group>"; };
 		97EACFFD2571B17700FCCE91 /* heartbeat.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = heartbeat.mp3; sourceTree = "<group>"; };
 		97EAD0012571B17700FCCE91 /* fim-nivel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "fim-nivel.mp3"; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				05C718332565B67F00DF4EFA /* Abyss.otf */,
+				2EA370FE257EB79C00BD88A8 /* Chalkduster.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EA3710B257EC80600BD88A8 /* Chalkduster.ttf in Resources */,
 				05CF8595256706AC004C166A /* PlayScene.sks in Resources */,
 				97EAD00C2571B17700FCCE91 /* post-it.mp3 in Resources */,
 				05C718342565B67F00DF4EFA /* Abyss.otf in Resources */,

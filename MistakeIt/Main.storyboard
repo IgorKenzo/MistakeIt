@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -121,10 +121,10 @@
                             <rect key="frame" x="0.0" y="12" width="390" height="418"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ihv-2m-FQe">
-                            <rect key="frame" x="172" y="363" width="53" height="32"/>
+                            <rect key="frame" x="162" y="319" width="60" height="35"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="32" id="MHi-dC-84F"/>
-                                <constraint firstAttribute="width" constant="53" id="xVF-eC-osS"/>
+                                <constraint firstAttribute="height" constant="35" id="MHi-dC-84F"/>
+                                <constraint firstAttribute="width" constant="60" id="xVF-eC-osS"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="35"/>
                             <connections>
@@ -134,11 +134,11 @@
                     </subviews>
                     <viewLayoutGuide key="safeArea" id="yfJ-F7-saL"/>
                     <constraints>
-                        <constraint firstItem="yfJ-F7-saL" firstAttribute="trailing" secondItem="ihv-2m-FQe" secondAttribute="trailing" constant="165" id="8G4-oF-lUS"/>
-                        <constraint firstItem="yfJ-F7-saL" firstAttribute="bottom" secondItem="ihv-2m-FQe" secondAttribute="bottom" constant="45" id="B0g-t2-QP0"/>
+                        <constraint firstItem="yfJ-F7-saL" firstAttribute="trailing" secondItem="ihv-2m-FQe" secondAttribute="trailing" constant="168" id="8G4-oF-lUS"/>
+                        <constraint firstItem="yfJ-F7-saL" firstAttribute="bottom" secondItem="ihv-2m-FQe" secondAttribute="bottom" constant="86" id="B0g-t2-QP0"/>
                         <constraint firstItem="yfJ-F7-saL" firstAttribute="bottom" secondItem="Zyl-Vu-gTT" secondAttribute="bottom" constant="10" id="P3C-hL-xpu"/>
                         <constraint firstItem="Zyl-Vu-gTT" firstAttribute="top" secondItem="CH5-3y-l3K" secondAttribute="top" constant="12" id="Rq6-2c-j9o"/>
-                        <constraint firstItem="ihv-2m-FQe" firstAttribute="leading" secondItem="yfJ-F7-saL" secondAttribute="leading" constant="172" id="Uxm-wh-1xx"/>
+                        <constraint firstItem="ihv-2m-FQe" firstAttribute="leading" secondItem="yfJ-F7-saL" secondAttribute="leading" constant="162" id="Uxm-wh-1xx"/>
                         <constraint firstItem="Zyl-Vu-gTT" firstAttribute="leading" secondItem="yfJ-F7-saL" secondAttribute="leading" id="aJV-Yo-FNb"/>
                         <constraint firstItem="yfJ-F7-saL" firstAttribute="trailing" secondItem="Zyl-Vu-gTT" secondAttribute="trailing" id="qav-tl-WWo"/>
                     </constraints>
@@ -278,7 +278,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="back" width="4787" height="1875"/>
-        <image name="balao-tutorial" width="3808.5" height="4314"/>
+        <image name="balao-tutorial" width="1378.5" height="1697.5"/>
         <image name="bgLevels" width="828" height="1792"/>
         <image name="duvida" width="335" height="676"/>
         <image name="menu-bg" width="828" height="1792"/>

@@ -43,7 +43,7 @@ extension CommonProperties {
         hintButton.setScale(0.03)
         hintButton.zPosition = 3
         
-        let hintLabel = SKLabelNode(fontNamed: "Abyss")
+        let hintLabel = SKLabelNode(fontNamed: "Chalkduster")
         hintLabel.text = hints[self.levelName]
         hintLabel.zPosition = 2
         hintLabel.fontColor = .black
@@ -170,7 +170,7 @@ extension CommonProperties {
     
     //Add the label to the scene
     func addLevelLabel(){
-        levelLabel = SKLabelNode(fontNamed: "Abyss")
+        levelLabel = SKLabelNode(fontNamed: "Chalkduster")
         levelLabel.text =  leveltexts[levelName]
         levelLabel.fontSize = 40
         levelLabel.preferredMaxLayoutWidth = self.size.width - 200

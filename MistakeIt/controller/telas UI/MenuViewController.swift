@@ -77,7 +77,6 @@ class MenuViewController: UIViewController {
         updadeLevelPlayed()
         
         if !(UserDefaultManager.shared.getIsFirstTime(forKey: .alreadyPlayed)) {
-            print("entrei")
             UserDefaultManager.shared.storeUnlockedLevels(forKey: .unlockedLevel, levels: [true,false,false,false])
             Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) {_ in
                 self.helpBtn(self)

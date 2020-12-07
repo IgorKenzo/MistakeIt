@@ -83,7 +83,7 @@ class Credits: SKScene, CommonProperties, SceneManager {
         let labelNode : SKLabelNode = SKLabelNode(text: text)
         labelNode.horizontalAlignmentMode = .center
         labelNode.verticalAlignmentMode = .center
-        labelNode.fontName = "Abyss"
+        labelNode.fontName = "Chalkduster_400"
         labelNode.fontColor = .white
         labelNode.numberOfLines = 0
         labelNode.position = position

@@ -154,7 +154,7 @@ class PaperScene: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneMana
         
         //set the position and add the node with the explanation text
         finalText.position = CGPoint (x: 0, y: 180)
-        finalText.setScale(0.24)
+        finalText.setScale(0.5)
         finalText.zPosition = 2
         self.addChild(finalText)
         

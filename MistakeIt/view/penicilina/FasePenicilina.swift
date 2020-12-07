@@ -147,7 +147,7 @@ class FasePenicilina : SKScene, SKPhysicsContactDelegate, CommonProperties, Scen
                 playing = false
                 finalText.position = CGPoint(x: 0, y: 50)
                 finalText.zPosition = 1
-                //finalText.setScale(0.9)
+                finalText.setScale(0.5)
                 self.addChild(finalText)
             }
         }

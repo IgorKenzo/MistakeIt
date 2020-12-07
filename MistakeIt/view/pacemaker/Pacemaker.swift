@@ -244,7 +244,7 @@ class Pacemaker: SKScene, SKPhysicsContactDelegate, CommonProperties, SceneManag
         
         //set the position and add the node with the explanation text
         finalText.position = CGPoint (x: 0, y: 400)
-        finalText.setScale(0.25)
+        finalText.setScale(0.55)
         self.addChild(finalText)
         
         //call the method on CommonProperties to send the user to the credits screen
